@@ -12,5 +12,5 @@ import java.util.List;
 @Repository
 public interface StationDao{
     @Select("select * from station")
-    public List<Station> findStationById(int id);
+    public List<Station> findAllStation();
 }

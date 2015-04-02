@@ -5,6 +5,7 @@
 <head>
 </head>
 <body>
-    <li><a href="/toListStudent" target="mainFrame">ListStudent</a></li>
+    <li><a href="/toListStudent" target="mainFrame">表格注入案例</a></li>
+    <li><a href="/station/listStation" target="mainFrame">小站管理</a></li>
 </body>
 </html>

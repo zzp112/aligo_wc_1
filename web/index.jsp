@@ -23,6 +23,7 @@
     <div data-options="region:'center',title:'资金收入支出'">
         <iframe height="98%" id="mainFrame" name="mainFrame" width="99%"
                 scrolling="no" >
+
         </iframe>
     </div>
 

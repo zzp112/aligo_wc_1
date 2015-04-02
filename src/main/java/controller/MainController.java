@@ -9,7 +9,5 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class MainController {
     @RequestMapping(value = "/common/welcome")
-    public void toWelcome(){
-
-    }
+    public void toWelcome(){}
 }
