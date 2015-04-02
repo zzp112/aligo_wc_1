@@ -21,8 +21,7 @@
 
     <div data-options="region:'east',split:true,collapsed:true,title:'点击收缩'" style="width:100px;padding:10px;">east region</div>
     <div data-options="region:'center',title:'资金收入支出'">
-        <iframe height="98%" id="mainFrame" name="mainFrame" width="99%"
-                scrolling="no" >
+        <iframe height="98%" id="mainFrame" name="mainFrame" width="99%" scrolling="no" >
 
         </iframe>
     </div>
