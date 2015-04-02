@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="aligo_wc_1">
+    <output-path>$PROJECT_DIR$/out/artifacts/aligo_wc_1</output-path>
+    <root id="root">
+      <element id="archive" name="aligo_wc_1.jar">
+        <element id="module-output" name="aligo_wc_1" />
+      </element>
+    </root>
+  </artifact>
+</component>
