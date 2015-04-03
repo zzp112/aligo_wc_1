@@ -6,10 +6,11 @@ package entities;
 public class Station {
     private Integer id;
     private String address;
-    private Integer managerid;
-    private Float accountratio;
-    private Integer totalamount;
-    private String actualamount;
+    private Integer managerId;
+    private Float accountRatio;
+    private Integer totalAmount;
+    private String actualAmountString;
+    private Integer actualAmount;
 
     public Integer getId() {
         return id;
@@ -27,35 +28,43 @@ public class Station {
         this.address = address;
     }
 
-    public Integer getManagerid() {
-        return managerid;
+    public Integer getManagerId() {
+        return managerId;
     }
 
-    public void setManagerid(Integer managerid) {
-        this.managerid = managerid;
+    public void setManagerId(Integer managerId) {
+        this.managerId = managerId;
     }
 
-    public Float getAccountratio() {
-        return accountratio;
+    public Float getAccountRatio() {
+        return accountRatio;
     }
 
-    public void setAccountratio(Float accountratio) {
-        this.accountratio = accountratio;
+    public void setAccountRatio(Float accountRatio) {
+        this.accountRatio = accountRatio;
     }
 
-    public Integer getTotalamount() {
-        return totalamount;
+    public Integer getTotalAmount() {
+        return totalAmount;
     }
 
-    public void setTotalamount(Integer totalamount) {
-        this.totalamount = totalamount;
+    public void setTotalAmount(Integer totalAmount) {
+        this.totalAmount = totalAmount;
     }
 
-    public String getActualamount() {
-        return actualamount;
+    public String getActualAmountString() {
+        return actualAmountString;
     }
 
-    public void setActualamount(String actualamount) {
-        this.actualamount = actualamount;
+    public void setActualAmountString(String actualAmountString) {
+        this.actualAmountString = actualAmountString;
+    }
+
+    public Integer getActualAmount() {
+        return actualAmount;
+    }
+
+    public void setActualAmount(Integer actualAmount) {
+        this.actualAmount = actualAmount;
     }
 }
