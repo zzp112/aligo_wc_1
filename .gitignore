@@ -2,3 +2,7 @@
 !.gitignore
 !/web/
 !/src/
+/.idea/
+/out/
+/target/
+/classes/
