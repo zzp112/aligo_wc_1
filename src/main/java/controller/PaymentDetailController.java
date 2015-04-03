@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import services.IPaymentDetailService;
+import services.impl.PaymentDetailService;
 
 import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
@@ -20,7 +21,7 @@ import java.util.Date;
 @Controller
 public class PaymentDetailController {
     @Autowired
-    private IPaymentDetailService paymentDetailService;
+    private PaymentDetailService paymentDetailService;
 
     /**
      * 返回出所有小站收支数据
@@ -87,8 +88,17 @@ public class PaymentDetailController {
      * @return
      */
     @RequestMapping(value = "deleteCurrentRowPaymentDetail")
-    public String deletePaymentDetail(@RequestParam("row.detail_id") Integer detail_id ){
+    public String deletePaymentDetail(Integer detail_id ){
         paymentDetailService.DeletePaymentDetail(detail_id);
+        return "PaymentDetail/ListPaymentDetails";
+    }
+
+    /**
+     * 更新选中行小站支出明细
+     * @return
+     */
+    @RequestMapping(value = "updateCurrentRowPaymentDetail")
+    public String updateCurrentRowPaymentDetail(){
         return "PaymentDetail/ListPaymentDetails";
     }
 }
