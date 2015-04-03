@@ -8,7 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import services.PaymentDetailService;
+import services.IPaymentDetailService;
 
 import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
@@ -20,7 +20,7 @@ import java.util.Date;
 @Controller
 public class PaymentDetailController {
     @Autowired
-    PaymentDetailService paymentDetailService;
+    private IPaymentDetailService paymentDetailService;
 
     /**
      * 返回出所有小站收支数据

@@ -6,7 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import services.StudentService;
+import services.IStudentService;
+import services.impl.StudentService;
 
 import java.util.List;
 
@@ -16,7 +17,7 @@ import java.util.List;
 @Controller
 public class StudentController {
     @Autowired
-    private StudentService studentService;
+    private IStudentService studentService;
 
     //加载学生数据
     @ResponseBody

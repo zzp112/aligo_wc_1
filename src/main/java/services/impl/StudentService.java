@@ -1,10 +1,11 @@
-package services;
+package services.impl;
 
 import dao.StudentDao;
 import entities.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import services.IStudentService;
 
 import java.util.List;
 
@@ -13,7 +14,7 @@ import java.util.List;
  */
 @Service
 @Transactional
-public class StudentService {
+public class StudentService implements IStudentService{
     @Autowired
     private StudentDao studentDao;
     public List<Student> findAllStudents() {
