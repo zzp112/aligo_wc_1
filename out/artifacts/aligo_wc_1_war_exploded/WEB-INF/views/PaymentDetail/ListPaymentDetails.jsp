@@ -21,8 +21,9 @@
         function deleteCurrentRowPaymentDetail() {
             var row = $('#dg').datagrid('getSelected');
             if (row) {
-                if(confirm('您确定您要删除明细编号为：' + row.detail_id+"的小站吗？")){
-                    location.href="deleteCurrentRowPaymentDetail?row.detail_id";
+                var detail_id=row.detail_id;
+                if(confirm('您确定您要删除明细编号为：' + detail_id+"的小站吗？")){
+                    location.href="deleteCurrentRowPaymentDetail?detail_id="+detail_id;
                 }
             }
         }

@@ -17,7 +17,9 @@
         <jsp:include page="WEB-INF/views/common/left.jsp"></jsp:include>
     </div>
 
-    <div data-options="region:'south',border:false" style="height:50px;padding:10px;">footer</div>
+    <div data-options="region:'south',border:false" style="height:50px;padding:10px;">
+        <center><jsp:include page="WEB-INF/views/common/foot.jsp"></jsp:include></center>
+    </div>
 
     <div data-options="region:'east',split:true,collapsed:true,title:'点击收缩'" style="width:100px;padding:10px;">east region</div>
     <div data-options="region:'center',title:'资金收入支出'">
