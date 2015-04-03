@@ -14,4 +14,9 @@ public interface CourseDao {
     @Select("select * from course")
     public List<Course> findAllCourse();
 
+    @Select("select * from course where id = #{id}")
+    public Course findCourseById(String id);
+
+    @Select("select * from course where name like CONCAT('%',#{name},'%')  ")
+    public List<Course> findStudentByName(String name);
 }

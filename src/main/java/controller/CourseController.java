@@ -4,8 +4,11 @@ import com.alibaba.fastjson.JSON;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import services.ICourseService;
+
+import java.io.UnsupportedEncodingException;
 
 /**
  * Created by Administrator on 2015/4/3.
@@ -30,17 +33,35 @@ public class CourseController {
         return JSON.toJSONString(CourseService.findAllCourse());
     }
 
-//    /**
-//     * 通过id查找课程
-//     * @param id 课程id
-//     * @return 课程信息json
-//     */
-//    @ResponseBody
-//    @RequestMapping("/Course/findCourseById")
-//    public String findCourseById(@RequestParam(value="id") String id){
-////        测试路径：/Course/findCourseById?id=x
-//        return JSON.toJSONString(CourseService.findCourseById(id));
-//    }
+    /**
+     * 通过id查找课程
+     * @param id 课程id
+     * @return 课程信息json
+     */
+    @ResponseBody
+    @RequestMapping("/course/findCourseById")
+    public String findCourseById(@RequestParam(value="id") String id){
+//        测试路径：/course/findCourseById?id=x
+        return JSON.toJSONString(CourseService.findCourseById(id));
+    }
+
+    /**
+     * 通过name查找课程
+     * @param name 课程name
+     * @return 课程信息json
+     */
+    @ResponseBody
+    @RequestMapping("/course/findCourseByName")
+    public String findCourseByName(@RequestParam(value="name") String name){
+//        测试路径：/course/findCourseByName?name=x
+        String nameUTF = null;
+        try{
+            nameUTF = new String(name.getBytes("ISO-8859-1"), "UTF-8");
+        }catch (UnsupportedEncodingException exception){
+            System.out.println(exception.getMessage());
+        }
+        return JSON.toJSONString(CourseService.findCourseByName(nameUTF));
+    }
 //
 //    /**
 //     * 删除课程

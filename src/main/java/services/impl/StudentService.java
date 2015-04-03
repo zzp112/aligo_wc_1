@@ -23,17 +23,17 @@ public class StudentService implements IStudentService {
 
     @Override
     public Student findStudentById(String id) {
-        return null;
+        return studentDao.findStudentById(id);
     }
 
     @Override
     public List<Student> findStudentByGrade(String grade) {
-        return null;
+        return studentDao.findStudentByGrade(grade);
     }
 
     @Override
     public List<Student> findStudentByName(String name) {
-        return null;
+        return studentDao.findStudentByName(name);
     }
 
     @Override

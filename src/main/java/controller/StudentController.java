@@ -4,8 +4,12 @@ import com.alibaba.fastjson.JSON;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import services.IStudentService;
+import services.impl.StudentService;
+
+import java.io.UnsupportedEncodingException;
 
 /**
  * Created by Administrator on 2015/4/3.
@@ -28,17 +32,56 @@ public class StudentController {
     @RequestMapping("/student/loadAllStudent")
     public String loadAllStudent(){ return JSON.toJSONString(studentService.findAllStudent()); }
 
-//    /**
-//     * 通过id查找学生
-//     * @param id 学生id
-//     * @return 学生信息json
-//     */
-//    @ResponseBody
-//    @RequestMapping("/Student/findStudentById")
-//    public String findStudentById(@RequestParam(value="id") String id){
-////        测试路径：/Student/findStudentById?id=x
-//        return JSON.toJSONString(StudentService.findStudentById(id));
-//    }
+    /**
+     * 通过id查找学生
+     * @param id 学生id
+     * @return 学生信息json
+     */
+    @ResponseBody
+    @RequestMapping("/student/findStudentById")
+    public String findStudentById(@RequestParam(value="id") String id){
+//        测试路径：/student/findStudentById?id=x
+        return JSON.toJSONString(studentService.findStudentById(id));
+    }
+
+    /**
+     * 通过年级查找学生
+     * @param grade 学生年级
+     * @return 学生信息json
+     */
+    @ResponseBody
+    @RequestMapping("/student/findStudentByGrade")
+    public String findStudentByGrade(@RequestParam(value="grade") String grade){
+//        测试路径：/student/findStudentByGrade?grade=一年级
+        String gradeUTF = null;
+        try{
+            gradeUTF = new String(grade.getBytes("ISO-8859-1"), "UTF-8");
+        }catch (UnsupportedEncodingException exception){
+            System.out.println(exception.getMessage());
+        }
+
+        return JSON.toJSONString(studentService.findStudentByGrade(gradeUTF));
+    }
+
+    /**
+     * 通过姓名查找学生
+     * @param name 学生年级
+     * @return 学生信息json
+     */
+    @ResponseBody
+    @RequestMapping("/student/findStudentByName")
+    public String findStudentByName(@RequestParam(value="name") String name){
+//        测试路径：/student/findStudentByName?name=蛋
+        String nameUTF = null;
+        try{
+            nameUTF = new String(name.getBytes("ISO-8859-1"), "UTF-8");
+        }catch (UnsupportedEncodingException exception){
+            System.out.println(exception.getMessage());
+        }
+
+        return JSON.toJSONString(studentService.findStudentByName(nameUTF));
+    }
+
 //
 //    /**
 //     * 删除学生

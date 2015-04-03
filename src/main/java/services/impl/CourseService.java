@@ -22,13 +22,11 @@ public class CourseService implements ICourseService {
     public List<Course> findAllCourse() {  return coursenDao.findAllCourse(); }
 
     @Override
-    public Course findCourseById(String id) {
-        return null;
-    }
+    public Course findCourseById(String id) { return coursenDao.findCourseById(id); }
 
     @Override
     public List<Course> findCourseByName(String name) {
-        return null;
+        return coursenDao.findStudentByName(name);
     }
 
     @Override

@@ -13,4 +13,13 @@ import java.util.List;
 public interface StudentDao {
     @Select("select * from student")
     public List<Student> findAllStudent();
+
+    @Select("select * from student where id = #{id}")
+    public Student findStudentById(String id);
+
+    @Select("select * from student where grade = #{grade}")
+    public List<Student> findStudentByGrade(String grade);
+
+    @Select("select * from student where name like CONCAT('%',#{name},'%')  ")
+    public List<Student> findStudentByName(String name);
 }

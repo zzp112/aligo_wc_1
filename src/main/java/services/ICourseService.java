@@ -22,7 +22,7 @@ public interface ICourseService {
     public Course findCourseById(String id) ;
 
     /**
-     * 通过id查找课程
+     * 通过name查找课程
      * @param name 课程name
      * @return 课程
      */
