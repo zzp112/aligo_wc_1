@@ -16,7 +16,7 @@ import java.io.UnsupportedEncodingException;
 @Controller
 public class CourseController {
     @Autowired
-    private ICourseService CourseService;
+    private ICourseService courseService;
     /**
      * 课程列表页面
      */
@@ -30,7 +30,7 @@ public class CourseController {
     @ResponseBody
     @RequestMapping("/course/loadAllCourse")
     public String loadAllCourse(){
-        return JSON.toJSONString(CourseService.findAllCourse());
+        return JSON.toJSONString(courseService.findAllCourse());
     }
 
     /**
@@ -42,7 +42,7 @@ public class CourseController {
     @RequestMapping("/course/findCourseById")
     public String findCourseById(@RequestParam(value="id") String id){
 //        测试路径：/course/findCourseById?id=x
-        return JSON.toJSONString(CourseService.findCourseById(id));
+        return JSON.toJSONString(courseService.findCourseById(id));
     }
 
     /**
@@ -60,20 +60,20 @@ public class CourseController {
         }catch (UnsupportedEncodingException exception){
             System.out.println(exception.getMessage());
         }
-        return JSON.toJSONString(CourseService.findCourseByName(nameUTF));
+        return JSON.toJSONString(courseService.findCourseByName(nameUTF));
     }
-//
-//    /**
-//     * 删除课程
-//     * @param id 课程id
-//     * @return 课程
-//     */
-//    @ResponseBody
-//    @RequestMapping("/Course/delCourseById")
-//    public String delCourseById(@RequestParam(value="id") String id){
-////        测试路径：/Course/delCourseById?id=x
-//        return JSON.toJSONString(CourseService.delCourseById(id));
-//    }
+
+    /**
+     * 删除课程
+     * @param id 课程id
+     * @return 课程
+     */
+    @ResponseBody
+    @RequestMapping("/course/delCourseById")
+    public String delCourseById(@RequestParam(value="id") String id){
+//        测试路径：/course/delCourseById?id=x
+        return JSON.toJSONString(courseService.delCourseById(id));
+    }
 //
 //    /**
 //     * 更新课程收入

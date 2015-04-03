@@ -31,7 +31,12 @@ public class CourseService implements ICourseService {
 
     @Override
     public boolean delCourseById(String id) {
-        return false;
+        if(id == null)
+            return false;
+        if(coursenDao.findCourseById(id) == null)
+            return false;
+        coursenDao.delCourseById(id);
+        return true;
     }
 
     @Override

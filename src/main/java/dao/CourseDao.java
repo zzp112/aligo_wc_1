@@ -1,6 +1,7 @@
 package dao;
 
 import entities.Course;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
@@ -19,4 +20,7 @@ public interface CourseDao {
 
     @Select("select * from course where name like CONCAT('%',#{name},'%')  ")
     public List<Course> findStudentByName(String name);
+
+    @Delete("delete from course where id = #{id}")
+    public void delCourseById(String id);
 }

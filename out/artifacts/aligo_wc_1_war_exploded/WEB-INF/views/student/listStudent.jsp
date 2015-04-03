@@ -5,28 +5,19 @@
 <html>
 <head>
     <title>
-        学生信息录入...
+        学生管理
     </title>
 
     <script type="text/javascript">
-        //绑定指定的table加载数据并实现分页的功能
         $(function () {
-            loadDataFromJson('dg','findAllStudent');
+            loadDataFromJson('dg','/student/loadAllStudent');
         });
-
-        //获取选中的行的数据
-        function getStudent() {
-            var row = $('#dg').datagrid('getSelected');
-            if (row) {
-                alert('姓名:' + row.student_name);
-            }
-        }
     </script>
 </head>
 <body>
 <div id="dt" style="padding:2px 5px;">
     <a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true"></a>
-    <a class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="getStudent()">查看选中的数据</a>
+    <a class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick=""></a>
     <a href="#" class="easyui-linkbutton" iconCls="icon-save" plain="true"></a>
     <a href="#" class="easyui-linkbutton" iconCls="icon-cut" plain="true"></a>
     <a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true"></a>
@@ -39,11 +30,11 @@
 				pageSize:10">
     <thead>
     <tr>
-        <th field="student_name" width="80">姓名</th>
-        <th field="student_sex" width="100">性别</th>
-        <th field="course_name" width="80">课程</th>
-        <th field="teacher_name" width="180" align="right">教师</th>
-        <th field="telephone" width="80" align="right">电话</th>
+        <th field="id" width="100" align="center">学生编号</th>
+        <th field="name" width="100" align="center">姓名</th>
+        <th field="sex" width="100" align="center">性别</th>
+        <th field="grade" width="100" align="center">年级</th>
+        <th field="parentsTel" width="200" align="center">电话</th>
     </tr>
     </thead>
 </table>
