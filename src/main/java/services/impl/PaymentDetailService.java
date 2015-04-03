@@ -21,14 +21,13 @@ public class PaymentDetailService implements IPaymentDetailService{
         return paymentDetailMapper.loadAllPaymentDetails();
     }
 
-    public Boolean CreatePaymentDetail(PaymentDetail paymentDetail){
+    public void CreatePaymentDetail(PaymentDetail paymentDetail){
         try{
             paymentDetailMapper.CreatePaymentDetail(paymentDetail);
         }
         catch (Exception ex){
             throw new DataException(ex.getMessage());
         }
-        return true;
     }
 
     public void DeletePaymentDetail(Integer detail_id){

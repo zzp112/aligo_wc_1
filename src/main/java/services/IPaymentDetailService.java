@@ -19,7 +19,7 @@ public interface IPaymentDetailService {
      * @param paymentDetail
      * @return
      */
-    public Boolean CreatePaymentDetail(PaymentDetail paymentDetail);
+    public void CreatePaymentDetail(PaymentDetail paymentDetail);
     /**
      * 删除一条数据
      * @param detail_id

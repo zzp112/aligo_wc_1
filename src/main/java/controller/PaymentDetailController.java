@@ -1,5 +1,6 @@
 package controller;
 
+import AuthorityException.DataException;
 import com.alibaba.fastjson.JSON;
 import entities.PaymentDetail;
 import org.apache.ibatis.annotations.Param;
@@ -10,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import services.IPaymentDetailService;
 import services.impl.PaymentDetailService;
-
 import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -75,12 +75,14 @@ public class PaymentDetailController {
             System.out.println(exception.getMessage());
         }
 
-        if (paymentDetailService.CreatePaymentDetail(paymentDetail)) {
+        try{
+            paymentDetailService.CreatePaymentDetail(paymentDetail);
             System.out.println("创建一条新的小站支出记录成功..." + paymentDetail);
-        } else {
-            System.out.println("创建失败...");
+        } catch (DataException Exception){
+            System.out.println("创建失败..."+Exception.getMessage());
         }
-        return "PaymentDetail/ListPaymentDetails";
+        //重定向到列表界面
+        return "redirect:/toListPaymentDetails";
     }
 
     /**
@@ -90,7 +92,7 @@ public class PaymentDetailController {
     @RequestMapping(value = "deleteCurrentRowPaymentDetail")
     public String deletePaymentDetail(Integer detail_id ){
         paymentDetailService.DeletePaymentDetail(detail_id);
-        return "PaymentDetail/ListPaymentDetails";
+        return "redirect:/toListPaymentDetails";
     }
 
     /**

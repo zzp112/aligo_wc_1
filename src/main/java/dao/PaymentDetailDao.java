@@ -32,7 +32,7 @@ public interface PaymentDetailDao {
     public List<PaymentDetail> loadAllPaymentDetails();
 
     @Insert(CreatePayment)
-    public Boolean CreatePaymentDetail(PaymentDetail paymentDetail);
+    public void CreatePaymentDetail(PaymentDetail paymentDetail);
 
     @Delete(DeletePayment)
     public void DeletePaymentDetail(Integer payment_id);
