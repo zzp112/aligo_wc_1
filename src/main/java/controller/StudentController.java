@@ -12,7 +12,7 @@ import services.impl.StudentService;
 import java.io.UnsupportedEncodingException;
 
 /**
- * Created by Administrator on 2015/4/3.
+ * Created by HJ on 2015/4/3.
  */
 @Controller
 public class StudentController {

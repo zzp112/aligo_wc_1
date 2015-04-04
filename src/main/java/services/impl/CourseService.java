@@ -22,7 +22,7 @@ public class CourseService implements ICourseService {
     public List<Course> findAllCourse() {  return coursenDao.findAllCourse(); }
 
     @Override
-    public Course findCourseById(String id) { return coursenDao.findCourseById(id); }
+    public Course findCourseById(Integer id) { return coursenDao.findCourseById(id); }
 
     @Override
     public List<Course> findCourseByName(String name) {
@@ -30,7 +30,7 @@ public class CourseService implements ICourseService {
     }
 
     @Override
-    public boolean delCourseById(String id) {
+    public boolean delCourseById(Integer id) {
         if(id == null)
             return false;
         if(coursenDao.findCourseById(id) == null)
@@ -40,12 +40,38 @@ public class CourseService implements ICourseService {
     }
 
     @Override
-    public boolean updateCourseById(String id, String name, String cost) {
-        return false;
+    public boolean updateCourseById(Integer id, String name, Integer cost) {
+        if(id == null)
+            return false;
+        if(name.equals(""))
+            return false;
+        if(cost == null) {
+            System.out.println("cost == null");
+            return false;
+        }
+
+        Course result = coursenDao.findCourseById(id);
+        if(result == null)
+            return false;
+        result.setName(name);
+        result.setCost(cost);
+        coursenDao.updateCourseById(result);
+
+        return true;
     }
 
     @Override
-    public boolean addCourse(String name, String cost) {
-        return false;
+    public boolean addCourse(String name, Integer cost) {
+        if(name.equals(""))
+            return false;
+        if(cost == null)
+            return false;
+        Course course = new Course();
+        course.setName(name);
+        course.setCost(cost);
+
+        coursenDao.addCourse(course);
+
+        return true;
     }
 }
