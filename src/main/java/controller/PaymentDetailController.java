@@ -90,7 +90,7 @@ public class PaymentDetailController {
      * @return
      */
     @RequestMapping(value = "deleteCurrentRowPaymentDetail")
-    public String deletePaymentDetail(Integer detail_id ){
+    public String deletePaymentDetail(@RequestParam("detail_id")Integer detail_id ){
         paymentDetailService.DeletePaymentDetail(detail_id);
         return "redirect:/toListPaymentDetails";
     }
