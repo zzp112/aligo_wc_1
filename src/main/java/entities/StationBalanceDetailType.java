@@ -1,9 +1,12 @@
 package entities;
 
+import org.springframework.stereotype.Repository;
+
 /**
  * Created by 张超红 on 2015-04-03.
  * 小站收支明细类型类
  */
+@Repository
 public class StationBalanceDetailType {
     //小站收支明细类型的id
     private Integer paymentTypeId;
