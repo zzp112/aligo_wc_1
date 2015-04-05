@@ -20,7 +20,7 @@ import services.impl.StationBalanceTypeService;
 public class StationBalanceTypeController {
     @Autowired
     StationBalanceTypeService stationBalanceTypeService;
-    @Autowired
+
     StationBalanceDetailType stationBalanceDetailType;
 
 
