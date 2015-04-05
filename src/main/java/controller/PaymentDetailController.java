@@ -6,6 +6,7 @@ import entities.PaymentDetail;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -21,8 +22,12 @@ import java.util.Date;
 @Controller
 public class PaymentDetailController {
     @Autowired
-    private PaymentDetailService paymentDetailService;
+    private IPaymentDetailService paymentDetailService;
 
+    /**
+     * 创建小站收支明细对象
+     */
+    PaymentDetail paymentDetail;
     /**
      * 返回出所有小站收支数据
      *
@@ -96,11 +101,19 @@ public class PaymentDetailController {
     }
 
     /**
-     * 更新选中行小站支出明细
+     * 跳转到更新页面
      * @return
      */
     @RequestMapping(value = "updateCurrentRowPaymentDetail")
-    public String updateCurrentRowPaymentDetail(){
+    public String updateCurrentRowPaymentDetail(@RequestParam("detail_id") Integer detail_id,Model model){
+        paymentDetail=paymentDetailService.findPaymentDetailById(detail_id);
+//        model.addAttribute("",paymentDetail.getDetail_id());
+        model.addAttribute("station_id",paymentDetail.getStation_id());
+        model.addAttribute("balance",paymentDetail.getBalance());
+        model.addAttribute("balance_type",paymentDetail.getBalance_type());
+        model.addAttribute("balance_amount",paymentDetail.getBalance_amount());
+        model.addAttribute("create_date",paymentDetail.getCreate_date());
+        model.addAttribute("advice",paymentDetail.getBalance_comment());
         return "PaymentDetail/ListPaymentDetails";
     }
 }

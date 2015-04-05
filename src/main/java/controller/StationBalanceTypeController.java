@@ -21,6 +21,7 @@ public class StationBalanceTypeController {
     @Autowired
     StationBalanceTypeService stationBalanceTypeService;
 
+    @Autowired
     StationBalanceDetailType stationBalanceDetailType;
 
 

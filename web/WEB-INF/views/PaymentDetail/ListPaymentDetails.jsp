@@ -22,8 +22,18 @@
             var row = $('#dg').datagrid('getSelected');
             if (row) {
                 var detail_id=row.detail_id;
-                if(confirm('您确定您要删除明细编号为：' + detail_id+"的小站吗？")){
+                if(confirm('您确定要删除明细编号为：' + detail_id+"的小站吗？")){
                     location.href="deleteCurrentRowPaymentDetail?detail_id="+detail_id;
+                }
+            }
+        }
+        //获取选中行并实现更新
+        function updateCurrentRowPaymentDetail(){
+            var row = $('#dg').datagrid('getSelected');
+            if (row) {
+                var detail_id=row.detail_id;
+                if(confirm('您确定要修改明细编号为：' + detail_id+"的小站吗？")){
+                    location.href="updateCurrentRowPaymentDetail?detail_id="+detail_id;
                 }
             }
         }
@@ -122,7 +132,7 @@
         <div id="dt" style="padding:2px 5px;">
             <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true"onclick="$('#w').window('open')">添加一条收支明细数据</a>
             <a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true"onclick="deleteCurrentRowPaymentDetail();">删除选中的收支明细数据</a>
-            <a class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="getStudent()">修改选中的收支明细数据</a>
+            <a class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="updateCurrentRowPaymentDetail()">修改选中的收支明细数据</a>
         </div>
     </div>
 
