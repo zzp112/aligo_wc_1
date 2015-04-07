@@ -28,8 +28,27 @@
             }
         }
         //调用搜索按钮
-        function doSearch(value) {
-            alert('You input: ' + value);
+        function doSearch() {
+            var h1=$('#balance_state').combobox('getValue');
+            var h2=$("#start_time").datebox('getValue');
+            var h3=$("#end_time").datebox('getValue');
+            $.ajax({
+                type: "POST",
+                url: "/searchByAll?json",
+                dataType:"json",
+                contentType:"application/json",
+                data : JSON.stringify({balance:h1,begin_time:h2,end_time:h3}),
+                success: function (data) {
+
+                    if(data.length>0) {
+                        alert(data);
+                        loadDataFromJson('dg','searchByAll');
+                    }
+                },
+                error: function () {
+                    alert("请求出错");
+                }
+            });
         }
 
         //添加收支明细

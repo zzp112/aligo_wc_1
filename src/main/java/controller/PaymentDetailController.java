@@ -15,12 +15,31 @@ import services.impl.PaymentDetailService;
 import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import com.alibaba.fastjson.JSON;
+import entities.PaymentDetail;
+import org.apache.ibatis.annotations.Param;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
+import services.IPaymentDetailService;
+
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by 张超红 on 2015-04-01.
  */
 @Controller
 public class PaymentDetailController {
+
+    private static final String JSON_STR = "jsonpCallback";
     @Autowired
     private IPaymentDetailService paymentDetailService;
 
@@ -115,5 +134,71 @@ public class PaymentDetailController {
         model.addAttribute("create_date",paymentDetail.getCreate_date());
         model.addAttribute("advice",paymentDetail.getBalance_comment());
         return "PaymentDetail/ListPaymentDetails";
+    }
+
+    /**
+     * 按类别查询收支明细记录
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/searchPaymentDetail")
+    public String searchPaymentDetail(String balance,HttpServletResponse response){
+
+        response.setContentType("text/html;charset=utf-8");
+        PrintWriter out = null;
+        try {
+            out  = response.getWriter();
+            out.write(JSON_STR+"("+JSON.toJSONString(paymentDetailService.search(balance)) + ")");
+            out.flush();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }finally {
+
+            out.close();
+        }
+        return null;
+    }
+
+    /**
+     * 按日期查询收支明细记录
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/searchPaymentDetailByTime")
+    public String searchPaymentDetailByTime(@RequestParam("start_time") String begin_time,@RequestParam("end_time") String end_time ,HttpServletResponse response){
+
+        response.setContentType("text/html;charset=utf-8");
+        PrintWriter out = null;
+        try {
+            out  = response.getWriter();
+            out.write(JSON_STR+"("+JSON.toJSONString(paymentDetailService.searchByTime(begin_time, end_time)) + ")");
+            out.flush();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }finally {
+            out.close();
+        }
+        return null;
+    }
+
+    /**
+     * 按收支类别日期查询收支明细记录
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/searchByAll",method = RequestMethod.POST, params = "json")
+    public String searchByAll(@RequestBody Map<String, Object> info){
+        System.out.println("success");
+        List<PaymentDetail> list = new ArrayList<PaymentDetail>();
+        String s1="", s2="", s3="";
+        System.out.println(info.toString());
+
+        s1=(String)info.get("balance");
+        s2=(String)info.get("begin_time");
+        s3=(String)info.get("end_time");
+        // list = paymentDetailService.searchByAll(s1,s2,s3);
+        return JSON.toJSONString(paymentDetailService.searchByAll(s1, s2, s3));
     }
 }

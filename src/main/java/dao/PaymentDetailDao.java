@@ -47,6 +47,22 @@ public interface PaymentDetailDao {
             "as create_date,Balance as balance,BalanceAmount as balance_amount,Type as balance_type," +
             "Comment as balance_comment from paymentDetails where DetailId=#{detail_id}";
 
+    /**
+     * 按收入支出日期条件查询出收支明细
+     */
+
+    static String searchByTime = "select DetailId as detail_id,StationId as station_id,CreateDate as create_id,Balance as balance,BalanceAmount as balance_amount,Type as balance_type,Comment as balance_comment from paymentDetails where  CreateDate BETWEEN #{0} AND #{1}";
+
+    /**
+     * 按收入支出以及日期条件查询出收支明细
+     */
+    static String searchByAll = "select DetailId as detail_id,StationId as station_id,CreateDate as create_id,Balance as balance,BalanceAmount as balance_amount,Type as balance_type,Comment as balance_comment from paymentDetails  where Balance=#{0} AND CreateDate BETWEEN #{1} AND #{2} ";
+
+    /**
+     * 按收入支出条件查询出收支明细
+     */
+    static String search = "select DetailId as detail_id,StationId as station_id,CreateDate as create_id,Balance as balance,BalanceAmount as balance_amount,Type as balance_type,Comment as balance_comment from paymentDetails  where Balance=#{balance} ";
+
     @Select(loadAll)
     public List<PaymentDetail> loadAllPaymentDetails();
 
@@ -61,4 +77,14 @@ public interface PaymentDetailDao {
 
     @Select(findPaymentDetailById)
     public PaymentDetail findPaymentDetailById(Integer detail_id);
+
+    @Select(searchByTime)
+    public List<PaymentDetail> searchByTime(String begin_time, String end_time);
+
+
+    @Select(searchByAll)
+    public List<PaymentDetail> searchByAll(String balance, String begin_time, String end_time);
+
+    @Select(search)
+    public List<PaymentDetail> search(String balance);
 }
