@@ -47,7 +47,7 @@
 			<ul>
                 <!-- 一级菜单 -->
 				<li>
-                    <a href="<c:url value="/WEB-INF/views/demo/attention.jsp"/>" target="frame">
+                    <a href="<c:url value="/toAttention"/>" target="frame">
                         <div class="div2" >注意，请注意</div>
                     </a>
 				</li><!-- 一级菜单结束 -->
@@ -78,14 +78,9 @@
 			</ul>
 		</div>
 
-
         <!-- 内嵌网页 -->
-        <iframe src="<c:url value="/WEB-INF/views/demo/attention.jsp"/>" frameborder="0" scrolling="no" name="frame"
-<<<<<<< HEAD
+        <iframe src="<c:url value="/toAttention"/>" frameborder="0" scrolling="yes" name="frame"
                 id="ifm" name="ifm" onload="javascript:dyniframesize('ifm');IFrameReSizeWidth('ifm');" style="border: 1px solid;width:1050px;height: 540px" >
-=======
-                id="ifm" name="ifm" onload="javascript:dyniframesize('ifm');IFrameReSizeWidth('ifm');" style="border: 1px solid;width:1050px;height: 540px;" >
->>>>>>> 77d2b4e8ce85a5ae4221e846b4a6029e18dee3e8
         </iframe>
 	</div>
 </body>

@@ -134,10 +134,10 @@
             </div>
         </form>
         <c:if test="${successImfor!=null}">
-            <center><span id="error">为什么没东西啊${successImfor}</span></center>
+            <center><span id="success">${successImfor}</span></center>
         </c:if>
         <c:if test="${failImfor!=null}">
-            <center><span id="success">${failImfor}</span></center>
+            <center><span id="error">${failImfor}</span></center>
         </c:if>
     </div>
 </div>

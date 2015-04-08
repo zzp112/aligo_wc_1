@@ -10,6 +10,20 @@
 
     <script>
 
+        //修改是否成功返回给用户直观的界面
+        $(function(){
+            if(${IsRight==null}){
+
+            }
+            else{
+                if(${IsRight=="yes"}){
+                    alert("修改成功!");
+                }
+                else{
+                    alert("修改失败!");
+                }
+            }
+        });
 
         //内嵌HTML代码的对话框，使用场景：点击修改按钮，弹出该对话框修改一条记录
         //添加收支明细
@@ -215,6 +229,7 @@
             </table>
             <div class="page"></div>
         </div>
+    </div>
     </div>
 </body>
 </html>

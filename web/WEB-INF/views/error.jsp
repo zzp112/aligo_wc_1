@@ -6,6 +6,6 @@
     <title></title>
 </head>
 <body>
-<img src="<c:url value="/resources1/img/error.jpg"/>" alt="" style="margin-left: 100px;"/>
+<img src="<c:url value="/resources/img/error.jpg"/>" alt="" style="margin-left: 100px;"/>
 </body>
 </html>

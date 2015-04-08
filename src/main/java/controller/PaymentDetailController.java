@@ -122,10 +122,11 @@ public class PaymentDetailController {
      * @return
      */
     @RequestMapping(value = "/CreatePaymentDetail")
-    public String CreatePaymentDetail(HttpServletRequest request
+    public String CreatePaymentDetail(HttpServletRequest request,
 //            @Param("station_id") String station_id, @Param("create_date") Date create_date, @Param("advice") String advice,
 //            @Param("balance_type") String balance_type, @Param("balance") String balance,
 //            @Param("balance_amount") Integer balance_amount
+                                      ModelMap modelMap
     ) {
 
         PaymentDetail paymentDetail = new PaymentDetail();
@@ -154,11 +155,13 @@ public class PaymentDetailController {
         try {
             paymentDetailService.CreatePaymentDetail(paymentDetail);
             System.out.println("创建一条新的小站支出记录成功..." + paymentDetail);
+            modelMap.put("IsRight","yes");
         } catch (DataException Exception) {
             System.out.println("创建失败..." + Exception.getMessage());
+            modelMap.put("IsRight","no");
         }
         //重定向到列表界面
-        return "redirect:/toListPaymentDetails";
+        return "PaymentDetail/ListPaymentDetails";
     }
 
     /**
@@ -213,7 +216,7 @@ public class PaymentDetailController {
         }
         System.out.println(updateImfor);
         //刷新到修改页面
-        return "PaymentDetail/ListPaymentDetails";
+        return "PaymentDetail/UpdatePaymentDetails";
     }
 
     /**

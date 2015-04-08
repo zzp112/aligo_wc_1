@@ -4,14 +4,14 @@
 <html>
 <head>
     <title>index</title>
-    <script>
-        function submitForm() {
-            $('#ff').form('submit');
-        }
-        function clearForm() {
-            $('#ff').form('clear');
-        }
-    </script>
+    <%--<script>--%>
+        <%--function submitForm() {--%>
+            <%--$('#ff').form('submit');--%>
+        <%--}--%>
+        <%--function clearForm() {--%>
+            <%--$('#ff').form('clear');--%>
+        <%--}--%>
+    <%--</script>--%>
 </head>
 <body>
 <div class="easyui-panel" style="width:400px">

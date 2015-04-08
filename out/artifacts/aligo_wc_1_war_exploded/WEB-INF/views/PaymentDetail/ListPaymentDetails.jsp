@@ -10,6 +10,20 @@
 
     <script>
 
+        //修改是否成功返回给用户直观的界面
+        $(function(){
+            if(${IsRight==null}){
+
+            }
+            else{
+                if(${IsRight=="yes"}){
+                    alert("修改成功!");
+                }
+                else{
+                    alert("修改失败!");
+                }
+            }
+        });
 
         //内嵌HTML代码的对话框，使用场景：点击修改按钮，弹出该对话框修改一条记录
         //添加收支明细
@@ -124,7 +138,6 @@
 
 
         //获取小站收支明细类别
-        function getStationBalanceDetailType(){
             $.ajax({
                 type: "post",
                 url: "/toListBalanceType",
@@ -134,19 +147,15 @@
                 },
                 success: function (data) {
                     var obj = eval("(" + data + ")");
-                    alert(obj);
                     var temp = obj[0];
-                    var dataStr = "";
+                    var dataStr="";
                     for (var i = 0; i < obj.length; i++) {
-                        var p = obj[i];
-                        var select = $('.type');
-                        select += "<option value='" +i
-                        "'>" + p.balance_type+"</option>";
+                        dataStr += "<option value='" +(i+1)
+                        +"'>" + obj[i].paymentTypeName+"</option>";
                     }
-                    select.append(dataStr);
+                    $("#DetailBalanceType").append(dataStr);
                 }
             });
-        }
     </script>
 
     <style>
@@ -183,11 +192,10 @@
             </select>
 
             <span>类别:</span>
-            <select class="type" name="balance_type" style="width:150px;"onclick="getStationBalanceDetailType()">
+            <%--<div class="DetailBalanceType" name="balance_type"style="width:150px;"></div>--%>
+            <select id="DetailBalanceType" name="balance_type" style="width:150px;">
                 <option value="0">===请选择===</option>
-                <option value="income">小站拆账</option>
             </select>
-
             <span>开始:</span>
             <input id="start_time" name="start_time">
 
@@ -221,6 +229,7 @@
             </table>
             <div class="page"></div>
         </div>
+    </div>
     </div>
 </body>
 </html>
