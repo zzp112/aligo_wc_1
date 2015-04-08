@@ -19,4 +19,9 @@ public class MainController {
     public String toAttention(){
         return "demo/attention";
     }
+
+    @RequestMapping(value = "/error")
+    public String toError(){
+        return "error";
+    }
 }
