@@ -150,7 +150,7 @@
                     var temp = obj[0];
                     var dataStr="";
                     for (var i = 0; i < obj.length; i++) {
-                        dataStr += "<option value='" +(i+1)
+                        dataStr += "<option value='" +obj[i].paymentTypeName
                         +"'>" + obj[i].paymentTypeName+"</option>";
                     }
                     $("#DetailBalanceType").append(dataStr);

@@ -19,7 +19,7 @@ public interface ICourseService {
      * @param id 课程id
      * @return 课程
      */
-    public Course findCourseById(Integer id) ;
+    public Course findCourseById(String id) ;
 
     /**
      * 通过name查找课程
@@ -33,7 +33,7 @@ public interface ICourseService {
      * @param id 课程id
      * @return 课程
      */
-    public boolean delCourseById(Integer id) ;
+    public boolean delCourseById(String id) ;
 
     /**
      * 更新课程信息
@@ -42,7 +42,7 @@ public interface ICourseService {
      * @param cost
      * @return 是否成功
      */
-    public boolean updateCourseById(Integer id, String name, Integer cost);
+    public boolean updateCourseById(String id, String name, Integer cost);
 
     /**
      * 添加课程

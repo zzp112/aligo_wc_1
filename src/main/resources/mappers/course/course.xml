@@ -9,7 +9,24 @@
         SELECT * FROM course
     </select>
 
-    <select id="">
-      LIKE #{id}#
+    <select id="findCourseById" parameterType="int" resultType="Course">
+        SELECT * FROM course WHERE id = #{id}
     </select>
+
+    <select id="findCourseByName" parameterType="String" resultType="Course">
+        SELECT * FROM course WHERE name LIKE "%"#{name}"%"
+    </select>
+
+    <delete id="delCourseById" parameterType="int">
+        DELETE FROM course WHERE id = #{id}
+    </delete>
+
+    <update id="updateCourseById" parameterType="Course">
+       UPDATE course SET name = #{name},cost = #{cost} WHERE id = #{id}
+    </update>
+
+    <insert id="addCourse" parameterType="Course">
+        INSERT INTO course(name,cost) value(#{name},#{cost})
+    </insert>
+
 </mapper>

@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" build-on-make="true" name="aligo_wc_1:war exploded">
+  <artifact type="exploded-war" name="aligo_wc_1:war exploded">
     <output-path>$PROJECT_DIR$/out/artifacts/aligo_wc_1_war_exploded</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
@@ -12,13 +12,13 @@
           <element id="library" level="project" name="Maven: ch.qos.logback:logback-classic:1.0.1" />
           <element id="library" level="project" name="Maven: ch.qos.logback:logback-core:1.0.1" />
           <element id="library" level="project" name="Maven: org.springframework:spring-core:3.1.1.RELEASE" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-asm:3.1.1.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-beans:3.1.1.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-context:3.1.1.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-aop:3.1.1.RELEASE" />
           <element id="library" level="project" name="Maven: aopalliance:aopalliance:1.0" />
           <element id="library" level="project" name="Maven: org.springframework:spring-expression:3.1.1.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-tx:3.1.1.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-asm:3.1.1.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-aspects:3.1.1.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-context-support:3.1.1.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:3.1.1.RELEASE" />
@@ -39,9 +39,6 @@
           <element id="library" level="project" name="Maven: javax.servlet:jstl:1.2" />
           <element id="library" level="project" name="Maven: org.jasig.cas.client:cas-client-core:3.1.12" />
           <element id="library" level="project" name="Maven: commons-logging:commons-logging:1.1" />
-          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.1.0" />
-          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.1.0" />
-          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.1.0" />
           <element id="library" level="project" name="Maven: com.alibaba:fastjson:1.2.3" />
         </element>
       </element>

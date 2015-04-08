@@ -21,10 +21,28 @@ public class PaymentDetailService implements IPaymentDetailService {
     @Autowired
     private PaymentDetailDao paymentDetailMapper;
 
+    //添加
+    public void CreatePaymentDetail(PaymentDetail paymentDetail) {
+        try {
+            paymentDetailMapper.CreatePaymentDetail(paymentDetail);
+        } catch (Exception ex) {
+            throw new DataException(ex.getMessage());
+        }
+    }
+
+    //删除
+    public void DeletePaymentDetail(Integer detail_id) {
+        paymentDetailMapper.DeletePaymentDetail(detail_id);
+    }
+
+
+    //查询所有
     public List<PaymentDetail> findAllPaymentDetails() {
         return paymentDetailMapper.loadAllPaymentDetails();
     }
 
+
+    //更新
     @Override
     public boolean UpdatePaymentDetail(PaymentDetail paymentDetail) {
         try {
@@ -36,17 +54,6 @@ public class PaymentDetailService implements IPaymentDetailService {
         }
     }
 
-    public void CreatePaymentDetail(PaymentDetail paymentDetail) {
-        try {
-            paymentDetailMapper.CreatePaymentDetail(paymentDetail);
-        } catch (Exception ex) {
-            throw new DataException(ex.getMessage());
-        }
-    }
-
-    public void DeletePaymentDetail(Integer detail_id) {
-        paymentDetailMapper.DeletePaymentDetail(detail_id);
-    }
 
     @Override
     public PaymentDetail findPaymentDetailById(Integer detail_id) {
