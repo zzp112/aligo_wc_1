@@ -77,6 +77,4 @@ public class StuCouController {
         System.out.println(JSON.toJSONString(stuCous));
         return JSON.toJSONString(stuCous);
     }
-
-
 }

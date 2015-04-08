@@ -1,7 +1,7 @@
 package services.impl;
 
-import dao.StudentDao;
 import entities.Student;
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,34 +16,34 @@ import java.util.List;
 @Transactional
 public class StudentService implements IStudentService {
     @Autowired
-    private StudentDao studentDao;
+    private SqlSessionTemplate sqlSession;
 
     @Override
-    public List<Student> findAllStudent() { return studentDao.findAllStudent();}
+    public List<Student> findAllStudent() {return sqlSession.selectList("student.findAllStudent");}
 
     @Override
     public Student findStudentById(String id) {
-        return studentDao.findStudentById(id);
+        return sqlSession.selectOne("student.findStudentById", id);
     }
 
     @Override
     public List<Student> findStudentByGrade(String grade) {
-        return studentDao.findStudentByGrade(grade);
+        return sqlSession.selectList("student.findStudentByGrade",grade);
     }
 
     @Override
     public List<Student> findStudentByName(String name) {
-        return studentDao.findStudentByName(name);
+        return sqlSession.selectList("student.findStudentByName", name);
     }
 
     @Override
     public boolean delStudentById(String id) {
         if(id == null)
             return false;
-        if(studentDao.findStudentById(id) == null)
+        if(this.findStudentById(id) == null)
             return false;
 
-        studentDao.delStudentById(id);
+        sqlSession.delete("student.delStudentById", id);
         return true;
     }
 
@@ -59,7 +59,7 @@ public class StudentService implements IStudentService {
             return false;
         if(parentsTel == null)
             return false;
-        Student result = studentDao.findStudentById(id);
+        Student result = this.findStudentById(id);
         if(result == null)
             return false;
 
@@ -68,7 +68,7 @@ public class StudentService implements IStudentService {
         result.setGrade(grade);
         result.setParentsTel(parentsTel);
 
-        studentDao.updateStudentById(result);
+        sqlSession.update("student.updateStudentById", result);
 
         return true;
     }
@@ -91,7 +91,7 @@ public class StudentService implements IStudentService {
         student.setGrade(grade);
         student.setParentsTel(parentsTel);
 
-        studentDao.addStudent(student);
+        sqlSession.insert("student.addStudent", student);
 
         return true;
     }

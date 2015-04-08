@@ -40,7 +40,7 @@ public class CourseController {
      */
     @ResponseBody
     @RequestMapping("/course/findCourseById")
-    public String findCourseById(@RequestParam(value="id") Integer id){
+    public String findCourseById(@RequestParam(value="id") String id){
 //        测试路径：/course/findCourseById?id=x
         return JSON.toJSONString(courseService.findCourseById(id));
     }
@@ -70,7 +70,7 @@ public class CourseController {
      */
     @ResponseBody
     @RequestMapping("/course/delCourseById")
-    public String delCourseById(@RequestParam(value="id") Integer id){
+    public String delCourseById(@RequestParam(value="id") String id){
 //        测试路径：/course/delCourseById?id=x
         return JSON.toJSONString(courseService.delCourseById(id));
     }
@@ -85,7 +85,7 @@ public class CourseController {
      */
     @ResponseBody
     @RequestMapping("/course/updateCourseById")
-    public String updateCourseById(@RequestParam(value="id") Integer id, @RequestParam(value="name")String name,@RequestParam(value="cost")Integer cost){
+    public String updateCourseById(@RequestParam(value="id") String id, @RequestParam(value="name")String name,@RequestParam(value="cost")Integer cost){
 //        测试路径：/course/updateCourseById/?id=x&name=欧姆定理&cost=998
         String nameUTF = null;
         try {

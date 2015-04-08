@@ -1,14 +1,13 @@
 package services.impl;
 
-import dao.StationDao;
 import entities.Station;
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import services.IStationService;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by Administrator on 2015/4/2 0002.
@@ -17,24 +16,21 @@ import java.util.Map;
 @Transactional
 public class StationService implements IStationService{
     @Autowired
-    private StationDao stationDao;
+    private SqlSessionTemplate sqlSession;
 
-    public List<Station> findAllStation() {
-        return stationDao.findAllStation();
-    }
+    public List<Station> findAllStation() {return sqlSession.selectList("station.findAllStation");}
 
-    public Station findStationById(String id){
-        return stationDao.findStationById(id);
-    }
+    public Station findStationById(String id){ return sqlSession.selectOne("station.findStationById", id);}
 
     public boolean delStationById(String id){
         if(id == null)
             return false;
 
-        Station station = stationDao.findStationById(id);
+        Station station = this.findStationById(id);
         if(station == null)
             return false;
-        stationDao.delStationById(id);
+
+        sqlSession.delete("station.delStationById", id);
         return true;
     }
 
@@ -42,7 +38,7 @@ public class StationService implements IStationService{
         if(id == null || total == null )
             return false;
 
-        Station result = stationDao.findStationById(id);
+        Station result = this.findStationById(id);
 
         if(result == null)
             return false;
@@ -57,7 +53,7 @@ public class StationService implements IStationService{
         result.setActualAmountString(actualStringValue);
         result.setActualAmount(actual);
 
-        stationDao.updateStation(result);
+        sqlSession.update("station.updateStationTotalById", result);
         return true;
     }
 
@@ -74,7 +70,7 @@ public class StationService implements IStationService{
         if(totalAmount == null)
             return false;
 
-        Station result = stationDao.findStationById(id);
+        Station result = this.findStationById(id);
         if(result == null)
             return false;
 
@@ -83,16 +79,14 @@ public class StationService implements IStationService{
         int actual = (int)(totalAccount * ratio);
         String actualStringValue = totalAmount+"*"+(int)(ratio*100)+"%="+actual;
 
-        Station station = new Station();
-        station.setId(Integer.parseInt(id));
-        station.setManagerId(Integer.parseInt(managerId));
-        station.setAddress(address);
-        station.setTotalAmount(totalAccount);
-        station.setActualAmount(actual);
-        station.setActualAmountString(actualStringValue);
-        station.setAccountRatio(ratio);
+        result.setManagerId(Integer.parseInt(managerId));
+        result.setAddress(address);
+        result.setTotalAmount(totalAccount);
+        result.setActualAmount(actual);
+        result.setActualAmountString(actualStringValue);
+        result.setAccountRatio(ratio);
 
-        stationDao.updateStation(station);
+        sqlSession.update("station.updateStationTotalById", result);
 
         return true;
     }
@@ -112,7 +106,7 @@ public class StationService implements IStationService{
         station.setTotalAmount(0);
         station.setActualAmountString("0*"+(int)(ratio*100)+"%=0");
 
-        stationDao.addStation(station);
+        sqlSession.insert("station.addStation", station);
 
         return true;
     }
