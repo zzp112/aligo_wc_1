@@ -48,6 +48,7 @@ public interface IStuCouService {
      * @return 选课信息列表
      * */
     public List<StuCou> loadStuCouByDate(String yearAndMonth);
+
     public List<StuCou> loadStuCouByDate(String courseDate, String courseDate2);
 
     /**
