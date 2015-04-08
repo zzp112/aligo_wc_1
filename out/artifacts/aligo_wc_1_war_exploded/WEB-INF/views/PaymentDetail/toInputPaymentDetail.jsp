@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8" %>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,9 +15,9 @@
 </head>
 <body>
 <div class="easyui-panel" style="width:400px">
-    <div style="padding:10px 10px 10px 10px">
+    <div >
         <form id="ff" method="post" action="/CreatePaymentDetail">
-            <table cellpadding="5">
+            <table >
                 <tr>
                     <td>小站id:</td>
                     <td>
@@ -56,16 +57,16 @@
                 </tr>
             </table>
             <div style="text-align:center;padding:5px">
-                <%--<input type="submit" class="btn-green" value="提交" style="width:63px;height: 33px;">--%>
-                <%--&nbsp;&nbsp;&nbsp;<input type="reset" class="btn-green" value="重置" style="width:63px;height: 33px;">--%>
+                <input type="submit" class="btn-green" value="提交" style="width:63px;height: 33px;">
+                &nbsp;&nbsp;&nbsp;<input type="reset" class="btn-green" value="重置" style="width:63px;height: 33px;">
                 <%--<a href="javascript:void(0)" class="btn-blue" style="width:130px;" onclick="submitForm()">提交</a>--%>
                 <%--<a href="javascript:void(0)" class="btn-green" style="width:130px;" onclick="clearForm()">重置</a>--%>
             </div>
         </form>
-        <div style="text-align:center;padding:5px">
-            <a href="javascript:void(0)" class="btn-green" onclick="submitForm()">提交</a>
-            <a href="javascript:void(0)" class="btn-blue" onclick="clearForm()">重置</a>
-        </div>
+        <%--<div style="text-align:center;padding:5px">--%>
+            <%--<a href="javascript:void(0)" class="btn-green" onclick="submitForm()">提交</a>--%>
+            <%--<a href="javascript:void(0)" class="btn-blue" onclick="clearForm()">重置</a>--%>
+        <%--</div>--%>
     </div>
 </div>
 </body>

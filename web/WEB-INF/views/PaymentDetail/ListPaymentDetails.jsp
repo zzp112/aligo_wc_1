@@ -10,6 +10,21 @@
 
     <script>
 
+
+        //内嵌HTML代码的对话框，使用场景：点击修改按钮，弹出该对话框修改一条记录
+        //添加收支明细
+        function addBalanceDetail() {
+            new $.Zebra_Dialog( {
+                source: {'inline': $('.addhtml').html()}, //内嵌html代码
+                width: 500, //宽度
+                max_height:300, //高度超出则可以显示滚动条
+                title:  '增加信息',
+                position:['left +200','top+20'],
+                overlay_opacity:'0',
+                buttons:['是',' 否']
+            });
+        }
+
         //获取选中的行的数据
         function deleteCurrentRowPaymentDetail(detail_id) {
 //            $.Zebra_Dialog('这是普通的对话框，可以定制按钮', {
@@ -38,25 +53,6 @@
                 location.href = "toUpdateCurrentRowPaymentDetail?detail_id=" + detail_id;
             }
         }
-        //调用搜索按钮
-        function doSearch(value) {
-            alert('You input: ' + value);
-        }
-
-
-        //内嵌HTML代码的对话框，使用场景：点击修改按钮，弹出该对话框修改一条记录
-        //添加收支明细
-        function addBalanceDetail() {
-            new $.Zebra_Dialog( {
-                source: {'inline': $('.addhtml').html()}, //内嵌html代码
-                width: 500, //宽度
-                max_height:300, //高度超出则可以显示滚动条
-                title:  '增加信息',
-                position:['left +200','top+20'],
-                overlay_opacity:'0',
-                buttons:['是',' 否']
-            });
-        }
 
 
         //调用搜索按钮
@@ -73,8 +69,22 @@
                 success: function (data) {
 
                     if (data.length > 0) {
-                        alert(data);
-                        loadDataFromJson('dg', 'searchByAll');
+                        var obj = eval("(" + data + ")");
+                        var temp = obj[0];
+                        var dataStr = "";
+                        for (var i = 0; i < obj.length; i++) {
+                            var p = obj[i];
+                            var table = $('.table');
+                            dataStr += "<tr>" +
+                            "<td>" + p.detail_id + "</td>" +
+                            "<td>" + p.balance + "</td>" +
+                            "<td>" + p.balance_amount + "</td>" +
+                            "<td>" + p.balance_type + "</td>" +
+                            "<td>" + p.balance_comment + "</td>" +
+                            "<td><span onclick='updateCurrentRowPaymentDetail(" + p.detail_id + ")'>修</span>&nbsp;&nbsp;<span onclick='deleteCurrentRowPaymentDetail(" + p.detail_id + ")'>删</span></td>" +
+                            "</tr>";
+                        }
+                        table.append(dataStr);
                     }
                 },
                 error: function () {
@@ -112,29 +122,26 @@
             }
         });
 
-    </script>
 
-
-    <script type="text/javascript">
-        //格式化时间
-        function myformatter(date) {
-            var y = date.getFullYear();
-            var m = date.getMonth() + 1;
-            var d = date.getDate();
-            return y + '-' + (m < 10 ? ('0' + m) : m) + '-' + (d < 10 ? ('0' + d) : d);
-        }
-        function myparser(s) {
-            if (!s) return new Date();
-            var ss = (s.split('-'));
-            var y = parseInt(ss[0], 10);
-            var m = parseInt(ss[1], 10);
-            var d = parseInt(ss[2], 10);
-            if (!isNaN(y) && !isNaN(m) && !isNaN(d)) {
-                return new Date(y, m - 1, d);
-            } else {
-                return new Date();
-            }
-        }
+        //获取小站收支明细类别
+            $.ajax({
+                type: "post",
+                url: "/toListBalanceType",
+                dataType: "json",
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert(XMLHttpRequest.status);
+                },
+                success: function (data) {
+                    var obj = eval("(" + data + ")");
+                    var temp = obj[0];
+                    var dataStr="";
+                    for (var i = 0; i < obj.length; i++) {
+                        dataStr += "<option value='" +(i+1)
+                        +"'>" + obj[i].paymentTypeName+"</option>";
+                    }
+                    $("#DetailBalanceType").append(dataStr);
+                }
+            });
     </script>
 
     <style>
@@ -171,20 +178,17 @@
             </select>
 
             <span>类别:</span>
-            <select name="balance_type" style="width:150px;">
+            <%--<div class="DetailBalanceType" name="balance_type"style="width:150px;"></div>--%>
+            <select id="DetailBalanceType" name="balance_type" style="width:150px;">
                 <option value="0">===请选择===</option>
-                <option value="income">小站拆账</option>
             </select>
-
             <span>开始:</span>
-            <input id="start_time" name="start_time"
-                   data-options="formatter:myformatter,parser:myparser" required style="width:150px">
+            <input id="start_time" name="start_time">
 
             <span>结束:</span>
-            <input id="end_time" name="end_time"
-                   data-options="formatter:myformatter,parser:myparser" required style="width:150px">
+            <input id="end_time" name="end_time">
 
-            <input type="button" class="btn-green" value="查询" style="width:43px;height: 23px;">
+            <input type="button" class="btn-green" value="查询" style="width:43px;height: 23px;"onclick="doSearch();">
 
             <input type="button" class="btn-blue" value="添加" style="position:absolute;top:0;right:0;"
                    onclick="addBalanceDetail();">

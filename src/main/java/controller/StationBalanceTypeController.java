@@ -50,6 +50,7 @@ public class StationBalanceTypeController {
     @RequestMapping(value = "toListBalanceType")
     public String toListBalanceType(){
         try {
+            System.out.println(stationBalanceTypeService.listAllStationBalanceType());
             return JSON.toJSONString(stationBalanceTypeService.listAllStationBalanceType());
         }catch (DataException ex){
             return ex.getMessage();
