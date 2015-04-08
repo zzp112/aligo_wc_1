@@ -7,34 +7,35 @@
     <title>
         小站收入/支出明细...
     </title>
-    <script type="text/javascript">
-        //默认关闭添加窗口
-        $(function(){
-            $('#w').window('close');
-        });
-        //绑定指定的table加载数据并实现分页的功能
-        $(function () {
-            loadDataFromJson('dg','selectAllPaymentDetails');
-        });
+
+    <script>
 
         //获取选中的行的数据
-        function deleteCurrentRowPaymentDetail() {
-            var row = $('#dg').datagrid('getSelected');
-            if (row) {
-                var detail_id=row.detail_id;
-                if(confirm('您确定要删除明细编号为：' + detail_id+"的小站吗？")){
-                    location.href="deleteCurrentRowPaymentDetail?detail_id="+detail_id;
-                }
+        function deleteCurrentRowPaymentDetail(detail_id) {
+//            $.Zebra_Dialog('这是普通的对话框，可以定制按钮', {
+//                'type':     'question',
+//                'title':    'Custom buttons',
+//                'buttons':  ['Yes', 'No', 'Help'],
+//                'onClose':  function(caption) {
+//                    if(caption =="")
+//                        alert("你没有点击按钮");
+//                    if(caption=="Yes")
+//                        alert("你点击了YES");
+//                    if(caption=="No")
+//                        alert("你点击了No");
+//                    if(caption=="Help")
+//                        alert("你点击了Help");
+//                }
+//            });
+            if (confirm('您确定您要删除明细编号为：' + detail_id + "的小站吗？")) {
+                location.href = "deleteCurrentRowPaymentDetail?detail_id=" + detail_id;
             }
         }
+
         //获取选中行并实现更新
-        function updateCurrentRowPaymentDetail(){
-            var row = $('#dg').datagrid('getSelected');
-            if (row) {
-                var detail_id=row.detail_id;
-                if(confirm('您确定要修改明细编号为：' + detail_id+"的小站吗？")){
-                    location.href="toUpdateCurrentRowPaymentDetail?detail_id="+detail_id;
-                }
+        function updateCurrentRowPaymentDetail(detail_id) {
+            if (confirm('您确定要修改明细编号为：' + detail_id + "的小站吗？")) {
+                location.href = "toUpdateCurrentRowPaymentDetail?detail_id=" + detail_id;
             }
         }
         //调用搜索按钮
@@ -42,12 +43,77 @@
             alert('You input: ' + value);
         }
 
-        //添加收支明细
-        function addBalanceDetail(){
 
+        //内嵌HTML代码的对话框，使用场景：点击修改按钮，弹出该对话框修改一条记录
+        //添加收支明细
+        function addBalanceDetail() {
+            new $.Zebra_Dialog( {
+                source: {'inline': $('.addhtml').html()}, //内嵌html代码
+                width: 500, //宽度
+                max_height:300, //高度超出则可以显示滚动条
+                title:  '增加信息',
+                position:['left +200','top+20'],
+                overlay_opacity:'0',
+                buttons:['是',' 否']
+            });
         }
 
+
+        //调用搜索按钮
+        function doSearch() {
+            var h1 = $('#balance_state').combobox('getValue');
+            var h2 = $("#start_time").datebox('getValue');
+            var h3 = $("#end_time").datebox('getValue');
+            $.ajax({
+                type: "POST",
+                url: "/searchByAll?json",
+                dataType: "json",
+                contentType: "application/json",
+                data: JSON.stringify({balance: h1, begin_time: h2, end_time: h3}),
+                success: function (data) {
+
+                    if (data.length > 0) {
+                        alert(data);
+                        loadDataFromJson('dg', 'searchByAll');
+                    }
+                },
+                error: function () {
+                    alert("请求出错");
+                }
+            });
+        }
+
+        //获取数据
+        $.ajax({
+            type: "post",
+            url: "/selectAllPaymentDetails",
+            dataType: "json",
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert(XMLHttpRequest.status);
+            },
+
+            success: function (data) {
+                var obj = eval("(" + data + ")");
+                var temp = obj[0];
+                var dataStr = "";
+                for (var i = 0; i < obj.length; i++) {
+                    var p = obj[i];
+                    var table = $('.table');
+                    dataStr += "<tr>" +
+                    "<td>" + p.detail_id + "</td>" +
+                    "<td>" + p.balance + "</td>" +
+                    "<td>" + p.balance_amount + "</td>" +
+                    "<td>" + p.balance_type + "</td>" +
+                    "<td>" + p.balance_comment + "</td>" +
+                    "<td><span onclick='updateCurrentRowPaymentDetail(" + p.detail_id + ")'>修</span>&nbsp;&nbsp;<span onclick='deleteCurrentRowPaymentDetail(" + p.detail_id + ")'>删</span></td>" +
+                    "</tr>";
+                }
+                table.append(dataStr);
+            }
+        });
+
     </script>
+
 
     <script type="text/javascript">
         //格式化时间
@@ -77,77 +143,74 @@
             font-weight: 500;
             color: #333333;
         }
+
+        table {
+            text-align: center;
+        }
+
+        .module-title {
+            font-weight: 400;
+            font-size: 40px;
+        }
     </style>
 </head>
 
 <body>
 <div>
-    <div class="easyui-panel" title="显示小站资金收支明细数据" style="width: 920px">
-        &nbsp
-        <span>收支类型:</span>
-        <select class="easyui-combobox" name="balance_state" style="width:150px;">
-            <option value="0">===请选择===</option>
-            <option value="income">收入</option>
-            <option value="outcome">支出</option>
-        </select>
 
-        <span>类别:</span>
-        <select class="easyui-combobox" name="balance_type" style="width:150px;">
-            <option value="0">===请选择===</option>
-            <option value="income">小站拆账</option>
-        </select>
+    <div style="position:relative;">
+        <label class="module-title">小站收支明细表</label><br>
 
-        <span>开始:</span>
-        <input id="start_time" name="start_time" class="easyui-datetimebox"
-               data-options="formatter:myformatter,parser:myparser" required style="width:150px">
+        <div title="显示小站资金收支明细数据" style="width: 920px">
+            &nbsp
+            <span>收支类型:</span>
+            <select  name="balance_state" style="width:150px;">
+                <option value="0">===请选择===</option>
+                <option value="income">收入</option>
+                <option value="outcome">支出</option>
+            </select>
 
-        <span>结束:</span>
-        <input id="end_time" name="end_time" class="easyui-datetimebox"
-               data-options="formatter:myformatter,parser:myparser" required style="width:150px">
-        <a class="easyui-linkbutton" iconCls="icon-search" plain="true" onclick="">查询</a>
-    </div>
+            <span>类别:</span>
+            <select name="balance_type" style="width:150px;">
+                <option value="0">===请选择===</option>
+                <option value="income">小站拆账</option>
+            </select>
 
+            <span>开始:</span>
+            <input id="start_time" name="start_time"
+                   data-options="formatter:myformatter,parser:myparser" required style="width:150px">
 
+            <span>结束:</span>
+            <input id="end_time" name="end_time"
+                   data-options="formatter:myformatter,parser:myparser" required style="width:150px">
 
-    <table id="dg" style="width:920px;height:310px" data-options="
-				rownumbers:true,
-				singleSelect:true,
-				autoRowHeight:false,
-				pagination:true,
-				pageSize:10">
-        <thead>
-        <tr>
-            <th field="detail_id"width="100">明细id</th>
-            <th field="balance" width="80">收入/支出</th>
-            <th field="balance_amount" width="100">金额</th>
-            <th field="balance_type" width="110">类别</th>
-            <th field="balance_comment" width="487" align="center">备注</th>
-        </tr>
-        </thead>
-    </table>
+            <input type="button" class="btn-green" value="查询" style="width:43px;height: 23px;">
+
+            <input type="button" class="btn-blue" value="添加" style="position:absolute;top:0;right:0;"
+                   onclick="addBalanceDetail();">
+        </div>
 
 
+        <%--弹框添加小站收支明细--%>
+        <div class="addhtml" style="display: none;">
+            <jsp:include page="toInputPaymentDetail.jsp"></jsp:include>
+        </div>
 
-    <div class="easyui-panel" style="width: 920px">
-        <div id="dt" style="padding:2px 5px;">
-            <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true"onclick="$('#w').window('open')">添加一条收支明细数据</a>
-            <a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true"onclick="deleteCurrentRowPaymentDetail();">删除选中的收支明细数据</a>
-            <a class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="updateCurrentRowPaymentDetail()">修改选中的收支明细数据</a>
+
+        <div>
+            <table class="table" cellspacing="0">
+                <tr>
+
+                    <td style="width: 80px">明细id</td>
+                    <td style="width: 100px">收入/支出</td>
+                    <td style="width: 80px">金额</td>
+                    <td style="width: 180px">类别</td>
+                    <td style="width: 280px">备注</td>
+                    <td style="width: 180px">操作</td>
+                </tr>
+            </table>
+            <div class="page"></div>
         </div>
     </div>
-
-
-
-
-    <%--弹出窗口--%>
-    <div id="w" class="easyui-window" title="添加一条资产明细" data-options="iconCls:'icon-save'" style="width:570px;height:440px;padding:5px;">
-        <div class="easyui-layout" data-options="fit:true">
-            <div style="margin-top: 40px;margin-left: 70px">
-                <jsp:include page="toInputPaymentDetail.jsp"></jsp:include>
-            </div>
-        </div>
-    </div>
-
-</div>
 </body>
 </html>

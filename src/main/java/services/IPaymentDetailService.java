@@ -39,4 +39,24 @@ public interface IPaymentDetailService {
      * @return
      */
     public PaymentDetail findPaymentDetailById(Integer detail_id);
+
+    /**
+     * 按类别查询收支明细
+     * @return
+     */
+    public  List<PaymentDetail> search(String balance);
+
+    /**
+     * 按时间查询收支明细
+     * @return
+     */
+    public  List<PaymentDetail> searchByTime(String begin_time, String end_time);
+
+    /**
+     * 按所有条件查询收支明细
+     * @return
+     */
+    public  List<PaymentDetail> searchByAll(String balance, String begin_time, String end_time);
+
+
 }

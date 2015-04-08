@@ -4,55 +4,64 @@
 <html>
 <head>
     <title>index</title>
-    <script>
-        function submitForm() {
-            $('#ff').form('submit');
-        }
-        function clearForm() {
-            $('#ff').form('clear');
-        }
+    <%--<script>--%>
+        <%--function submitForm() {--%>
+            <%--$('#ff').form('submit');--%>
+        <%--}--%>
+        <%--function clearForm() {--%>
+            <%--$('#ff').form('clear');--%>
+        <%--}--%>
 
-    </script>
+    <%--</script>--%>
 
     <style>
-        #error{
+        #error {
             color: red;
             font-size: 15px;
             font-family: Arial;
             font-weight: 600;
         }
-        #success{
+
+        #success {
             color: #0000FF;
             font-size: 15px;
             font-family: Arial;
             font-weight: 600;
         }
+
+        /*.updateBox {*/
+        /*dborder: 3px solid blue*/
+        /*}*/
     </style>
 </head>
 <body>
-<div class="easyui-panel" style="width:400px">
-    <h2>更新小站${paymentDetail.station_id}的第${paymentDetail.detail_id}数据</h2>
+
+<div class="updateBox" style="width:400px;margin: 114px;margin-left: 233px;">
+    <center><label class="module-title"> 更新小站编号为"${paymentDetail.station_id}"的第"${paymentDetail.detail_id}"数据</label>
+    </center><br><br>
     <div style="padding:10px 60px 20px 60px">
         <form id="ff" method="post" action="/updateCurrentRowPaymentDetail">
-            <%--<form id="ff" method="post" action="/CreatePaymentDetail" >--%>
             <table cellpadding="5">
                 <tr>
                     <td>小站名称:</td>
                     <td>
-                        <input class="easyui-textbox" type="text" name="station_id" value="${paymentDetail.station_id}">
-                        <%--<form:input class="easyui-textbox" type="text" path="station_id"></form:input>--%>
+                        <input class="input-text" type="text" name="station_id" value="${paymentDetail.station_id}">
                     </td>
                 </tr>
+
                 <tr>
                     <td>添加日期:</td>
-                    <td><input class="easyui-datetimebox" name="create_date" data-options="multiline:true"
+                    <td><input class="input-text" name="create_date" data-options="multiline:true"
                                value="${paymentDetail.create_date}"
                             ></td>
                 </tr>
                 <tr>
                     <td>收入/支出:</td>
                     <td>
-                        <select class="easyui-combobox" name="balance">
+                        <select
+
+
+                                name="balance">
                             <c:if test="${paymentDetail.balance=='income'}">
                                 <option value="income" selected>收入</option>
                                 <option value="outcome">支出</option>
@@ -81,8 +90,8 @@
                             收入/支出金额:
                         </c:if>
                     </td>
-                    <td><input class="easyui-textbox" name="balance_amount" data-options="multiline:true"
-                               value="${paymentDetail.balance_amount}" ></td>
+                    <td><input class="input-text" name="balance_amount" data-options="multiline:true"
+                               value="${paymentDetail.balance_amount}"></td>
                 </tr>
                 <tr>
                     <td>
@@ -96,7 +105,7 @@
                             收入/支出类别:
                         </c:if>
                     </td>
-                    <td><input class="easyui-textbox" name="balance_type" data-options="multiline:true"
+                    <td><input class="input-text" name="balance_type" data-options="multiline:true"
                                value="${paymentDetail.balance_type}"></td>
                 </tr>
                 <tr>
@@ -111,15 +120,19 @@
                             小站收入支出备注:
                         </c:if>
                     </td>
-                    <td><input class="easyui-textbox" name="advice" data-options="multiline:true"
+                    <td><input class="input-text" name="advice" data-options="multiline:true"
                                value="${paymentDetail.balance_comment}"></td>
                 </tr>
             </table>
+            <div style="text-align:center;padding:5px">
+                <input type="submit" class="btn-green" value="提交"
+                       style="width:63px;height: 33px;">
+                &nbsp;&nbsp;&nbsp;<input type="reset" class="btn-green" value="重置"
+                                         style="width:63px;height: 33px;">
+                <%--<a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitForm()">提交</a>--%>
+                <%--<a href="javascript:void(0)" class="easyui-linkbutton" onclick="clearForm()">重置</a>--%>
+            </div>
         </form>
-        <div style="text-align:center;padding:5px">
-            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitForm()">提交</a>
-            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="clearForm()">重置</a>
-        </div>
         <c:if test="${successImfor!=null}">
             <center><span id="error">为什么没东西啊${successImfor}</span></center>
         </c:if>

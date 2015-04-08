@@ -19,7 +19,42 @@ public class StuCouService implements IStuCouService {
     private StuCouDao stuCouDao;
 
     @Override
+    public StuCou loadStuCouByStuCouId(Integer stuCouId) {
+        return stuCouDao.loadStuCouByStuCouId(stuCouId);
+    }
+
+    @Override
     public List<StuCou> loadStuCus() {
         return stuCouDao.loadStuCou();
+    }
+
+    @Override
+    public List<StuCou> loadStuCouByCouId(Integer courseId) {
+        return stuCouDao.loadStuCouByCouId(courseId);
+    }
+
+    @Override
+    public List<StuCou> loadStuCouByStuId(Integer studentId) {
+        return stuCouDao.loadStuCouByStuId(studentId);
+    }
+
+    @Override
+    public List<StuCou> loadStuCouByDate(String courseDate, String courseDate2) {
+        return stuCouDao.loadStuCouByDate(courseDate,courseDate2);
+    }
+
+    @Override
+    public void updateStuCou(StuCou stuCou) {
+        stuCouDao.updateStuCou(stuCou);
+    }
+
+    @Override
+    public void deleteStuCou(Integer id) {
+        stuCouDao.deleteStuCou(id);
+    }
+
+    @Override
+    public void addStuCou(StuCou stuCou) {
+        stuCouDao.addStuCou(stuCou);
     }
 }

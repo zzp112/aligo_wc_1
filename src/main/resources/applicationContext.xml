@@ -37,7 +37,7 @@
    	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
   		<property name="dataSource" ref="dataSource" />
   		<property name="typeAliasesPackage" value="entities"/>
-  		<!--<property name="mapperLocations" value="classpath*:mappers/**/*.xml" />-->
+  		<property name="mapperLocations" value="classpath*:mappers/**/*.xml" />
 	</bean>
    	
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">

@@ -32,7 +32,7 @@ public class PaymentDetailService implements IPaymentDetailService {
             return true;
         } catch (Exception exception) {
             //捕获并抛出异常
-            throw new DataException(exception.getMessage()+exception.getCause());
+            throw new DataException(exception.getMessage());
         }
     }
 
@@ -56,5 +56,21 @@ public class PaymentDetailService implements IPaymentDetailService {
             throw new DataException(ex.getMessage());
         }
     }
+
+    /**
+     * 三个不同参数的查询
+     */
+    public List<PaymentDetail> search(String balance) {
+        return paymentDetailMapper.search(balance);
+    }
+
+    public List<PaymentDetail> searchByTime(String begin_time, String end_time) {
+        return paymentDetailMapper.searchByTime(begin_time, end_time);
+    }
+
+    public List<PaymentDetail> searchByAll(String balance, String begin_time, String end_time) {
+        return paymentDetailMapper.searchByAll(balance, begin_time, end_time);
+    }
+
 
 }

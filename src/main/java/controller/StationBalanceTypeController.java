@@ -62,7 +62,7 @@ public class StationBalanceTypeController {
     @ResponseBody
     @RequestMapping(value = "/toShowTypeInBox")
     public String selectStationBalanceType(){
-         //正确加载返回json数据，否则返回错误信息
+        //正确加载返回json数据，否则返回错误信息
         String typeJson;
         try {
             typeJson= JSON.toJSONString(stationBalanceTypeService.listAllStationBalanceType());

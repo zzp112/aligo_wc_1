@@ -7,8 +7,9 @@ public class StuCou {
 
     private int id;
     private int stationId;
-    private String address;
-    private int courseId;
+    private String stationAddress;
+    private int studentId;
+    private String studentName;
     private String courseName;
     private int courseCount;
     private int costByOne;
@@ -31,20 +32,28 @@ public class StuCou {
         this.stationId = stationId;
     }
 
-    public String getAddress() {
-        return address;
+    public String getStationAddress() {
+        return stationAddress;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setStationAddress(String stationAddress) {
+        this.stationAddress = stationAddress;
     }
 
-    public int getCourseId() {
-        return courseId;
+    public String getStudentName() {
+        return studentName;
     }
 
-    public void setCourseId(int courseId) {
-        this.courseId = courseId;
+    public void setStudentName(String studentName) {
+        this.studentName = studentName;
+    }
+
+    public int getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(int studentId) {
+        this.studentId = studentId;
     }
 
     public String getCourseName() {
@@ -72,7 +81,7 @@ public class StuCou {
     }
 
     public int getCostTotal() {
-        return courseCount*costByOne;
+        return courseCount * costByOne;
     }
 
     public void setCostTotal(int costTotal) {
@@ -86,7 +95,6 @@ public class StuCou {
     public void setCourseDate(String courseDate) {
         this.courseDate = courseDate;
     }
-
 
 
 }

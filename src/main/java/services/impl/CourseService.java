@@ -2,12 +2,16 @@ package services.impl;
 
 import dao.CourseDao;
 import entities.Course;
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import services.ICourseService;
 
 import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 /**
  * Created by HJ on 2015/4/3.
@@ -18,8 +22,13 @@ public class CourseService implements ICourseService {
     @Autowired
     private CourseDao coursenDao;
 
+    @Autowired
+    private SqlSessionTemplate sqlSession;
+
     @Override
-    public List<Course> findAllCourse() {  return coursenDao.findAllCourse(); }
+    public List<Course> findAllCourse() {
+        return sqlSession.selectList("course.findAllCourse");
+    }
 
     @Override
     public Course findCourseById(Integer id) { return coursenDao.findCourseById(id); }
