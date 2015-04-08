@@ -33,7 +33,7 @@
             if (row) {
                 var detail_id=row.detail_id;
                 if(confirm('您确定要修改明细编号为：' + detail_id+"的小站吗？")){
-                    location.href="updateCurrentRowPaymentDetail?detail_id="+detail_id;
+                    location.href="toUpdateCurrentRowPaymentDetail?detail_id="+detail_id;
                 }
             }
         }

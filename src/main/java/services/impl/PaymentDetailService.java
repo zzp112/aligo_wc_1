@@ -28,10 +28,11 @@ public class PaymentDetailService implements IPaymentDetailService {
     @Override
     public boolean UpdatePaymentDetail(PaymentDetail paymentDetail) {
         try {
-            return paymentDetailMapper.UpdatePayment(paymentDetail);
+            paymentDetailMapper.UpdatePayment(paymentDetail);
+            return true;
         } catch (Exception exception) {
             //捕获并抛出异常
-            throw new DataException(exception.getMessage());
+            throw new DataException(exception.getMessage()+exception.getCause());
         }
     }
 

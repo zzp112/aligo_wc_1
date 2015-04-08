@@ -31,7 +31,7 @@ public interface PaymentDetailDao {
      */
     static String UpdatePayment = "update paymentDetails set StationId=#{station_id}" +
             ",CreateDate=#{create_date},Balance=#{balance},BalanceAmount=#{balance_amount}" +
-            ",Type=#{balance_type},Comment=#{balance_comment} from paymentDetails where DetailId=#{detail_id}";
+            ",Type=#{balance_type},Comment=#{balance_comment} where DetailId=#{detail_id}";
 
     /**
      * 删除一条收支记录
@@ -57,7 +57,7 @@ public interface PaymentDetailDao {
     public void DeletePaymentDetail(Integer payment_id);
 
     @Update(UpdatePayment)
-    public boolean UpdatePayment(PaymentDetail paymentDetail);
+    public void UpdatePayment(PaymentDetail paymentDetail);
 
     @Select(findPaymentDetailById)
     public PaymentDetail findPaymentDetailById(Integer detail_id);

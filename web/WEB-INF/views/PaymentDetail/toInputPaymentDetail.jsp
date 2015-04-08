@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8" %>
 <!DOCTYPE html>
 <html>
@@ -11,6 +12,7 @@
             $('#ff').form('clear');
         }
 
+
     </script>
 </head>
 <body>
@@ -19,9 +21,14 @@
         <form id="ff" method="post" action="/CreatePaymentDetail">
             <table cellpadding="5">
                 <tr>
-                    <td>小站名称:</td>
-                    <td><input class="easyui-textbox" type="text" name="station_id"
-                            ></td>
+                    <td>小站id:</td>
+                    <td>
+                        <select name="station_id" class="easyui-combobox" style="width:134px">
+                            <option value="0">===请选择===</option>
+                            <c:forEach items="${stationList}" var="station">
+                                <option value="${station.id}">${station.id}</option>
+                            </c:forEach>
+                        </select></td>
                 </tr>
                 <tr>
                     <td>添加日期:</td>
