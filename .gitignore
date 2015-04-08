@@ -1,3 +1,8 @@
 .idea/*
 out/*
+<<<<<<< HEAD
 target/*
+=======
+target/*
+classes/*
+>>>>>>> f729fed906c66872319999d0c6fd18cc449c486a

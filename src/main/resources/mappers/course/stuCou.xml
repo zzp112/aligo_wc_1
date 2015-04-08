@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="stuCou">
+
+
+    <sql id="select_sql">
+        Select studentCourse.id,stationId,address as stationAddress,studentId,student.name as studentName,courseId,course.name as courseName,courseCount,cost as costByOne,courseDate from studentCourse,station,student,course where stationId=station.id and courseId=course.id and student.id=studentId
+    </sql>
+
+    <sql id="where_sql">
+        <if test="stationName!=null">
+            and stationId = #{stationName}
+        </if>
+        <if test="studentId!=null">
+            and studentId = #{studentId}
+        </if>
+        <if test="courseId!=null">
+            and courseId = #{courseId}
+        </if>
+        <if test="yearAndMonth!=null">
+            and courseDate like '%'||#{yearAndMonth}||'%'
+        </if>
+    </sql>
+
+    <insert id="addStuCou">
+        insert into studentCourse(stationId,studentId,courseId,courseCount,courseDate) value(1,1,1,7,"2012-04-04")
+    </insert>
+
+
+    <delete id="deleteStuCou">
+        delete from studentCourse where id = #{id}
+    </delete>
+
+    <update id="updateStuCou">
+        update studentCourse set stationId=#{stationId},studentId=#{studentId},courseId=#{courseId},courseCount=#{courseCount} where id=#{id}
+    </update>
+
+    <select id="loadStuCou" resultType="StuCou">
+        <include refid="select_sql"/>
+    </select>
+
+    <select id="loadStuCouByStuCouId" resultType="StuCou">
+        <include refid="select_sql"/>  and studentCourse.id = #{stuCouId}
+    </select>
+
+    <select id="loadStuCouByCouId" resultType="StuCou">
+        <include refid="select_sql"/> and courseId = #{courseId}
+    </select>
+
+    <select id="loadStuCouByStuId" resultType="StuCou">
+        <include refid="select_sql"/> and studentId = #{studentId}
+    </select>
+
+    <select id="loadStuCouByDateScope" resultType="StuCou" parameterType="Map">
+        <include refid="select_sql"/>  and courseDate between #{beginDate} and #{endDate}
+    </select>
+
+    <select id="loadStuCouByYearAndMonth" resultType="StuCou" parameterType="String">
+        <include refid="select_sql"/> and courseDate like '%'||#{yearAndMonth}||'%'
+    </select>
+
+
+    <select id="findByParam" parameterType="StuCouSearchHelper" resultType="StuCou">
+        <include refid="select_sql"/> <include refid="where_sql"/>
+    </select>
+
+</mapper>

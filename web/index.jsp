@@ -1,4 +1,3 @@
-
 <%--<%@ page language="java" import="java.util.*" pageEncoding="utf-8" %>--%>
 <%--<%@ include file="WEB-INF/views/common/sourcelib.jsp" %>--%>
 <%--<!DOCTYPE html>--%>

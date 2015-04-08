@@ -54,7 +54,6 @@ public class PaymentDetailService implements IPaymentDetailService {
         }
     }
 
-
     @Override
     public PaymentDetail findPaymentDetailById(Integer detail_id) {
         try {
@@ -78,6 +77,5 @@ public class PaymentDetailService implements IPaymentDetailService {
     public List<PaymentDetail> searchByAll(String balance, String begin_time, String end_time) {
         return paymentDetailMapper.searchByAll(balance, begin_time, end_time);
     }
-
 
 }

@@ -52,7 +52,6 @@
                     "<td>"+ p.costTotal+"</td>"+
                     "<td>"+ p.courseDate+"</td>"+
                     "<td><span onclick='modifycontent("+p.id+")'>修</span>&nbsp;&nbsp;<span onclick='deleteStuCou("+p.id+")'>删</span></td>"+
-                    "<td><span onclick='preUpdate("+p.id+")'>修</span>&nbsp;&nbsp;<span onclick='deleteStuCou("+p.id+")'>删</span></td>"+
                     "</tr>";
                 }
                 table.append(dataStr);
@@ -119,6 +118,17 @@
         function preUpdate(id){
             alert("您要修改的是第"+id+"条数据");
         }
+
+        function submitParam(){
+            $.ajax({
+                type: "POST",
+                url: "/stuCou/findStuCou",
+                data: "stationName="+$("#stationName").val(),
+                success: function(msg){
+                    alert( "Data Saved: " + msg );
+                }
+            });
+        }
     </script>
 </head>
 <body>
@@ -129,52 +139,58 @@
 </div>
 
 <div>
-    <table class="table" cellspacing="0">
-        <tr>
-            <td colspan="9">
-                小站搜索：
-                <input  type="text" class="input-text" style="width: 100px">
-                学生搜索：
-                <input type="text" class="input-text" style="width: 100px"/>
-                课程搜索：
-                <select style="width: 100px">
-                    <option>alj</option>
-                    <option>ba</option>
-                    <option>ba</option>
-                    <option>ba</option>
-                    <option>ba</option>
-                </select>
-                年：
-                <select style="width: 80px">
-                    <option>2015</option>
-                    <option>2014</option>
-                    <option>2013</option>
-                    <option>2012</option>
-                    <option>2011</option>
-                </select>
-                月：
-                <select style="width: 101px">
-                    <option>1</option><option>2</option><option>3</option><option>4</option>
-                    <option>5</option><option>6</option><option>7</option><option>8</option>
-                    <option>9</option><option>10</option><option>11</option><option>12</option>
-                </select>
+    <form action="/stuCou/findStuCou" method="post">
+        <table class="table" cellspacing="0">
+            <tr>
+                <td colspan="9">
+                    <span>小站：</span>
+                    <input  type="text" id="stationName" name="stationName" class="input-text" style="width: 100px">
+                    <span>学生：</span>
+                    <input type="text" name="studentName" class="input-text" style="width: 100px"/>
+                    <span>课程：</span>
+                    <select style="width: 100px" name="courseName">
+                        <option>alj</option>
+                        <option>ba</option>
+                        <option>ba</option>
+                        <option>ba</option>
+                        <option>ba</option>
+                    </select>
+                    <span >年：</span>
+                    <select style="width: 80px" name="year">
+                        <option>2015</option>
+                        <option>2014</option>
+                        <option>2013</option>
+                        <option>2012</option>
+                        <option>2011</option>
+                        <option>2010</option>
+                        <option>2009</option>
+                        <option>2008</option>
+                    </select>
+                    <span>月：</span>
+                    <select style="width: 101px" name="month">
+                        <option>01</option><option>02</option><option>03</option><option>04</option>
+                        <option>05</option><option>06</option><option>07</option><option>08</option>
+                        <option>09</option><option>10</option><option>11</option><option>12</option>
+                    </select>
 
-                <input type="button" class="btn-green" value="搜索" />
-            </td>
-        </tr>
+                    <input type="submit"  class="btn-green" value="搜索" />
+                </td>
+            </tr>
 
-        <tr>
-            <td style="width: 40px">编号</td>
-            <td style="width: 130px">小站地址</td>
-            <td style="width: 130px">学生名字</td>
-            <td style="width: 130px">课程名称</td>
-            <td style="width: 80px">单节费用</td>
-            <td style="width: 80px">总上课数</td>
-            <td style="width: 80px">总费用</td>
-            <td style="width: 130px">上课日期</td>
-            <td>操作</td>
-        </tr>
-    </table>
+            <tr>
+                <td style="width: 40px">编号</td>
+                <td style="width: 130px">小站地址</td>
+                <td style="width: 130px">学生名字</td>
+                <td style="width: 130px">课程名称</td>
+                <td style="width: 80px">单节费用</td>
+                <td style="width: 80px">总上课数</td>
+                <td style="width: 80px">总费用</td>
+                <td style="width: 130px">上课日期</td>
+                <td>操作</td>
+            </tr>
+        </table>
+    </form>
+
     <div class="page"></div>
 </div>
 <div class="addhtml" style="display: none">

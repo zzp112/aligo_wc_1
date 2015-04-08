@@ -28,7 +28,7 @@
 --         select type_id as paymentTypeId,type_name as paymentTypeName from stationPaymentDetailType
            SELECT *FROM stationPaymentDetailType
     </select>
-    
+
     <!--根据id查找类别-->
     <select id="findAllStationBalanceTypeById" resultType="StationBalanceDetailType">
 -- select type_id as paymentTypeId,type_name as paymentTypeName from stationPaymentDetailType where type_id=#{typeId}

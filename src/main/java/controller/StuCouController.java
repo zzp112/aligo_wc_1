@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import services.IStuCouService;
+import entities.StuCouSearchHelper;
 
 import java.util.List;
 
@@ -31,8 +32,9 @@ public class StuCouController {
     public String loadAllStuCou(){
         //测试路径/stuCou/loadStuCou
         List<StuCou> stuCous=null;
+
         stuCous=stuCouService.loadStuCus();
-        System.out.println(JSON.toJSONString(stuCous));
+
         return JSON.toJSONString(stuCous);
     }
     @ResponseBody
@@ -40,8 +42,8 @@ public class StuCouController {
     public String loadStuCouByStuId(int id){
         //测试路径/stuCou/loadStuCouByStuId?id=x
         List<StuCou> stuCous=null;
+
         stuCous=stuCouService.loadStuCouByStuId(id);
-        System.out.println(JSON.toJSONString(stuCous));
         return JSON.toJSONString(stuCous);
     }
     @ResponseBody
@@ -49,8 +51,9 @@ public class StuCouController {
     public String loadStuCouByCouId(int id){
         //测试路径/stuCou/loadStuCouByCouId?id=x
         List<StuCou> stuCous=null;
+
         stuCous=stuCouService.loadStuCouByCouId(id);
-        System.out.println(JSON.toJSONString(stuCous));
+
         return JSON.toJSONString(stuCous);
     }
     @ResponseBody
@@ -58,8 +61,9 @@ public class StuCouController {
     public String loadStuCouByStuCouId(int id){
         //测试路径/stuCou/loadStuCouByStuCouId?id=x
         StuCou stuCou=null;
+
         stuCou=stuCouService.loadStuCouByStuCouId(id);
-        System.out.println(JSON.toJSONString(stuCou));
+
         return JSON.toJSONString(stuCou);
     }
     @ResponseBody
@@ -73,8 +77,44 @@ public class StuCouController {
     @RequestMapping("/stuCou/updateStuCou")
     public String updateStuCou(StuCou stuCou){
         List<StuCou> stuCous=null;
+
         stuCous=stuCouService.loadStuCus();
-        System.out.println(JSON.toJSONString(stuCous));
+
         return JSON.toJSONString(stuCous);
+    }
+
+    @ResponseBody
+    @RequestMapping("/stuCou/addStuCou")
+    public String addStuCou(StuCou stuCou){
+        stuCouService.addStuCou(stuCou);
+        return null;
+    }
+
+
+    /**
+     * 根据日期范围获取学生上课记录
+     * @Param beginDate 起始日期
+     * @Param endDate 结束日期
+     * */
+    @ResponseBody
+    @RequestMapping("/stuCou/loadByDate")
+    public String loadByDateScope (String beginDate,String endDate){
+        //测试路径/stuCou/loadByDate?beginDate=2015-04-20&endDate=2015-04-22
+        return JSON.toJSONString(stuCouService.loadStuCouByDateScope(beginDate, endDate));
+    }
+
+    @ResponseBody
+    @RequestMapping("/stuCou/loadStuCouByDate")
+    public String loadByDate(String searchDate){
+        //测试路径/stuCou/loadStuCouByDate?searchDate=2014-04
+        return JSON.toJSONString(stuCouService.loadStuCouByDate(searchDate));
+    }
+
+    @ResponseBody
+    @RequestMapping("/stuCou/findStuCou")
+    public String findStuCou(StuCouSearchHelper stuCouSearchHelper){
+        //测试路径/stuCou/findStuCou
+        stuCouService.findByParam(stuCouSearchHelper);
+        return JSON.toJSONString(stuCouSearchHelper);
     }
 }
