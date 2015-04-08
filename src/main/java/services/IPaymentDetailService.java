@@ -6,7 +6,7 @@ import javax.xml.soap.DetailEntry;
 import java.util.List;
 
 /**
- * Created by Administrator on 2015/4/3.
+ * Created by 张超红 on 2015/4/3.
  */
 public interface IPaymentDetailService {
 
