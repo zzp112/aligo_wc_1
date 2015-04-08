@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+ <mapper namespace="student">
+
+    <select id="findAllStudent" resultType="Student">
+        SELECT * FROM student
+    </select>
+
+    <select id="findStudentById" parameterType="int" resultType="Student">
+        SELECT * FROM student WHERE id = #{id}
+    </select>
+
+    <select id="findStudentByGrade" parameterType="String" resultType="Student">
+        SELECT * FROM student WHERE grade = #{grade}
+    </select>
+
+    <select id="findStudentByName" parameterType="String" resultType="Student">
+        SELECT * FROM student WHERE name LIKE "%"#{name}"%"
+    </select>
+
+    <delete id="delStudentById" parameterType="int">
+        DELETE FROM student WHERE id = #{id}
+    </delete>
+
+    <update id="updateStudentById" parameterType="Student">
+       UPDATE student SET sex = #{sex},name = #{name},grade = #{grade},parentsTel = #{parentsTel} WHERE id = #{id}
+    </update>
+
+    <insert id="addStudent" parameterType="Student">
+        insert into student(sex,name,grade,parentsTel) value(#{sex},#{name},#{grade},#{parentsTel})
+    </insert>
+
+</mapper>
