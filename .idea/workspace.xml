@@ -2,228 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="29d9c78f-5aac-4875-9453-3d291761e605" name="Default" comment="小站收支明细类型service书写以及控制层">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/classes/filter/AutoSetUserAdapterFilter.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/classes/entities/Course.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/classes/controller/CourseController.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/classes/dao/CourseDao.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/classes/services/impl/CourseService.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/classes/AuthorityException/DataException.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/classes/services/ICourseService.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/classes/services/IPaymentDetailService.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/classes/services/IStationBalanceTypeService.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/classes/services/IStationService.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/classes/services/IStuCouService.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/classes/services/IStudentService.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/classes/controller/MainController.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/classes/entities/PaymentDetail.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/classes/controller/PaymentDetailController.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/classes/dao/PaymentDetailDao.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/classes/services/impl/PaymentDetailService.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/classes/entities/Station.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/classes/entities/StationBalanceDetailType.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/classes/controller/StationBalanceTypeController.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/classes/dao/StationBalanceTypeDao.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/classes/services/impl/StationBalanceTypeService.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/classes/controller/StationController.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/classes/dao/StationDao.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/classes/services/impl/StationService.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/classes/entities/StuCou.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/classes/controller/StuCouController.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/classes/dao/StuCouDao.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/classes/services/impl/StuCouService.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/classes/entities/Student.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/classes/controller/StudentController.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/classes/dao/StudentDao.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/classes/services/impl/StudentService.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/lib/aopalliance-1.0.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/lib/aspectjrt-1.6.8.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/lib/aspectjweaver-1.6.8.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/resources/js/My97DatePicker/skin/whyGreen/bg.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/resources/js/My97DatePicker/开发包/skin/whyGreen/bg.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/resources/js/My97DatePicker/skin/whyGreen/bg.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/resources/js/My97DatePicker/开发包/skin/whyGreen/bg.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/lib/cas-client-core-3.1.12.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/lib/cglib-nodep-2.2.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/lib/commons-dbcp-1.4.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/lib/commons-lang-2.5.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/lib/commons-logging-1.1.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/lib/commons-pool-1.6.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/resources/js/My97DatePicker/skin/datePicker.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/resources/js/My97DatePicker/开发包/skin/datePicker.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/resources/js/My97DatePicker/skin/datePicker.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/resources/js/My97DatePicker/开发包/skin/datePicker.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/resources/img/error.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/resources/img/error.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/lib/fastjson-1.2.3.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/resources/js/My97DatePicker/skin/default/img.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/resources/js/My97DatePicker/skin/whyGreen/img.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/resources/js/My97DatePicker/开发包/skin/default/img.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/resources/js/My97DatePicker/开发包/skin/whyGreen/img.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/resources/js/My97DatePicker/skin/default/img.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/resources/js/My97DatePicker/skin/whyGreen/img.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/resources/js/My97DatePicker/开发包/skin/default/img.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/resources/js/My97DatePicker/开发包/skin/whyGreen/img.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/lib/jcl-over-slf4j-1.6.4.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/lib/jstl-1.2.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/resources/img/loader.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/resources/img/loader.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/lib/logback-classic-1.0.1.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/lib/logback-core-1.0.1.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/lib/mybatis-3.1.1.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/lib/mybatis-spring-1.1.1.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/lib/mysql-connector-java-5.1.19.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/resources/img/p1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/resources/img/p1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/resources/img/p2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/resources/img/p2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/lib/slf4j-api-1.6.4.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/lib/spring-aop-3.1.1.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/lib/spring-asm-3.1.1.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/lib/spring-aspects-3.1.1.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/lib/spring-beans-3.1.1.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/lib/spring-context-3.1.1.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/lib/spring-context-support-3.1.1.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/lib/spring-core-3.1.1.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/lib/spring-expression-3.1.1.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/lib/spring-jdbc-3.1.1.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/lib/spring-orm-3.1.1.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/lib/spring-oxm-3.1.1.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/lib/spring-tx-3.1.1.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/lib/spring-web-3.1.1.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/lib/spring-webmvc-3.1.1.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/lib/standard-1.1.2.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/resources/img/user.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/resources/img/user.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/views/PaymentDetail/ListPaymentDetails.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/views/PaymentDetail/UpdatePaymentDetails.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/resources/js/My97DatePicker/skin/WdatePicker.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/resources/js/My97DatePicker/开发包/skin/WdatePicker.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/resources/js/My97DatePicker/skin/WdatePicker.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/resources/js/My97DatePicker/开发包/skin/WdatePicker.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/resources/js/My97DatePicker/WdatePicker.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/resources/js/My97DatePicker/WdatePicker.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/classes/application.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/classes/applicationContext.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/views/demo/attention.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/views/demo/attention.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/resources/js/awesomechart.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/resources/js/awesomechart.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/resources/js/My97DatePicker/calendar.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/resources/js/My97DatePicker/calendar.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/views/demo/chart.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/views/demo/chart.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/resources/css/circle.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/resources/css/circle.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/views/demo/common.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/views/demo/common.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/resources/css/commonStyle.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/resources/css/commonStyle.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/classes/mappers/course/course.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/mappers/course/course.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/resources/js/My97DatePicker/skin/default/datepicker.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/resources/js/My97DatePicker/skin/whyGreen/datepicker.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/resources/js/My97DatePicker/开发包/skin/default/datepicker.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/resources/js/My97DatePicker/开发包/skin/whyGreen/datepicker.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/resources/js/My97DatePicker/skin/default/datepicker.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/resources/js/My97DatePicker/skin/whyGreen/datepicker.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/resources/js/My97DatePicker/开发包/skin/default/datepicker.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/resources/js/My97DatePicker/开发包/skin/whyGreen/datepicker.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/views/demo/dialog.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/views/demo/dialog.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/classes/dispatcher-servlet.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/resources/js/My97DatePicker/lang/en.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/resources/js/My97DatePicker/开发包/lang/en.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/resources/js/My97DatePicker/lang/en.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/resources/js/My97DatePicker/开发包/lang/en.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/views/error.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/views/error.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/views/demo/framework.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/views/demo/framework.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/resources/js/iframe.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/resources/js/iframe.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/index.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/initTest.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/resources/js/jquery-1.8.2.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/resources/js/jquery-1.8.2.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/resources/js/jquery.paginate.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/resources/js/jquery.paginate.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/views/course/listCourse.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/views/station/listStation.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/views/stuCou/listStuCou.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/views/stuCou/listStuCou2.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/views/stuCou/listStuCou2.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/views/student/listStudent.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/classes/log4j.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/classes/logback.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/resources/css/main.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/resources/css/main.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/views/common/mainFrame.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/views/common/mainFrame.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/classes/messages.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/resources/css/page.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/resources/css/page.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/views/demo/page.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/views/demo/page.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/resources/js/My97DatePicker/开发包/readme.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/resources/js/My97DatePicker/开发包/readme.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/views/PaymentDetail/test.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/views/PaymentDetail/toInputPaymentDetail.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/WEB-INF/web.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/resources/css/zebra_dialog.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/resources/css/zebra_dialog.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/resources/js/zebra_dialog.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/resources/js/zebra_dialog.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/resources/js/My97DatePicker/lang/zh-cn.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/resources/js/My97DatePicker/开发包/lang/zh-cn.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/resources/js/My97DatePicker/lang/zh-cn.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/resources/js/My97DatePicker/开发包/lang/zh-cn.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/resources/js/My97DatePicker/lang/zh-tw.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/artifacts/aligo_wc_1_war_exploded/resources/js/My97DatePicker/开发包/lang/zh-tw.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/resources/js/My97DatePicker/lang/zh-tw.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/resources/js/My97DatePicker/开发包/lang/zh-tw.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/aligo_wc_1_war_exploded/WEB-INF/classes/services/impl/CourseService.class" afterPath="$PROJECT_DIR$/out/artifacts/aligo_wc_1_war_exploded/WEB-INF/classes/services/impl/CourseService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/services/impl/CourseService.class" afterPath="$PROJECT_DIR$/target/classes/services/impl/CourseService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/aligo_wc_1_war_exploded/WEB-INF/classes/services/IPaymentDetailService.class" afterPath="$PROJECT_DIR$/out/artifacts/aligo_wc_1_war_exploded/WEB-INF/classes/services/IPaymentDetailService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/services/IPaymentDetailService.class" afterPath="$PROJECT_DIR$/target/classes/services/IPaymentDetailService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/aligo_wc_1_war_exploded/WEB-INF/classes/controller/MainController.class" afterPath="$PROJECT_DIR$/out/artifacts/aligo_wc_1_war_exploded/WEB-INF/classes/controller/MainController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/controller/MainController.class" afterPath="$PROJECT_DIR$/target/classes/controller/MainController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/aligo_wc_1_war_exploded/WEB-INF/classes/controller/PaymentDetailController.class" afterPath="$PROJECT_DIR$/out/artifacts/aligo_wc_1_war_exploded/WEB-INF/classes/controller/PaymentDetailController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/controller/PaymentDetailController.class" afterPath="$PROJECT_DIR$/target/classes/controller/PaymentDetailController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/aligo_wc_1_war_exploded/WEB-INF/classes/dao/PaymentDetailDao.class" afterPath="$PROJECT_DIR$/out/artifacts/aligo_wc_1_war_exploded/WEB-INF/classes/dao/PaymentDetailDao.class" />
-      <change type="MODIFICATION" beforePath="C:\Users\Administrator\Desktop\cdio原型\aligo-cw\target\classes\dao\PaymentDetailDao.class" afterPath="C:\Users\Administrator\Desktop\cdio原型\aligo-cw\target\classes\dao\PaymentDetailDao.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/aligo_wc_1_war_exploded/WEB-INF/classes/services/impl/PaymentDetailService.class" afterPath="$PROJECT_DIR$/out/artifacts/aligo_wc_1_war_exploded/WEB-INF/classes/services/impl/PaymentDetailService.class" />
-      <change type="MODIFICATION" beforePath="C:\Users\Administrator\Desktop\cdio原型\aligo-cw\target\classes\services\impl\PaymentDetailService.class" afterPath="C:\Users\Administrator\Desktop\cdio原型\aligo-cw\target\classes\services\impl\PaymentDetailService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/services/impl/CourseService.java" afterPath="$PROJECT_DIR$/src/main/java/services/impl/CourseService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/services/IPaymentDetailService.java" afterPath="$PROJECT_DIR$/src/main/java/services/IPaymentDetailService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/services/IStuCouService.java" afterPath="$PROJECT_DIR$/src/main/java/services/IStuCouService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/aligo_wc_1_war_exploded/WEB-INF/views/PaymentDetail/ListPaymentDetails.jsp" afterPath="$PROJECT_DIR$/out/artifacts/aligo_wc_1_war_exploded/WEB-INF/views/PaymentDetail/ListPaymentDetails.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/views/PaymentDetail/ListPaymentDetails.jsp" afterPath="$PROJECT_DIR$/web/WEB-INF/views/PaymentDetail/ListPaymentDetails.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/controller/MainController.java" afterPath="$PROJECT_DIR$/src/main/java/controller/MainController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/controller/PaymentDetailController.java" afterPath="$PROJECT_DIR$/src/main/java/controller/PaymentDetailController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/dao/PaymentDetailDao.java" afterPath="$PROJECT_DIR$/src/main/java/dao/PaymentDetailDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/services/impl/PaymentDetailService.java" afterPath="$PROJECT_DIR$/src/main/java/services/impl/PaymentDetailService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/controller/StationBalanceTypeController.java" afterPath="$PROJECT_DIR$/src/main/java/controller/StationBalanceTypeController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/entities/StuCou.java" afterPath="$PROJECT_DIR$/src/main/java/entities/StuCou.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/controller/StuCouController.java" afterPath="$PROJECT_DIR$/src/main/java/controller/StuCouController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/dao/StuCouDao.java" afterPath="$PROJECT_DIR$/src/main/java/dao/StuCouDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/services/impl/StuCouService.java" afterPath="$PROJECT_DIR$/src/main/java/services/impl/StuCouService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/aligo_wc_1_war_exploded/WEB-INF/views/PaymentDetail/UpdatePaymentDetails.jsp" afterPath="$PROJECT_DIR$/out/artifacts/aligo_wc_1_war_exploded/WEB-INF/views/PaymentDetail/UpdatePaymentDetails.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/views/PaymentDetail/UpdatePaymentDetails.jsp" afterPath="$PROJECT_DIR$/web/WEB-INF/views/PaymentDetail/UpdatePaymentDetails.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/aligo_wc_1.iml" afterPath="$PROJECT_DIR$/aligo_wc_1.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/aligo_wc_1_war_exploded/WEB-INF/classes/applicationContext.xml" afterPath="$PROJECT_DIR$/out/artifacts/aligo_wc_1_war_exploded/WEB-INF/classes/applicationContext.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/applicationContext.xml" afterPath="$PROJECT_DIR$/src/main/resources/applicationContext.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/applicationContext.xml" afterPath="$PROJECT_DIR$/target/classes/applicationContext.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/aligo_wc_1_war_exploded/index.jsp" afterPath="$PROJECT_DIR$/out/artifacts/aligo_wc_1_war_exploded/index.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/index.jsp" afterPath="$PROJECT_DIR$/web/index.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/aligo_wc_1_war_exploded/WEB-INF/views/station/listStation.jsp" afterPath="$PROJECT_DIR$/out/artifacts/aligo_wc_1_war_exploded/WEB-INF/views/station/listStation.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/views/station/listStation.jsp" afterPath="$PROJECT_DIR$/web/WEB-INF/views/station/listStation.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/views/stuCou/listStuCou.jsp" afterPath="$PROJECT_DIR$/web/WEB-INF/views/stuCou/listStuCou.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/views/common/sourcelib.jsp" afterPath="$PROJECT_DIR$/web/WEB-INF/views/common/sourcelib.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/aligo_wc_1_war_exploded/WEB-INF/views/PaymentDetail/toInputPaymentDetail.jsp" afterPath="$PROJECT_DIR$/out/artifacts/aligo_wc_1_war_exploded/WEB-INF/views/PaymentDetail/toInputPaymentDetail.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/views/PaymentDetail/toInputPaymentDetail.jsp" afterPath="$PROJECT_DIR$/web/WEB-INF/views/PaymentDetail/toInputPaymentDetail.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="DELETED" beforePath="C:\Users\Administrator\Desktop\cdio原型\aligo-cw\web\WEB-INF\views\common\foot.jsp" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Administrator\Desktop\cdio原型\aligo-cw\web\WEB-INF\views\common\left.jsp" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Administrator\Desktop\cdio原型\aligo-cw\web\WEB-INF\views\common\welcome.jsp" afterPath="" />
     </list>
     <ignored path="aligo-cw.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -251,73 +32,7 @@
     <favorites_list name="aligo-cw" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="listStuCou.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/WEB-INF/views/stuCou/listStuCou.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.949367" vertical-offset="2415" max-vertical-offset="4454">
-              <caret line="133" column="16" selection-start-line="133" selection-start-column="16" selection-end-line="133" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ListPaymentDetails.jsp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web/WEB-INF/views/PaymentDetail/ListPaymentDetails.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.28118393" vertical-offset="2264" max-vertical-offset="3774">
-              <caret line="141" column="31" selection-start-line="141" selection-start-column="31" selection-end-line="141" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UpdatePaymentDetails.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/WEB-INF/views/PaymentDetail/UpdatePaymentDetails.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.153846" vertical-offset="612" max-vertical-offset="2567">
-              <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sourcelib.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/WEB-INF/views/common/sourcelib.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.076923" vertical-offset="0" max-vertical-offset="476">
-              <caret line="20" column="89" selection-start-line="20" selection-start-column="89" selection-end-line="20" selection-end-column="89" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="toInputPaymentDetail.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/WEB-INF/views/PaymentDetail/toInputPaymentDetail.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.423077" vertical-offset="0" max-vertical-offset="1343">
-              <caret line="19" column="19" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PaymentDetailController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/controller/PaymentDetailController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1343" max-vertical-offset="5219">
-              <caret line="73" column="36" selection-start-line="73" selection-start-column="36" selection-end-line="73" selection-end-column="36" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2040#2041#0" expanded="true" />
-                <element signature="e#2126#2127#0" expanded="true" />
-                <element signature="e#10459#10474#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
@@ -514,58 +229,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="student" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="aligo_wc_1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="aligo-cw" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WEB-INF" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="stuCou" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="aligo_wc_1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="aligo-cw" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WEB-INF" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="station" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -580,58 +243,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WEB-INF" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PaymentDetail" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="aligo_wc_1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="aligo-cw" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WEB-INF" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="common" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="aligo_wc_1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="aligo-cw" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -659,140 +270,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="services" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="aligo_wc_1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="aligo-cw" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="services" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="impl" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="aligo_wc_1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="aligo-cw" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="aligo_wc_1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="aligo-cw" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="entities" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="aligo_wc_1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="aligo-cw" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dao" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="aligo_wc_1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="aligo-cw" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controller" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1202,7 +679,7 @@
       <workItem from="1428242720313" duration="10253000" />
       <workItem from="1428253202287" duration="1661000" />
       <workItem from="1428318609197" duration="12104000" />
-      <workItem from="1428460816576" duration="7587000" />
+      <workItem from="1428460816576" duration="7796000" />
     </task>
     <task id="LOCAL-00001" summary="添加课程查询，学生查询">
       <created>1428073415019</created>
@@ -1226,11 +703,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46100000" />
+    <option name="totallyTimeSpent" value="46309000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1376" height="754" extended-state="7" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34747145" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1247,7 +724,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15993789" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22185971" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25882354" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25882354" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1579,10 +1056,10 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="1343" max-vertical-offset="5219">
           <caret line="73" column="36" selection-start-line="73" selection-start-column="36" selection-end-line="73" selection-end-column="36" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2040#2041#0" expanded="true" />
-            <element signature="e#2126#2127#0" expanded="true" />
-            <element signature="e#10459#10474#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#2040#2041#0" expanded="false" />
+            <element signature="e#2126#2127#0" expanded="false" />
+            <element signature="e#10459#10474#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1614,7 +1091,7 @@
     <entry file="file://$PROJECT_DIR$/web/WEB-INF/views/PaymentDetail/ListPaymentDetails.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.28118393" vertical-offset="2264" max-vertical-offset="3774">
-          <caret line="141" column="31" selection-start-line="141" selection-start-column="31" selection-end-line="141" selection-end-column="31" />
+          <caret line="141" column="18" selection-start-line="141" selection-start-column="18" selection-end-line="141" selection-end-column="18" />
           <folding />
         </state>
       </provider>
