@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+ <mapper namespace="station">
+
+    <select id="findAllStation" resultType="Station">
+        SELECT * FROM station
+    </select>
+
+    <select id="findStationById" parameterType="int" resultType="Station">
+        SELECT * FROM station WHERE id = #{id}
+    </select>
+
+    <delete id="delStationById" parameterType="int">
+        DELETE FROM station WHERE id = #{id}
+    </delete>
+
+    <update id="updateStationTotalById" parameterType="Station">
+        UPDATE station SET address = #{address},managerId = #{managerId},accountRatio = #{accountRatio},totalAmount = #{totalAmount},totalAmount = #{totalAmount},actualAmount = #{actualAmount},actualAmountString = #{actualAmountString} WHERE id = #{id}
+    </update>
+
+    <insert id="addStation" parameterType="Station">
+        INSERT INTO station(address,managerId,accountRatio,totalAmount,actualAmount,actualAmountString) VALUE(#{address},#{managerId},#{accountRatio},#{totalAmount},#{actualAmount},#{actualAmountString})
+    </insert>
+
+</mapper>
