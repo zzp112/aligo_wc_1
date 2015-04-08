@@ -72,7 +72,7 @@
 		</div>
 
         <!-- 内嵌网页 -->
-        <iframe src="<c:url value="/WEB-INF/views/demo/attention.jsp"/>" frameborder="0" scrolling="no" name="frame"
+        <iframe src="<%=welcomeUrl%>" frameborder="0" scrolling="no" name="frame"
                 id="ifm" name="ifm" onload="javascript:dyniframesize('ifm');IFrameReSizeWidth('ifm');" style="border: 1px solid;width:1050px;height: 540px;" >
         </iframe>
 	</div>
