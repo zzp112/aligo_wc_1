@@ -42,4 +42,16 @@
     </update>
 
     <!--动态查询小站收支明细-->
+    <select id="findPaymentDetailBySql" resultType="PaymentDetail">
+        select * from  paymentDetails WHERE 1=1
+        <if test="balance!=null">
+            and Balance = #{balance}
+        </if>
+        <if test="balance_type!=null">
+            and Type = #{balance_type}
+        </if>
+        <if test="create_date!=null">
+            and CreateDate = #{create_date}
+        </if>
+    </select>
 </mapper>
