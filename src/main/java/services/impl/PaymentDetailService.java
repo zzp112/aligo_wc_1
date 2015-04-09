@@ -3,6 +3,8 @@ package services.impl;
 import AuthorityException.DataException;
 import dao.PaymentDetailDao;
 import entities.PaymentDetail;
+import org.apache.ibatis.session.SqlSession;
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
@@ -18,17 +20,41 @@ import java.util.List;
 @Service
 @Transactional
 public class PaymentDetailService implements IPaymentDetailService {
-    @Autowired
-    private PaymentDetailDao paymentDetailMapper;
 
-    public List<PaymentDetail> findAllPaymentDetails() {
-        return paymentDetailMapper.loadAllPaymentDetails();
+    @Autowired
+    private SqlSessionTemplate sqlSession;
+
+
+    //添加
+    public void CreatePaymentDetail(PaymentDetail paymentDetail) {
+        try {
+            sqlSession.insert("paymentDetail.CreatePaymentDetail",paymentDetail);
+        } catch (Exception ex) {
+            throw new DataException(ex.getMessage());
+        }
     }
 
+    //删除
+    public void DeletePaymentDetail(Integer detail_id) {
+        try{
+            sqlSession.delete("paymentDetail.DeletePaymentDetail",detail_id);
+        }catch (Exception ex){
+            throw new DataException(ex.getMessage());
+        }
+    }
+
+
+    //查询所有
+    public List<PaymentDetail> findAllPaymentDetails() {
+        return sqlSession.selectList("paymentDetail.findAllPaymentDetails");
+    }
+
+
+    //更新
     @Override
     public boolean UpdatePaymentDetail(PaymentDetail paymentDetail) {
         try {
-            paymentDetailMapper.UpdatePayment(paymentDetail);
+            sqlSession.update("paymentDetail.UpdatePaymentDetail",paymentDetail);
             return true;
         } catch (Exception exception) {
             //捕获并抛出异常
@@ -36,40 +62,25 @@ public class PaymentDetailService implements IPaymentDetailService {
         }
     }
 
-    public void CreatePaymentDetail(PaymentDetail paymentDetail) {
-        try {
-            paymentDetailMapper.CreatePaymentDetail(paymentDetail);
-        } catch (Exception ex) {
-            throw new DataException(ex.getMessage());
-        }
-    }
-
-    public void DeletePaymentDetail(Integer detail_id) {
-        paymentDetailMapper.DeletePaymentDetail(detail_id);
-    }
-
+    //按照id查询
     @Override
     public PaymentDetail findPaymentDetailById(Integer detail_id) {
         try {
-            return paymentDetailMapper.findPaymentDetailById(detail_id);
+            return sqlSession.selectOne("paymentDetail.findPaymentDetailById", detail_id);
         } catch (Exception ex) {
             throw new DataException(ex.getMessage());
         }
     }
 
-    /**
-     * 三个不同参数的查询
-     */
-    public List<PaymentDetail> search(String balance) {
-        return paymentDetailMapper.search(balance);
-    }
 
-    public List<PaymentDetail> searchByTime(String begin_time, String end_time) {
-        return paymentDetailMapper.searchByTime(begin_time, end_time);
-    }
-
-    public List<PaymentDetail> searchByAll(String balance, String begin_time, String end_time) {
-        return paymentDetailMapper.searchByAll(balance, begin_time, end_time);
+    //多条件查询
+    @Override
+    public List<PaymentDetail> findPaymentDetailBySql(PaymentDetail paymentDetail) {
+        try {
+            return sqlSession.selectList("paymentDetail.findPaymentDetailBySql", paymentDetail);
+        } catch (Exception ex) {
+            throw new DataException(ex.getMessage());
+        }
     }
 
 }

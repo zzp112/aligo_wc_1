@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="stationBalanceType">
+
+
+    <!--增加一条小站收支明细类别-->
+    <insert id="CreateStationBalanceType" parameterType="StationBalanceDetailType">
+          INSERT INTO stationPaymentDetailType(type_name)VALUES(#{paymentTypeName})
+    </insert>
+
+    <!--删除一条收支明细-->
+    <delete id="RemoveStationBalanceType" parameterType="int">
+          DELETE stationPaymentDetailType FROM stationPaymentDetailType WHERE type_id=#{paymentTypeId}
+    </delete>
+
+
+    <!--更新一条收支明细记录-->
+    <update id="UpdateStationBalanceType" parameterType="StationBalanceDetailType">
+          UPDATE stationPaymentDetailType SET type_name=#{paymentTypeName} FROM stationPaymentDetailType
+          WHERE type_id=#{paymentTypeId}
+    </update>
+
+    <!--查询出所有的收支明细-->
+    <select id="listAllStationBalanceType" resultType="StationBalanceDetailType">
+        select type_id as paymentTypeId,type_name as paymentTypeName from stationPaymentDetailType
+--            SELECT *FROM stationPaymentDetailType
+    </select>
+
+    <!--根据id查找类别-->
+    <select id="findAllStationBalanceTypeById" parameterType="int" resultType="StationBalanceDetailType">
+        select type_id as paymentTypeId,type_name as paymentTypeName from stationPaymentDetailType where type_id=#{typeId}
+--            SELECT *FROM stationPaymentDetailType WHERE type_id=#{typeId}
+    </select>
+
+    <!--根据类别名称查询出小站收支明细类别-->
+    <select id="findAllStationBalanceTypeByName" parameterType="String" resultType="StationBalanceDetailType">
+             select type_id as paymentTypeId,type_name as paymentTypeName from stationPaymentDetailType where type_name=#{typeName}
+--           SELECT *FROM stationPaymentDetailType WHERE type_name=#{typeName}
+    </select>
+</mapper>

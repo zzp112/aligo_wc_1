@@ -1,17 +1,10 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ include file="/WEB-INF/views/common/sourcelib.jsp" %>
 <!DOCTYPE html>
 
 <html>
 <head>
     <title>学生管理</title>
-    <script type="text/javascript" src="<c:url value="/resources/js/jquery-1.8.2.js"/>"></script>
-    <script type="text/javascript" src="<c:url value="/resources/js/jquery.paginate.js"/>" ></script>
-    <script type="text/javascript" src="<c:url value="/resources/js/zebra_dialog.js"/>"></script>
-    <script language="javascript" type="text/javascript" src="/resources/js/My97DatePicker/WdatePicker.js"></script>
-    <link rel="stylesheet" href="<c:url value="/resources/css/zebra_dialog.css"/>"/>
-    <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/commonStyle.css"/>">
-    <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/page.css"/>" />
 
     <style type="text/css">
         table{text-align: right;}
@@ -41,7 +34,7 @@
                     "<td>"+ p.sex+"</td>"+
                     "<td>"+ p.grade+"</td>"+
                     "<td>"+ p.parentsTel+"</td>"+
-                    "<td><span onclick='modifycontent("+p.id+")'>修</span>&nbsp;&nbsp;<span onclick='deleteStuCou("+p.id+")'>删</span></td>"+
+                    "<td><span onclick='modifycontent("+p.id+")'>修</span>&nbsp;&nbsp;<span onclick='deleteStudentById("+p.id+")'>删</span></td>"+
                     "</tr>";
                 }
                 table.append(dataStr);
@@ -67,15 +60,15 @@
         });
 
 
-        function deleteStuCou(id){
+        function deleteStudentById(id){
             if(confirm("您确定要删除第"+id+"条数据吗")){
                 $.ajax({
                     type: "POST",
-                    url: "some.php",
-                    data: "name=John&location=Boston",
-                    success: function(msg){
-                        alert( "Data Saved: " + msg );
-                    }
+                    url: "/student/delStudentById",
+                    data: "id="+id,
+                    success: function(data){
+                        findStudent();
+                }
                 });
             }
         }
@@ -106,30 +99,54 @@
             });
 
         }
+        function findStudent(){
+                $.ajax({
+                    type: "POST",
+                    url: "/student/findStudentByNameAndGrade",
+                    data: "name="+ $("#nameKEY").val() +"&grade="+ $("#gradeKEY").val(),
+                    success: function (data) {
+                        $('#letitsave').nextAll().remove();
+                        var obj = eval("(" + data + ")");
+                        var temp = obj[0];
+                        var dataStr = "";
+                        for (var i = 0; i < obj.length; i++) {
+                            var p = obj[i];
+                            var table = $('.table');
+                            dataStr += "<tr>" +
+                            "<td>" + p.id + "</td>" +
+                            "<td>" + p.name + "</td>" +
+                            "<td>" + p.sex + "</td>" +
+                            "<td>" + p.grade + "</td>" +
+                            "<td>" + p.parentsTel + "</td>" +
+                            "<td><span onclick='modifycontent(" + p.id + ")'>修</span>&nbsp;&nbsp;<span onclick='deleteStudentById(" + p.id + ")'>删</span></td>" +
+                            "</tr>";
+                        }
+                        table.append(dataStr);
+                    }
+
+                });
+        }
     </script>
 </head>
 <body>
 <div style="position:relative;">
     <label class="module-title">学生信息管理</label>
-    <input type="button" class="btn-blue" value="添加" style="position:absolute;top:0;right:0;" onclick="addcontent()">
+
 </div>
 <div>
     <table class="table" cellspacing="0">
         <tr>
             <td colspan="9">
                 姓名搜索：
-                <input  type="text" class="input-text" style="width: 104px">
-                性别搜索：
-                <input type="text" class="input-text" style="width: 104px"/>
+                <input  type="text" class="input-text" style="width: 104px" id="nameKEY" name="nameKEY">
                 年级搜索：
-                <input type="text" class="input-text" style="width: 104px"/>
-                家长电话搜索：
-                <input type="text" class="input-text" style="width: 103px"/>
-                <input type="button" class="btn-green" value="搜索" />
+                <input type="text" class="input-text" style="width: 104px" id="gradeKEY" name="gradeKEY"/>
+                <input type="button" class="btn-green" value="搜索" onclick="findStudent()" />
+                <input type="button" class="btn-blue" value="添加"  onclick="addcontent()">
             </td>
         </tr>
 
-        <tr>
+        <tr id="letitsave">
             <td style="width: 130px">编号</td>
             <td style="width: 130px">姓名</td>
             <td style="width: 130px">性别</td>

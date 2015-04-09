@@ -37,6 +37,10 @@ public class StudentService implements IStudentService {
     }
 
     @Override
+    public List<Student> findStudentByNameAndGrade(Student student){
+        return sqlSession.selectList("student.findStudentByNameAndGrade", student);
+    }
+    @Override
     public boolean delStudentById(String id) {
         if(id == null)
             return false;

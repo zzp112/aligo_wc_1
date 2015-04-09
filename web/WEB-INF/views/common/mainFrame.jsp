@@ -59,8 +59,8 @@
                             <li><a href="/course/listCourse" target="frame">课程管理</a></li>
                             <li><a href="/toListPaymentDetails" target="frame">小站收支明细</a></li>
                             <li><a href="/stuCou/listStuCou" target="frame">小站营运明细</a></li>
-                            <li><a href="<c:url value="/toAttention"/>" target="frame">更新说明</a></li>
-                            <li><a href="<c:url value="/error"/>" target="frame">错误网页样例</a></li>
+                            <li><a href="/toAttention >" target="frame">更新说明</a></li>
+                            <li><a href="/error>" target="frame">错误网页样例</a></li>
                             <%--welcomeUrl为默认欢迎页面路径，设置方便测试--%>
                             <li><a href="<%=welcomeUrl%>" target="frame">默认欢迎页面：<%=welcomeUrl%></a></li>
                         </ul>
@@ -72,7 +72,7 @@
 		</div>
 
         <!-- 内嵌网页 -->
-        <iframe src="<c:url value="/WEB-INF/views/demo/attention.jsp"/>" frameborder="0" scrolling="no" name="frame"
+        <iframe src="<%=welcomeUrl%>" frameborder="0" scrolling="yes" name="frame"
                 id="ifm" name="ifm" onload="javascript:dyniframesize('ifm');IFrameReSizeWidth('ifm');" style="border: 1px solid;width:1050px;height: 540px;" >
         </iframe>
 	</div>

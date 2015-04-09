@@ -2,11 +2,10 @@ package services;
 
 import entities.PaymentDetail;
 
-import javax.xml.soap.DetailEntry;
 import java.util.List;
 
 /**
- * Created by Administrator on 2015/4/3.
+ * Created by 张超红 on 2015/4/3.
  */
 public interface IPaymentDetailService {
 
@@ -41,22 +40,11 @@ public interface IPaymentDetailService {
     public PaymentDetail findPaymentDetailById(Integer detail_id);
 
     /**
-     * 按类别查询收支明细
+     * 多条件查询小站收支明细
+     * @param paymentDetail
      * @return
      */
-    public  List<PaymentDetail> search(String balance);
-
-    /**
-     * 按时间查询收支明细
-     * @return
-     */
-    public  List<PaymentDetail> searchByTime(String begin_time, String end_time);
-
-    /**
-     * 按所有条件查询收支明细
-     * @return
-     */
-    public  List<PaymentDetail> searchByAll(String balance, String begin_time, String end_time);
+    public List<PaymentDetail> findPaymentDetailBySql(PaymentDetail paymentDetail);
 
 
 }

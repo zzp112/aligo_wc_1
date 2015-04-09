@@ -24,9 +24,7 @@ public class CourseService implements ICourseService {
     private SqlSessionTemplate sqlSession;
 
     @Override
-    public List<Course> findAllCourse() {
-        return sqlSession.selectList("course.findAllCourse");
-    }
+    public List<Course> findAllCourse() {return sqlSession.selectList("course.findAllCourse"); }
 
     @Override
     public Course findCourseById(String id) { return sqlSession.selectOne("course.findCourseById", id); }
