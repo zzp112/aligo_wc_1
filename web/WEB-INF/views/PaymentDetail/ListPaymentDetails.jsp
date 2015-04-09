@@ -17,10 +17,10 @@
             }
             else{
                 if(${IsRight=="yes"}){
-                    alert("修改成功!");
+                    alert("修改或添加成功!");
                 }
                 else{
-                    alert("修改失败!");
+                    alert("修改或添加失败!");
                 }
             }
         });
@@ -180,31 +180,32 @@
 <div>
 
     <div style="position:relative;">
-        <label class="module-title">小站收支明细表</label><br>
+        <label class="module-title">&nbsp;小站收支明细表</label><br>
 
-        <div title="显示小站资金收支明细数据" style="width: 920px">
-            &nbsp
+        <div title="显示小站资金收支明细数据" style="margin-top: 10px;margin-bottom: 10px;">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <span>收支类型:</span>
-            <select  name="balance_state" style="width:150px;">
+            <select  name="balance_state" style="width:160px;">
                 <option value="0">===请选择===</option>
                 <option value="income">收入</option>
                 <option value="outcome">支出</option>
             </select>
-
+            &nbsp;&nbsp;
             <span>类别:</span>
             <%--<div class="DetailBalanceType" name="balance_type"style="width:150px;"></div>--%>
-            <select id="DetailBalanceType" name="balance_type" style="width:150px;">
+            <select id="DetailBalanceType" name="balance_type" style="width:160px;">
                 <option value="0">===请选择===</option>
             </select>
+            &nbsp;&nbsp;
             <span>开始:</span>
-            <input id="start_time" name="start_time">
-
+            <input id="start_time" name="start_time" style="width: 160px;height:24px;">
+            &nbsp;&nbsp;
             <span>结束:</span>
-            <input id="end_time" name="end_time">
+            <input id="end_time" name="end_time" style="width: 160px;height:24px;">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="button" class="btn-green" value="查  询" onclick="doSearch();">
 
-            <input type="button" class="btn-green" value="查询" style="width:43px;height: 23px;"onclick="doSearch();">
-
-            <input type="button" class="btn-blue" value="添加" style="position:absolute;top:0;right:0;"
+            <input type="button" class="btn-blue" value="添  加" style="position:absolute;top:5px;right:5px;"
                    onclick="addBalanceDetail();">
         </div>
 
@@ -216,10 +217,10 @@
 
 
         <div>
-            <table class="table" cellspacing="0">
+            <table class="table" cellspacing="0" style="margin-left: 10px;">
                 <tr>
 
-                    <td style="width: 80px">明细id</td>
+                    <td style="width: 80px">明细ID</td>
                     <td style="width: 100px">收入/支出</td>
                     <td style="width: 80px">金额</td>
                     <td style="width: 180px">类别</td>
@@ -229,7 +230,6 @@
             </table>
             <div class="page"></div>
         </div>
-    </div>
     </div>
 </body>
 </html>

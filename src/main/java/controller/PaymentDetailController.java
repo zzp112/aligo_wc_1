@@ -4,7 +4,6 @@ import AuthorityException.DataException;
 import com.alibaba.fastjson.JSON;
 import entities.PaymentDetail;
 import entities.Station;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,27 +13,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import services.IPaymentDetailService;
 import services.IStationService;
-import services.impl.PaymentDetailService;
 
 import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import com.alibaba.fastjson.JSON;
-import entities.PaymentDetail;
-import org.apache.ibatis.annotations.Param;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+
 import org.springframework.web.bind.annotation.*;
-import services.IPaymentDetailService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -121,43 +110,15 @@ public class PaymentDetailController {
      * @return
      */
     @RequestMapping(value = "/CreatePaymentDetail")
-    public String CreatePaymentDetail(HttpServletRequest request,
-//            @Param("station_id") String station_id, @Param("create_date") Date create_date, @Param("advice") String advice,
-//            @Param("balance_type") String balance_type, @Param("balance") String balance,
-//            @Param("balance_amount") Integer balance_amount
-                                      ModelMap modelMap
+    public String CreatePaymentDetail(PaymentDetail paymentDetail, ModelMap modelMap
     ) {
-
-        PaymentDetail paymentDetail = new PaymentDetail();
-
-        String station_id = request.getParameter("station_id");
-        String create_date = request.getParameter("create_date");
-        String advice = request.getParameter("advice");
-        String balance_type = request.getParameter("balance_type");
-        String balance = request.getParameter("balance");
-        double balance_amount = Double.parseDouble(request.getParameter("balance_amount"));
-        String updateImfor = new String();
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-
-        try {
-            paymentDetail.setStation_id(new String(station_id.getBytes("ISO-8859-1"), "UTF-8"));
-            paymentDetail.setBalance_comment(new String(advice.getBytes("ISO-8859-1"), "UTF-8"));
-            paymentDetail.setBalance_type(new String(balance_type.getBytes("ISO-8859-1"), "UTF-8"));
-//            paymentDetail.setCreate_date(format.format(create_date));
-            paymentDetail.setCreate_date(create_date);
-            paymentDetail.setBalance(balance);
-            paymentDetail.setBalance_amount(balance_amount);
-        } catch (UnsupportedEncodingException exception) {
-            System.out.println(exception.getMessage());
-        }
-
         try {
             paymentDetailService.CreatePaymentDetail(paymentDetail);
             System.out.println("创建一条新的小站支出记录成功..." + paymentDetail);
-            modelMap.put("IsRight","yes");
+            modelMap.put("IsRight", "yes");
         } catch (DataException Exception) {
             System.out.println("创建失败..." + Exception.getMessage());
-            modelMap.put("IsRight","no");
+            modelMap.put("IsRight", "no");
         }
         //重定向到列表界面
         return "PaymentDetail/ListPaymentDetails";
@@ -181,30 +142,13 @@ public class PaymentDetailController {
      * @return
      */
     @RequestMapping(value = "/updateCurrentRowPaymentDetail")
-    public String updateCurrentRowPaymentDetail(HttpServletRequest request,
-//            @Param("station_id") String station_id, @Param("create_date") Date create_date, @Param("balance") String balance,
-//            @Param("balance_amount") double balance_amount,@Param("balance_type") String balance_type, @Param("advice") String advice,
-                                                ModelMap modelMap) {
-        String station_id = request.getParameter("station_id");
-        String create_date = request.getParameter("create_date");
-        String advice = request.getParameter("advice");
-        String balance_type = request.getParameter("balance_type");
-        String balance = request.getParameter("balance");
-        double balance_amount = Double.parseDouble(request.getParameter("balance_amount"));
+    public String updateCurrentRowPaymentDetail(PaymentDetail paymentDetail, ModelMap modelMap) {
+        //更新是否成功消息定义
         String updateImfor = new String();
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         System.out.println("正在更新中...");
-        try {
-            paymentDetail.setStation_id(new String(station_id.getBytes("ISO-8859-1"), "UTF-8"));
-            paymentDetail.setBalance_comment(new String(advice.getBytes("ISO-8859-1"), "UTF-8"));
-            paymentDetail.setBalance_type(new String(balance_type.getBytes("ISO-8859-1"), "UTF-8"));
-//            paymentDetails.setCreate_date(format.format(create_date));
-            paymentDetail.setCreate_date(create_date);
-            paymentDetail.setBalance(balance);
-            paymentDetail.setBalance_amount(balance_amount);
-        } catch (UnsupportedEncodingException exception) {
-            System.out.println(exception.getMessage());
-        }
+        //标准化时间
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+//        paymentDetail.setCreate_date(format.format(paymentDetail.getCreate_date()));
         try {
             paymentDetailService.UpdatePaymentDetail(paymentDetail);
             updateImfor = "修改一条新的小站支出记录成功...";
@@ -236,72 +180,72 @@ public class PaymentDetailController {
         return "PaymentDetail/ListPaymentDetails";
     }
 
-    /**
-     * 按类别查询收支明细记录
-     *
-     * @return
-     */
-    @ResponseBody
-    @RequestMapping(value = "/searchPaymentDetail")
-    public String searchPaymentDetail(String balance, HttpServletResponse response) {
-
-        response.setContentType("text/html;charset=utf-8");
-        PrintWriter out = null;
-        try {
-            out = response.getWriter();
-            out.write(JSON_STR + "(" + JSON.toJSONString(paymentDetailService.search(balance)) + ")");
-            out.flush();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-
-            out.close();
-        }
-        return null;
-    }
-
-    /**
-     * 按日期查询收支明细记录
-     *
-     * @return
-     */
-    @ResponseBody
-    @RequestMapping(value = "/searchPaymentDetailByTime")
-    public String searchPaymentDetailByTime(@RequestParam("start_time") String begin_time, @RequestParam("end_time") String end_time, HttpServletResponse response) {
-
-        response.setContentType("text/html;charset=utf-8");
-        PrintWriter out = null;
-        try {
-            out = response.getWriter();
-            out.write(JSON_STR + "(" + JSON.toJSONString(paymentDetailService.searchByTime(begin_time, end_time)) + ")");
-            out.flush();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            out.close();
-        }
-        return null;
-    }
-
-    /**
-     * 按收支类别日期查询收支明细记录
-     *
-     * @return
-     */
-    @ResponseBody
-    @RequestMapping(value = "/searchByAll", method = RequestMethod.POST, params = "json")
-    public String searchByAll(@RequestBody Map<String, Object> info) {
-        System.out.println("success");
-        List<PaymentDetail> list = new ArrayList<PaymentDetail>();
-        String s1 = "", s2 = "", s3 = "";
-        System.out.println(info.toString());
-
-        s1 = (String) info.get("balance");
-        s2 = (String) info.get("begin_time");
-        s3 = (String) info.get("end_time");
-        // list = paymentDetailService.searchByAll(s1,s2,s3);
-        return JSON.toJSONString(paymentDetailService.searchByAll(s1, s2, s3));
-    }
+//    /**
+//     * 按类别查询收支明细记录
+//     *
+//     * @return
+//     */
+//    @ResponseBody
+//    @RequestMapping(value = "/searchPaymentDetail")
+//    public String searchPaymentDetail(String balance, HttpServletResponse response) {
+//
+//        response.setContentType("text/html;charset=utf-8");
+//        PrintWriter out = null;
+//        try {
+//            out = response.getWriter();
+//            out.write(JSON_STR + "(" + JSON.toJSONString(paymentDetailService.search(balance)) + ")");
+//            out.flush();
+//
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        } finally {
+//
+//            out.close();
+//        }
+//        return null;
+//    }
+//
+//    /**
+//     * 按日期查询收支明细记录
+//     *
+//     * @return
+//     */
+//    @ResponseBody
+//    @RequestMapping(value = "/searchPaymentDetailByTime")
+//    public String searchPaymentDetailByTime(@RequestParam("start_time") String begin_time, @RequestParam("end_time") String end_time, HttpServletResponse response) {
+//
+//        response.setContentType("text/html;charset=utf-8");
+//        PrintWriter out = null;
+//        try {
+//            out = response.getWriter();
+//            out.write(JSON_STR + "(" + JSON.toJSONString(paymentDetailService.searchByTime(begin_time, end_time)) + ")");
+//            out.flush();
+//
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        } finally {
+//            out.close();
+//        }
+//        return null;
+//    }
+//
+//    /**
+//     * 按收支类别日期查询收支明细记录
+//     *
+//     * @return
+//     */
+//    @ResponseBody
+//    @RequestMapping(value = "/searchByAll", method = RequestMethod.POST, params = "json")
+//    public String searchByAll(@RequestBody Map<String, Object> info) {
+//        System.out.println("success");
+//        List<PaymentDetail> list = new ArrayList<PaymentDetail>();
+//        String s1 = "", s2 = "", s3 = "";
+//        System.out.println(info.toString());
+//
+//        s1 = (String) info.get("balance");
+//        s2 = (String) info.get("begin_time");
+//        s3 = (String) info.get("end_time");
+//        // list = paymentDetailService.searchByAll(s1,s2,s3);
+//        return JSON.toJSONString(paymentDetailService.searchByAll(s1, s2, s3));
+//    }
 }

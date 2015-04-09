@@ -19,8 +19,6 @@ import java.util.Map;
 @Service
 @Transactional
 public class StuCouService implements IStuCouService {
-    @Autowired
-    private StuCouDao stuCouDao;
 
 
     @Autowired
@@ -67,12 +65,13 @@ public class StuCouService implements IStuCouService {
 
     @Override
     public List<StuCou> loadStuCouByDate(String courseDate, String courseDate2) {
-        return stuCouDao.loadStuCouByDate(courseDate, courseDate2);
+//        return stuCouDao.loadStuCouByDate(courseDate, courseDate2);
+        return null;
     }
 
     @Override
     public void updateStuCou(StuCou stuCou) {
-        stuCouDao.updateStuCou(stuCou);
+        sqlSession.selectList("stuCou.updateStuCou",stuCou);
     }
 
     @Override
