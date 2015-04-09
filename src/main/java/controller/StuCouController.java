@@ -44,7 +44,6 @@ public class StuCouController {
         List<StuCou> stuCous=null;
 
         stuCous=stuCouService.loadStuCouByStuId(id);
-
         return JSON.toJSONString(stuCous);
     }
     @ResponseBody

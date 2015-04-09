@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="paymentDetail">
+
+    <!--查询所有的小站收支明细-->
+    <select id="findAllPaymentDetails" resultType="PaymentDetail">
+--         select DetailId as detail_id,StationId as station_id,CreateDate as create_date,Balance as balance,
+--         BalanceAmount as balance_amount,Type as balance_type,
+--         Comment as balance_comment from paymentDetails
+           SELECT * FROM paymentDetails;
+    </select>
+
+    <!--根据id查询出小站收支明细-->
+    <select id="findPaymentDetailById" parameterType="int" resultType="PaymentDetail">
+--             select DetailId as detail_id,StationId as station_id,CreateDate " +
+--             "as create_date,Balance as balance,BalanceAmount as balance_amount,Type as balance_type," +
+--             "Comment as balance_comment from paymentDetails where DetailId=#{detail_id}
+           SELECT * FROM paymentDetails WHERE DetailId=#{detail_id}
+        LIKE #{id}#
+    </select>
+
+    <!--添加一条收支明细-->
+    <insert id="CreatePaymentDetail" parameterType="PaymentDetail">
+        insert into paymentDetails(StationId,CreateDate,Balance,BalanceAmount,Type,Comment)
+        values(#{station_id},#{create_date},#{balance},#{balance_amount},#{balance_type},#{balance_comment})
+    </insert>
+
+    <!--根据id删除一条收支明细-->
+    <delete id="DeletePaymentDetail" parameterType="int">
+           DELETE FROM paymentDetails WHERE DetailId=#{payment_id}
+    </delete>
+
+
+    <!--修改一条小站收支明细-->
+    <update id="UpdatePaymentDetail" parameterType="PaymentDetail">
+           UPDATE paymentDetails SET StationId=#{station_id},CreateDate=#{create_date},
+           Balance=#{balance},BalanceAmount=#{balance_amount},Type=#{balance_type},Comment=#{balance_comment}
+           where DetailId=#{detail_id}
+    </update>
+
+    <!--动态查询小站收支明细-->
+<<<<<<< HEAD
+    <select id="findPaymentDetailBySql" resultType="PaymentDetail">
+        select * from  paymentDetails WHERE 1=1
+        <if test="balance!=null">
+            and Balance = #{balance}
+        </if>
+        <if test="balance_type!=null">
+            and Type = #{balance_type}
+        </if>
+        <if test="create_date!=null">
+            and CreateDate = #{create_date}
+        </if>
+    </select>
+=======
+>>>>>>> f396f4be2282a43731e8032a0e333e581383890e
+</mapper>

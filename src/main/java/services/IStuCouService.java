@@ -20,7 +20,6 @@ public interface IStuCouService {
     public List<StuCou> loadStuCus();
 
 
-
     public List<StuCou> findByParam(StuCouSearchHelper stuCouSearchHelper);
     /**
      * 根据课程ID查找选课信息
@@ -36,8 +35,6 @@ public interface IStuCouService {
 
     /**
      * 根据日期范围查找选课信息
-     * @Param beginDate 起始日期
-     * @Param endDate 结束日期
      * @return 选课信息列表
      * */
     public List<StuCou> loadStuCouByDateScope(String beginDate,String endDate);

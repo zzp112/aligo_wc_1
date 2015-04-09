@@ -28,7 +28,7 @@ public class StuCouService implements IStuCouService {
 
     @Override
     public StuCou loadStuCouByStuCouId(Integer stuCouId) {
-        return (StuCou)sqlSession.selectList("stuCou.loadStuCouByStuCouId", stuCouId).get(0);
+        return (StuCou) sqlSession.selectList("stuCou.loadStuCouByStuCouId", stuCouId).get(0);
     }
 
     @Override
@@ -38,13 +38,13 @@ public class StuCouService implements IStuCouService {
 
     @Override
     public List<StuCou> findByParam(StuCouSearchHelper stuCouSearchHelper) {
-        return sqlSession.selectList("stuCou.findByParam",stuCouSearchHelper);
+        return sqlSession.selectList("stuCou.findByParam", stuCouSearchHelper);
 //        return null;
     }
 
     @Override
     public List<StuCou> loadStuCouByCouId(Integer courseId) {
-        return sqlSession.selectList("stuCou.loadStuCouByCouId",courseId);
+        return sqlSession.selectList("stuCou.loadStuCouByCouId", courseId);
     }
 
     @Override
@@ -53,21 +53,21 @@ public class StuCouService implements IStuCouService {
     }
 
     @Override
-    public List<StuCou> loadStuCouByDateScope(String beginDate,String endDate) {
-        Map<String,Object> param=new HashMap<String, Object>();
-        param.put("beginDate",beginDate);
-        param.put("endDate",endDate);
+    public List<StuCou> loadStuCouByDateScope(String beginDate, String endDate) {
+        Map<String, Object> param = new HashMap<String, Object>();
+        param.put("beginDate", beginDate);
+        param.put("endDate", endDate);
         return sqlSession.selectList("stuCou.loadStuCouByDateScope", param);
     }
 
     @Override
     public List<StuCou> loadStuCouByDate(String yearAndMonth) {
-        return sqlSession.selectList("stuCou.loadStuCouByYearAndMonth",yearAndMonth);
+        return sqlSession.selectList("stuCou.loadStuCouByYearAndMonth", yearAndMonth);
     }
 
     @Override
     public List<StuCou> loadStuCouByDate(String courseDate, String courseDate2) {
-        return null;
+        return stuCouDao.loadStuCouByDate(courseDate, courseDate2);
     }
 
     @Override
