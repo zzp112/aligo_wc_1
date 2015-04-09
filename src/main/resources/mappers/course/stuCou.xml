@@ -11,8 +11,8 @@
     </sql>
 
     <sql id="where_sql">
-        <if test="stationName!=null">
-            and stationId = #{stationName}
+        <if test="stationId!=null">
+            and stationId = #{stationId}
         </if>
         <if test="studentId!=null">
             and studentId = #{studentId}
@@ -21,12 +21,12 @@
             and courseId = #{courseId}
         </if>
         <if test="yearAndMonth!=null">
-            and courseDate like '%'||#{yearAndMonth}||'%'
+            and courseDate like "%"#{yearAndMonth}"%"
         </if>
     </sql>
 
-    <insert id="addStuCou">
-        insert into studentCourse(stationId,studentId,courseId,courseCount,courseDate) value(1,1,1,7,"2012-04-04")
+    <insert id="addStuCou" parameterType="StuCou">
+        insert into studentCourse(stationId,studentId,courseId,courseCount,courseDate) value(#{stationId},#{studentId},#{courseId},#{courseCount},#{courseDate})
     </insert>
 
 
