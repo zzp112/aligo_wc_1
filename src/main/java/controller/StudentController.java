@@ -1,6 +1,7 @@
 package controller;
 
 import com.alibaba.fastjson.JSON;
+import entities.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -82,6 +83,18 @@ public class StudentController {
         return JSON.toJSONString(studentService.findStudentByName(nameUTF));
     }
 
+    /**
+     * 通过姓名年级查找学生
+     * @param student 注入姓名和年级
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("/student/findStudentByNameAndGrade")
+    public String findStudentByNameAndGrade(Student student){
+//        System.out.println(student.getName()+student.getGrade());
+
+        return JSON.toJSONString(studentService.findStudentByNameAndGrade(student));
+    }
 
     /**
      * 删除学生

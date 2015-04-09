@@ -54,13 +54,8 @@ public class CourseController {
     @RequestMapping("/course/findCourseByName")
     public String findCourseByName(@RequestParam(value="name") String name){
 //        测试路径：/course/findCourseByName?name=x
-        String nameUTF = null;
-        try{
-            nameUTF = new String(name.getBytes("ISO-8859-1"), "UTF-8");
-        }catch (UnsupportedEncodingException exception){
-            System.out.println(exception.getMessage());
-        }
-        return JSON.toJSONString(courseService.findCourseByName(nameUTF));
+        String result = JSON.toJSONString(courseService.findCourseByName(name));
+        return result;
     }
 
     /**

@@ -6,17 +6,11 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ include file="/WEB-INF/views/common/sourcelib.jsp" %>
 <html>
 <head>
-    <title></title>
-    <script type="text/javascript" src="<c:url value="/resources/js/jquery-1.8.2.js"/>"></script>
-    <script type="text/javascript" src="<c:url value="/resources/js/jquery.paginate.js"/>" ></script>
-    <script type="text/javascript" src="<c:url value="/resources/js/zebra_dialog.js"/>"></script>
-    <script language="javascript" type="text/javascript" src="/resources/js/My97DatePicker/WdatePicker.js"></script>
-    <link rel="stylesheet" href="<c:url value="/resources/css/zebra_dialog.css"/>"/>
-    <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/commonStyle.css"/>">
-    <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/page.css"/>" />
+    <title>学生课程信息</title>
+
     <style type="text/css">
         table{text-align: center;}
         .module-title{font-size: 40px;}
@@ -83,8 +77,8 @@
                     type: "POST",
                     url: "some.php",
                     data: "name=John&location=Boston",
-                    success: function(msg){
-                        alert( "Data Saved: " + msg );
+                    success: function(data){
+
                     }
                 });
             }

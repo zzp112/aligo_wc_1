@@ -21,6 +21,10 @@
         SELECT * FROM student WHERE name LIKE "%"#{name}"%"
     </select>
 
+    <select id="findStudentByNameAndGrade" parameterType="Student" resultType="Student">
+        SELECT * FROM student WHERE name LIKE "%"#{name}"%" AND grade LIKE "%"#{grade}"%"
+    </select>
+
     <delete id="delStudentById" parameterType="int">
         DELETE FROM student WHERE id = #{id}
     </delete>
