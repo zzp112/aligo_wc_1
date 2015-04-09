@@ -29,6 +29,13 @@ public interface IStudentService {
     public List<Student> findStudentByGrade(String grade) ;
 
     /**
+     * 通过年级姓名查找学生
+     * @param student 注入姓名和年级
+     * @return 学生列表
+     */
+    public List<Student> findStudentByNameAndGrade(Student student) ;
+
+    /**
      * 通过姓名查找学生
      * @param name name
      * @return 学生列表
