@@ -84,6 +84,10 @@
             });
         }
         function modifycontent(id){
+            var modifyid = "";
+            <%--<jsp:param name="" value=""/>--%>
+            modifyid +="<jsp"+":"+"param name="+modifyid+"value="+id+"/>";
+            $("#modify").append(modifyid);
             new $.Zebra_Dialog( {
                 source: {'inline': $('.modifyhtml').html()}, //内嵌html代码
                 width: 500, //宽度
@@ -91,9 +95,7 @@
                 title:  '修改信息',
                 position:['left +200','top+20'],
                 overlay_opacity:'0',
-                buttons:
-                        [{caption:'保存',callback:function(){confirm('是否保存')}},'取消']
-
+                buttons:[]
             });
         }
         function findCourseByName(){
@@ -151,33 +153,41 @@
     <div class="page"></div>
 </div>
 <div class="addhtml" style="display: none">
-    <table>
-        <tr>
-            <td>课程名称:</td>
-            <td>
-                <select style="width: 180px" class="coursechoose"></select>
-            </td>
-        </tr>
-        <tr>
-            <td>课程费用:</td>
-            <td><input type="text" class="input-text" placeholder="请输入单节费用"/></td>
-        </tr>
-    </table>
+    <form method="post" action="/course/addCourse">
+        <table>
+            <tr>
+                <td>课程名称:</td>
+                <td><input type="text" class="input-text" placeholder="请输入课程名称" name="name"/></td>
+            </tr>
+            <tr>
+                <td>课程费用:</td>
+                <td><input type="text" class="input-text" placeholder="请输入单节费用" name="cost"/></td>
+            </tr>
+        </table>
+        <div style="text-align:center;padding:5px">
+            <input type="submit" class="btn-green"  value="提交" style="width:63px;height: 33px;">
+            &nbsp;&nbsp;&nbsp;<input type="reset" class="btn-green" value="重置" style="width:63px;height: 33px;">
+        </div>
+    </form>
 </div>
 <div class="modifyhtml" style="display: none">
-    <table>
-        <tr>
-            <td>课程名称:</td>
-            <td>
-                <select style="width: 180px" class="coursechoose"></select>
-            </td>
-        </tr>
-        <tr>
-            <td>课程费用:</td>
-            <td><input type="text" class="input-text" placeholder="请输入单节费用"/></td>
-        </tr>
-    </table>
-
+    <form method="post" action="/course/updateCourseById">
+        <table>
+            <tr>
+                <td>课程名称:${param.modifyid}</td>
+                <td>
+                    <select style="width: 180px" class="coursechoose"  name="name"></select>
+                </td>
+            </tr>
+            <tr>
+                <td>课程费用:</td>
+                <td><input type="text" class="input-text" placeholder="请输入单节费用" name="cost"/></td>
+            </tr>
+        </table>
+        <div style="text-align:center;padding:5px">
+            <input type="submit" class="btn-green"  value="提交" style="width:63px;height: 33px;">
+            &nbsp;&nbsp;&nbsp;<input type="reset" class="btn-green" value="重置" style="width:63px;height: 33px;">
+        </div>
 </div>
 </body>
 </html>

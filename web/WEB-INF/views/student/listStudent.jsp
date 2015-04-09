@@ -85,18 +85,37 @@
                 buttons:['是',' 否']
             });
         }
-        function modifycontent(id){
-            new $.Zebra_Dialog( {
-                source: {'inline': $('.modifyhtml').html()}, //内嵌html代码
-                width: 500, //宽度
-                max_height:300, //高度超出则可以显示滚动条
-                title:  '修改信息',
-                position:['left +200','top+20'],
-                overlay_opacity:'0',
-                buttons:
-                        [{caption:'保存',callback:function(){confirm('是否保存')}},'取消']
+        function findById(id){
+            $.ajax({
+                type: "POST",
+                url: "/student/findStudentById",
+                data: "id="+ id,
+                success: function (data) {
+                    var obj = eval("(" + data + ")");
+//                    var mo = obj[0];
 
-            });
+
+                    new $.Zebra_Dialog( {
+                        source: {'inline': $('.modifyhtml').html()}, //内嵌html代码
+                        width: 500, //宽度
+                        max_height:300, //高度超出则可以显示滚动条
+                        title:  '修改信息',
+                        position:['left +200','top+20'],
+                        overlay_opacity:'0',
+                        buttons:[]
+
+                    });
+//                    var a = $("#nameKEY").val();
+//                    alert(a);
+//                    $("#nameKEY").val('1111');
+//                    var b = $("#nameKEY").val();
+//                    alert(b);
+                }
+            })
+        }
+        function modifycontent(id){
+            findById(id);
+
 
         }
         function findStudent(){
@@ -158,66 +177,56 @@
     <div class="page"></div>
 </div>
 <div class="addhtml" style="display: none">
-    <table>
-        <tr>
-            <td>姓名:</td>
-            <td><input type="text" class="input-text" placeholder="请输入姓名"/></td>
-        </tr>
-        <tr>
-            <td>性别:</td>
-            <td style="text-align: left">男：<input type="radio" name="sex" checked/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;女：<input type="radio" name="sex"/></td>
-        </tr>
-        <tr>
-            <td>年级:</td>
-            <td>
-                <select style="width: 180px">
-                    <option>=====================</option>
-                    <option>一年级</option>
-                    <option>二年级</option>
-                    <option>三年级</option>
-                    <option>四年级</option>
-                    <option>五年级</option>
-                    <option>六年级</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td>家长电话:</td>
-            <td><input type="text" class="input-text" placeholder="请输入家长电话"/></td>
-        </tr>
-
-    </table>
+    <form action="/student/addStudent" method="post">
+        <table>
+            <tr>
+                <td>姓名:</td>
+                <td><input type="text" class="input-text" placeholder="请输入姓名" name="name"/></td>
+            </tr>
+            <tr>
+                <td>性别:</td>
+                <td style="text-align: left">男：<input type="radio" name="sex" value="男" checked/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;女：<input type="radio" name="sex" value="女"/></td>
+            </tr>
+            <tr>
+                <td>年级:</td>
+                <td><input type="text" class="input-text" placeholder="请输入年级" name="grade"/></td>
+            </tr>
+            <tr>
+                <td>家长电话:</td>
+                <td><input type="text" class="input-text" placeholder="请输入家长电话" name="parentsTel"/></td>
+            </tr>
+        </table>
+        <div style="text-align:center;padding:5px">
+            <input type="submit" class="btn-green"  value="提交" style="width:63px;height: 33px;">
+            &nbsp;&nbsp;&nbsp;<input type="reset" class="btn-green" value="重置" style="width:63px;height: 33px;">
+        </div>
+    </form>
 </div>
 <div class="modifyhtml" style="display: none">
-    <table>
-        <tr>
-            <td>姓名:</td>
-            <td><input type="text" class="input-text" placeholder="请输入姓名"/></td>
-        </tr>
-        <tr>
-            <td>性别:</td>
-            <td style="text-align: left">男：<input type="radio" name="sex" checked/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;女：<input type="radio" name="sex"/></td>
-        </tr>
-        <tr>
-            <td>年级:</td>
-            <td>
-                <select style="width: 180px">
-                    <option>=====================</option>
-                    <option>一年级</option>
-                    <option>二年级</option>
-                    <option>三年级</option>
-                    <option>四年级</option>
-                    <option>五年级</option>
-                    <option>六年级</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td>家长电话:</td>
-            <td><input type="text" class="input-text" placeholder="请输入家长电话"/></td>
-        </tr>
-
-    </table>
+    <form action="/student/updateStudentById" method="post">
+        <table>
+            <tr>
+                <td>姓名:</td>
+                <td><input type="text" id="nameEdit" name = "nameEdit"  class="input-text" value="text"/></td>
+            </tr>
+            <tr>
+                <td>性别:</td>
+                <td style="text-align: left">男：<input type="radio" name="sex" checked/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;女：<input type="radio" name="sex"/></td>
+            </tr>
+            <tr>
+                <td>年级:</td>
+                <td><input type="text" class="input-text"  name="grade"/></td>
+            </tr>
+            <tr>
+                <td>家长电话:</td>
+                <td><input type="text" class="input-text"  name="parentsTel"/></td>
+            </tr>
+        </table>
+        <div style="text-align:center;padding:5px">
+            <input type="submit" class="btn-green"  value="提交" style="width:63px;height: 33px;">
+            &nbsp;&nbsp;&nbsp;<input type="reset" class="btn-green" value="重置" style="width:63px;height: 33px;">
+        </div>
+    </form>
 </div>
 </body>
 </html>
