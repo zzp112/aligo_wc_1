@@ -1,15 +1,9 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ include file="/WEB-INF/views/common/sourcelib.jsp" %>
 <html>
 <head>
     <title>小站管理</title>
-    <script type="text/javascript" src="<c:url value="/resources/js/jquery-1.8.2.js"/>"></script>
-    <script type="text/javascript" src="<c:url value="/resources/js/jquery.paginate.js"/>" ></script>
-    <script type="text/javascript" src="<c:url value="/resources/js/zebra_dialog.js"/>"></script>
-    <script language="javascript" type="text/javascript" src="/resources/js/My97DatePicker/WdatePicker.js"></script>
-    <link rel="stylesheet" href="<c:url value="/resources/css/zebra_dialog.css"/>"/>
-    <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/commonStyle.css"/>">
-    <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/page.css"/>" />
+
     <style type="text/css">
         table{text-align: center;}
         .module-title{font-size: 40px;}
@@ -39,7 +33,7 @@
                     "<td>"+ p.accountRatio+"</td>"+
                     "<td>"+ p.totalAmount+"</td>"+
                     "<td>"+ p.actualAmountString+"</td>"+
-                    "<td><span onclick='modifycontent("+p.id+")'>修</span>&nbsp;&nbsp;<span onclick='deleteStuCou("+p.id+")'>删</span></td>"+
+                    "<td><span onclick='modifycontent("+p.id+")'>修</span>&nbsp;&nbsp;<span onclick='deleteStation("+p.id+")'>删</span></td>"+
                     "</tr>";
                 }
                 table.append(dataStr);
@@ -65,14 +59,14 @@
         });
 
 
-        function deleteStuCou(id){
+        function deleteStation(id){
             if(confirm("您确定要删除第"+id+"条数据吗")){
                 $.ajax({
                     type: "POST",
-                    url: "some.php",
-                    data: "name=John&location=Boston",
-                    success: function(msg){
-                        alert( "Data Saved: " + msg );
+                    url: "/station/delStationById",
+                    data: "id="+id,
+                    success: function(data){
+                        location.reload();
                     }
                 });
             }
@@ -113,30 +107,19 @@
     <input type="button" class="btn-blue" value="添加" style="position:absolute;top:0;right:0;" onclick="addcontent()">
 </div>
 <div>
+    <form action="/student/findStudentByName" method="post">
     <table class="table" cellspacing="0">
-        <tr>
-            <td colspan="9">
-                小站搜索：
-                <input  type="text" class="input-text" style="width: 185.7px">
-                管理编号搜索：
-                <input type="text" class="input-text" style="width: 185.7px"/>
-                拆账比例：
-                <input type="text" class="input-text" style="width: 185.6px"/>
-
-                <input type="button" class="btn-green" value="搜索" />
-            </td>
-        </tr>
-
-        <tr>
-            <td style="width: 40px">编号</td>
+        <tr id="letitsave">
+            <td style="width: 130px">编号</td>
             <td style="width: 130px">小站地址</td>
             <td style="width: 130px">管理编号</td>
             <td style="width: 130px">拆账比例</td>
-            <td style="width: 80px">总支出</td>
-            <td style="width: 80px">实际支出</td>
+            <td style="width: 130px">总支出</td>
+            <td style="width: 130px">实际支出</td>
             <td>操作</td>
         </tr>
     </table>
+    </form>
     <div class="page"></div>
 </div>
 <div class="addhtml" style="display: none">
@@ -151,28 +134,16 @@
         </tr>
         <tr>
             <td>拆账比例:</td>
-            <td>
-                <select style="width: 180px">
-                    <option>=====================</option>
-                    <option>在线英语</option>
-                </select>
-            </td>
+            <td><input type="text" class="input-text" placeholder="请输入拆账比例" id="accountRatio" name="accountRatio"/></td>
         </tr>
         <tr>
-            <td>单节费用:</td>
-            <td><input type="text" class="input-text" placeholder="请输入单节费用"/></td>
+            <td>总支出:</td>
+            <td><input type="text" class="input-text" placeholder="请输入总支出" id="totalAmount" name="totalAmount"/></td>
         </tr>
         <tr>
-            <td>总上课数:</td>
-            <td><input type="text" class="input-text" placeholder="请输入总上课数"/></td>
-        </tr>
-        <tr>
-            <td>总费用:</td>
-            <td><input type="text" class="input-text" placeholder="请输入课程名称"/></td>
-        </tr>
-        <tr>
-            <td>上课日期:</td>
-            <td><input class="Wdate" onclick="WdatePicker()"></td>
+            <td>实际支出:</td>
+            <td><input type="text" class="input-text" placeholder="请输入学生名字"/></td>
+            <%--<td><input type="text" class="input-text" value=$('#accountRatio').val()*$('$totalAmount').val()/></td>--%>
         </tr>
     </table>
 </div>
@@ -183,60 +154,24 @@
             <td><input type="text" class="input-text" placeholder="请输入小站地址"/></td>
         </tr>
         <tr>
-            <td>学生名字:</td>
+            <td>管理编号:</td>
             <td><input type="text" class="input-text" placeholder="请输入学生名字"/></td>
         </tr>
         <tr>
-            <td>课程名称:</td>
-            <td>
-                <select style="width: 180px">
-                    <option>=====================</option>
-                    <option>在线英语</option>
-                </select>
-            </td>
+            <td>拆账比例:</td>
+            <td><input type="text" class="input-text" placeholder="请输入拆账比例"  name="accountRatio"/></td>
         </tr>
         <tr>
-            <td>单节费用:</td>
-            <td><input type="text" class="input-text" placeholder="请输入单节费用"/></td>
+            <td>总支出:</td>
+            <td><input type="text" class="input-text" placeholder="请输入总支出"  name="totalAmount"/></td>
         </tr>
         <tr>
-            <td>总上课数:</td>
-            <td><input type="text" class="input-text" placeholder="请输入总上课数"/></td>
-        </tr>
-        <tr>
-            <td>总费用:</td>
-            <td><input type="text" class="input-text" placeholder="请输入课程名称"/></td>
-        </tr>
-        <tr>
-            <td>上课日期:</td>
-            <td></td>
+            <td>实际支出:</td>
+            <td><input type="text" class="input-text" placeholder="请输入学生名字"/></td>
         </tr>
     </table>
 
 </div>
-<div id="dt" style="padding:2px 5px;">
-    <a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true"></a>
-    <a class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="a()">查看选中的数据</a>
-    <a href="#" class="easyui-linkbutton" iconCls="icon-save" plain="true"></a>
-    <a href="#" class="easyui-linkbutton" iconCls="icon-cut" plain="true"></a>
-    <a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true"></a>
-</div>
-<table id="dg" title="显示小站数据" style="width:920px;height:400px" data-options="
-				rownumbers:true,
-				singleSelect:true,
-				autoRowHeight:false,
-				pagination:true,
-				pageSize:10">
-    <thead>
-    <tr>
-        <th field="id" width="100" align="center">小站编号</th>
-        <th field="address" width="200" align="center">小站地址</th>
-        <th field="managerId" width="100" align="center">负责人</th>
-        <th field="accountRatio" width="100" align="center">拆账比例</th>
-        <th field="totalAmount" width="100" align="center">总金额</th>
-        <th field="actualAmountString" width="100" align="center">应付金额</th>
-    </tr>
-    </thead>
-</table>
+
 </body>
 </html>

@@ -91,6 +91,8 @@ public class StudentController {
     @ResponseBody
     @RequestMapping("/student/findStudentByNameAndGrade")
     public String findStudentByNameAndGrade(Student student){
+//        System.out.println(student.getName()+student.getGrade());
+
         return JSON.toJSONString(studentService.findStudentByNameAndGrade(student));
     }
 
