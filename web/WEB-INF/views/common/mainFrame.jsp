@@ -67,13 +67,27 @@
                     </div>
                 </li><!-- 多级菜单结束 -->
                 <!-- 一级菜单 -->
+                <li>
+                    <div class="div2">员工管理
+                        <label class="fr">></label>
+                    </div>
+                    <div class="div3">
+                        <ul>
+
+                            <a href="/employee/EmployeeInfo" target="frame"><li>员工信息</li></a>
+                            <a href="/employee/BaseSalary" target="frame"><li>员工基础薪资</li></a>
+                            <a href="/employee/MonthSalary" target="frame"><li>对话员工月结薪资框</li></a>
+
+                        </ul>
+                    </div>
+                </li><!-- 二级菜单结束 -->
 
 			</ul>
 		</div>
 
         <!-- 内嵌网页 -->
         <iframe src="<%=welcomeUrl%>" frameborder="0" scrolling="yes" name="frame"
-                id="ifm" name="ifm" onload="javascript:dyniframesize('ifm');IFrameReSizeWidth('ifm');" style="border: 1px solid;width:1050px;height: 540px;" >
+                id="ifm" name="ifm" onload="javascript:dyniframesize('ifm');IFrameReSizeWidth('ifm');" style="width:1050px;height: 540px;" >
         </iframe>
 	</div>
 </body>
