@@ -5,12 +5,12 @@
 <head>
     <title>index</title>
     <%--<script>--%>
-        <%--function submitForm() {--%>
-            <%--$('#ff').form('submit');--%>
-        <%--}--%>
-        <%--function clearForm() {--%>
-            <%--$('#ff').form('clear');--%>
-        <%--}--%>
+    <%--function submitForm() {--%>
+    <%--$('#ff').form('submit');--%>
+    <%--}--%>
+    <%--function clearForm() {--%>
+    <%--$('#ff').form('clear');--%>
+    <%--}--%>
 
     <%--</script>--%>
 
@@ -36,32 +36,29 @@
 </head>
 <body>
 
-<div class="updateBox" style="width:400px;margin: 114px;margin-left: 233px;">
-    <center><label class="module-title"> 更新小站编号为"${paymentDetail.station_id}"的第"${paymentDetail.detail_id}"数据</label>
+<div class="updateBox" style="width:400px;text-align: center;margin:0 auto;margin-top: 8%;border:solid #EDEDED;box-shadow: 10px 10px 25px #ccc;"><div style="margin-bottom: 20px;"></div>
+    <center><label class="module-title"> 小站"${paymentDetail.station_id}"的"${paymentDetail.detail_id}"号明细</label>
     </center><br><br>
     <div style="padding:10px 60px 20px 60px">
         <form id="ff" method="post" action="/updateCurrentRowPaymentDetail">
             <table cellpadding="5">
                 <tr>
-                    <td>小站名称:</td>
+                    <td>小 站 名 称  :</td>
                     <td>
-                        <input class="input-text" type="text" name="station_id" value="${paymentDetail.station_id}">
+                        <input class="input-text" type="text" name="station_id" value="${paymentDetail.station_id}" style="width: 160px;margin-bottom:5px;">
                     </td>
                 </tr>
 
                 <tr>
-                    <td>添加日期:</td>
+                    <td>添 加 日 期  :</td>
                     <td><input class="input-text" name="create_date" data-options="multiline:true"
-                               value="${paymentDetail.create_date}"
+                               value="${paymentDetail.create_date}" style="width: 160px;margin-bottom:5px;"
                             ></td>
                 </tr>
                 <tr>
-                    <td>收入/支出:</td>
+                    <td>收 入/支 出 :</td>
                     <td>
-                        <select
-
-
-                                name="balance">
+                        <select name="balance" style="width: 160px;margin-bottom:5px;">
                             <c:if test="${paymentDetail.balance=='income'}">
                                 <option value="income" selected>收入</option>
                                 <option value="outcome">支出</option>
@@ -81,32 +78,32 @@
                 <tr>
                     <td>
                         <c:if test="${paymentDetail.balance=='income'}">
-                            收入金额：
+                            收 入 金 额  ：
                         </c:if>
                         <c:if test="${paymentDetail.balance=='outcome'}">
-                            支出金额：
+                            支 出 金 额  ：
                         </c:if>
                         <c:if test="${paymentDetail.balance==null}">
                             收入/支出金额:
                         </c:if>
                     </td>
                     <td><input class="input-text" name="balance_amount" data-options="multiline:true"
-                               value="${paymentDetail.balance_amount}"></td>
+                               value="${paymentDetail.balance_amount}" style="width: 160px;margin-bottom:5px;"></td>
                 </tr>
                 <tr>
                     <td>
                         <c:if test="${paymentDetail.balance=='income'}">
-                            收入类别：
+                            收 入 类 别  ：
                         </c:if>
                         <c:if test="${paymentDetail.balance=='outcome'}">
-                            支出类别：
+                            支 出 类 别  ：
                         </c:if>
                         <c:if test="${paymentDetail.balance==null}">
                             收入/支出类别:
                         </c:if>
                     </td>
                     <td><input class="input-text" name="balance_type" data-options="multiline:true"
-                               value="${paymentDetail.balance_type}"></td>
+                               value="${paymentDetail.balance_type}" style="width: 160px;margin-bottom:5px;"></td>
                 </tr>
                 <tr>
                     <td>
@@ -121,14 +118,14 @@
                         </c:if>
                     </td>
                     <td><input class="input-text" name="advice" data-options="multiline:true"
-                               value="${paymentDetail.balance_comment}"></td>
+                               value="${paymentDetail.balance_comment}" style="width: 160px;margin-bottom:10px;"></td>
                 </tr>
             </table>
-            <div style="text-align:center;padding:5px">
+            <div style="text-align:center;padding:10px;">
                 <input type="submit" class="btn-green" value="提交"
+                       style="width:63px;height: 33px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="reset" class="btn-green" value="重置"
                        style="width:63px;height: 33px;">
-                &nbsp;&nbsp;&nbsp;<input type="reset" class="btn-green" value="重置"
-                                         style="width:63px;height: 33px;">
                 <%--<a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitForm()">提交</a>--%>
                 <%--<a href="javascript:void(0)" class="easyui-linkbutton" onclick="clearForm()">重置</a>--%>
             </div>

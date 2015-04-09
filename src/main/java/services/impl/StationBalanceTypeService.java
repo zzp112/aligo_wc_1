@@ -3,6 +3,7 @@ package services.impl;
 import AuthorityException.DataException;
 import dao.StationBalanceTypeDao;
 import entities.StationBalanceDetailType;
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import services.IStationBalanceTypeService;
@@ -18,14 +19,19 @@ import java.util.List;
 public class StationBalanceTypeService implements IStationBalanceTypeService{
 
     @Autowired
-    private StationBalanceTypeDao stationBalanceTypeDao;
+    private SqlSessionTemplate sqlSessionTemplate;
 
     @Override
     public boolean CreateStationBalanceType(StationBalanceDetailType stationBalanceDetailType) {
         if(stationBalanceDetailType.getPaymentTypeName().equals("")){
             throw new DataException("小站收支明细类型名不能为空...");
         }
-        return stationBalanceTypeDao.CreateStationBalanceType(stationBalanceDetailType);
+        try{
+            sqlSessionTemplate.insert("stationBalanceType.CreateStationBalanceType",stationBalanceDetailType);
+            return true;
+        }catch (Exception ex){
+            throw new DataException(ex.getMessage());
+        }
     }
 
     @Override
@@ -35,7 +41,8 @@ public class StationBalanceTypeService implements IStationBalanceTypeService{
                 throw  new DataException("类型id为空...报错...");
             }
             //删除成功
-            return stationBalanceTypeDao.RemoveStationBalanceType(type_id);
+            sqlSessionTemplate.delete("stationBalanceType.RemoveStationBalanceType",type_id);
+            return true;
         }catch (Exception ex){
             throw new DataException(ex.getMessage()+"删除失败!");
         }
@@ -45,7 +52,7 @@ public class StationBalanceTypeService implements IStationBalanceTypeService{
     public boolean UpdateStationBalanceType(StationBalanceDetailType stationBalanceDetailType) {
         try{
             if(stationBalanceDetailType!=null){
-                stationBalanceTypeDao.UpdateStationBalanceType(stationBalanceDetailType);
+                sqlSessionTemplate.update("stationBalanceType.UpdateStationBalanceType",stationBalanceDetailType);
                 return true;
             }
             else{
@@ -59,7 +66,7 @@ public class StationBalanceTypeService implements IStationBalanceTypeService{
     @Override
     public List<StationBalanceDetailType> listAllStationBalanceType() {
         try{
-            return stationBalanceTypeDao.listAllStationBalanceType();
+            return sqlSessionTemplate.selectList("stationBalanceType.listAllStationBalanceType");
         }catch (Exception ex)
         {
             throw new DataException(ex.getMessage()+"加载失败!");
@@ -69,7 +76,7 @@ public class StationBalanceTypeService implements IStationBalanceTypeService{
     @Override
     public StationBalanceDetailType findAllStationBalanceTypeById(Integer type_id) {
         try{
-             return stationBalanceTypeDao.findStationTypeById(type_id);
+             return sqlSessionTemplate.selectOne("stationBalanceType.findAllStationBalanceTypeById",type_id);
         }catch (Exception ex){
              throw new DataException(ex.getMessage()+"加载数据失败!");
         }
@@ -78,7 +85,7 @@ public class StationBalanceTypeService implements IStationBalanceTypeService{
     @Override
     public List<StationBalanceDetailType> findAllStationBalanceTypeByName(String type_name) {
         try{
-             return stationBalanceTypeDao.listStationBalanceType(type_name);
+             return sqlSessionTemplate.selectList("stationBalanceType.findAllStationBalanceTypeByName",type_name);
         }catch (Exception ex){
             throw new DataException(ex.getMessage()+"查找数据失败!");
         }
