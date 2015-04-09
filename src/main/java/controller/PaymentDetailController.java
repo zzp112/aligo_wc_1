@@ -3,6 +3,7 @@ package controller;
 import AuthorityException.DataException;
 import com.alibaba.fastjson.JSON;
 import entities.PaymentDetail;
+import entities.PaymentDetailHelper;
 import entities.Station;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -47,7 +48,7 @@ public class PaymentDetailController {
      */
     Station station;
     /**
-     * 创建小站服务对象
+     * 创建小站/服务对象
      */
     @Autowired
     IStationService iStationService;
@@ -70,8 +71,12 @@ public class PaymentDetailController {
      */
     @RequestMapping(value = "/toListPaymentDetails")
     public String toListPaymentDetails(ModelMap modelMap) {
-        List<Station> listStationId = iStationService.findAllStation();
-        modelMap.put("stationList", listStationId);
+        try{
+            List<Station> listStationId = iStationService.findAllStation();
+            modelMap.put("stationList", listStationId);
+        }catch(DataException ex){
+            modelMap.put("stationList","null");
+        }
         return "PaymentDetail/ListPaymentDetails";
     }
 
@@ -178,6 +183,24 @@ public class PaymentDetailController {
         model.addAttribute("create_date", paymentDetail.getCreate_date());
         model.addAttribute("advice", paymentDetail.getBalance_comment());
         return "PaymentDetail/ListPaymentDetails";
+    }
+
+
+    /**
+     * 多条件查询出小站收支明细
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/searchPaymentDetailBySql")
+    public String searchPaymentDetailBySql(PaymentDetailHelper paymentDetailHelper){
+        System.out.println(paymentDetailHelper.getBalance()+":"+paymentDetailHelper.getBalance_type()+":"+paymentDetailHelper.getEnd_time()+":"+paymentDetailHelper.getStart_time());
+//        if(paymentDetailHelper.getBalance_type().equals("")){
+//            paymentDetailHelper.setBalance("null");
+//        }
+//        else if(){
+//
+//        }
+        return JSON.toJSONString(paymentDetailService.findPaymentDetailBySql(paymentDetailHelper));
     }
 
 //    /**

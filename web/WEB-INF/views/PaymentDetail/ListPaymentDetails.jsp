@@ -9,6 +9,44 @@
     </title>
 
     <script>
+        //调用搜索按钮
+        function doSearch() {
+            var balance = $('#balance').val();
+            var start_time = $("#start_time").val();
+            var end_time = $("#end_time").val();
+            var balance_type=$("#balance_type").val();
+            alert(balance);
+            $.ajax({
+                type: "POST",
+                url: "/searchPaymentDetailBySql",
+                data: "balance="+balance +"&balance_type="+balance_type+"&start_time="+start_time+"&end_time="+end_time,
+                success: function (data) {
+//                    清空表格，加载搜索出来的数据
+                    $('#paymentTable').nextAll().remove();
+                    var obj = eval("(" + data + ")");
+                    var temp = obj[0];
+                    var dataStr = "";
+                    for (var i = 0; i < obj.length; i++) {
+                        var p = obj[i];
+                        var table = $('.table');
+                        dataStr += "<tr>" +
+                        "<td>" + p.detail_id + "</td>" +
+                        "<td>" + p.balance + "</td>" +
+                        "<td>" + p.balance_amount + "</td>" +
+                        "<td>" + p.balance_type + "</td>" +
+                        "<td>" + p.balance_comment + "</td>" +
+                        "<td><span onclick='updateCurrentRowPaymentDetail(" + p.detail_id + ")'>修</span>&nbsp;&nbsp;<span onclick='deleteCurrentRowPaymentDetail(" + p.detail_id + ")'>删</span></td>" +
+                        "</tr>";
+                    }
+                    table.append(dataStr);
+                }
+
+            });
+        }
+    </script>
+
+
+    <script>
 
         //修改是否成功返回给用户直观的界面
         $(function(){
@@ -69,43 +107,6 @@
         }
 
 
-        //调用搜索按钮
-        function doSearch() {
-            var h1 = $('#balance_state').combobox('getValue');
-            var h2 = $("#start_time").datebox('getValue');
-            var h3 = $("#end_time").datebox('getValue');
-            $.ajax({
-                type: "POST",
-                url: "/searchByAll?json",
-                dataType: "json",
-                contentType: "application/json",
-                data: JSON.stringify({balance: h1, begin_time: h2, end_time: h3}),
-                success: function (data) {
-
-                    if (data.length > 0) {
-                        var obj = eval("(" + data + ")");
-                        var temp = obj[0];
-                        var dataStr = "";
-                        for (var i = 0; i < obj.length; i++) {
-                            var p = obj[i];
-                            var table = $('.table');
-                            dataStr += "<tr>" +
-                            "<td>" + p.detail_id + "</td>" +
-                            "<td>" + p.balance + "</td>" +
-                            "<td>" + p.balance_amount + "</td>" +
-                            "<td>" + p.balance_type + "</td>" +
-                            "<td>" + p.balance_comment + "</td>" +
-                            "<td><span onclick='updateCurrentRowPaymentDetail(" + p.detail_id + ")'>修</span>&nbsp;&nbsp;<span onclick='deleteCurrentRowPaymentDetail(" + p.detail_id + ")'>删</span></td>" +
-                            "</tr>";
-                        }
-                        table.append(dataStr);
-                    }
-                },
-                error: function () {
-                    alert("请求出错");
-                }
-            });
-        }
 
         //获取数据
         $.ajax({
@@ -153,7 +154,7 @@
                         dataStr += "<option value='" +obj[i].paymentTypeName
                         +"'>" + obj[i].paymentTypeName+"</option>";
                     }
-                    $("#DetailBalanceType").append(dataStr);
+                    $("#balance_type").append(dataStr);
                 }
             });
     </script>
@@ -185,16 +186,16 @@
         <div title="显示小站资金收支明细数据" style="margin-top: 10px;margin-bottom: 10px;">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <span>收支类型:</span>
-            <select  name="balance_state" style="width:160px;">
-                <option value="0">===请选择===</option>
+            <select  id="balance" name="balance" style="width:160px;">
+                <option value="">===请选择===</option>
                 <option value="income">收入</option>
                 <option value="outcome">支出</option>
             </select>
             &nbsp;&nbsp;
             <span>类别:</span>
             <%--<div class="DetailBalanceType" name="balance_type"style="width:150px;"></div>--%>
-            <select id="DetailBalanceType" name="balance_type" style="width:160px;">
-                <option value="0">===请选择===</option>
+            <select id="balance_type" name="balance_type" style="width:160px;">
+                <option value="">===请选择===</option>
             </select>
             &nbsp;&nbsp;
             <span>开始:</span>
@@ -203,7 +204,7 @@
             <span>结束:</span>
             <input id="end_time" name="end_time" style="width: 160px;height:24px;">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <input type="button" class="btn-green" value="查  询" onclick="doSearch();">
+            <input type="button" class="btn-blue" value="查  询" onclick="doSearch();">
 
             <input type="button" class="btn-blue" value="添  加" style="position:absolute;top:5px;right:5px;"
                    onclick="addBalanceDetail();">
@@ -218,7 +219,7 @@
 
         <div>
             <table class="table" cellspacing="0" style="margin-left: 10px;">
-                <tr>
+                <tr id="paymentTable">
 
                     <td style="width: 80px">明细ID</td>
                     <td style="width: 100px">收入/支出</td>
@@ -230,6 +231,7 @@
             </table>
             <div class="page"></div>
         </div>
+    </div>
     </div>
 </body>
 </html>

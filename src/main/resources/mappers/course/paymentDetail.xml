@@ -40,7 +40,7 @@
     </update>
 
     <!--动态查询小站收支明细-->
-    <select id="findPaymentDetailBySql" parameterType="PaymentDetail" resultType="PaymentDetail">
+    <select id="findPaymentDetailBySql" parameterType="PaymentDetailHelper" resultType="PaymentDetail">
         select DetailId as detail_id,StationId as station_id,CreateDate as create_date,Balance as balance,
         BalanceAmount as balance_amount,BalanceType as balance_type,
         Comment as balance_comment from paymentDetails WHERE 1=1
@@ -48,10 +48,10 @@
             and Balance = #{balance}
         </if>
         <if test="balance_type!=null">
-            and Type = #{balance_type}
+            and BalanceType = #{balance_type}
         </if>
-        <if test="create_date!=null">
-            and CreateDate = #{create_date}
+        <if test="start_time!=null and end_time!=null">
+            and CreateDate BETWEEN #{start_time} AND #{end_time}
         </if>
     </select>
 </mapper>

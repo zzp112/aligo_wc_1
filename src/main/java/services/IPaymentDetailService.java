@@ -1,6 +1,7 @@
 package services;
 
 import entities.PaymentDetail;
+import entities.PaymentDetailHelper;
 
 import java.util.List;
 
@@ -41,10 +42,10 @@ public interface IPaymentDetailService {
 
     /**
      * 多条件查询小站收支明细
-     * @param paymentDetail
+     * @param paymentDetailHelper
      * @return
      */
-    public List<PaymentDetail> findPaymentDetailBySql(PaymentDetail paymentDetail);
+    public List<PaymentDetail> findPaymentDetailBySql(PaymentDetailHelper paymentDetailHelper);
 
 
 }

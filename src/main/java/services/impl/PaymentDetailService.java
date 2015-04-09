@@ -3,6 +3,7 @@ package services.impl;
 import AuthorityException.DataException;
 import dao.PaymentDetailDao;
 import entities.PaymentDetail;
+import entities.PaymentDetailHelper;
 import org.apache.ibatis.session.SqlSession;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -73,11 +74,12 @@ public class PaymentDetailService implements IPaymentDetailService {
     }
 
 
+
     //多条件查询
     @Override
-    public List<PaymentDetail> findPaymentDetailBySql(PaymentDetail paymentDetail) {
+    public List<PaymentDetail> findPaymentDetailBySql(PaymentDetailHelper paymentDetailHelper) {
         try {
-            return sqlSession.selectList("paymentDetail.findPaymentDetailBySql", paymentDetail);
+            return sqlSession.selectList("paymentDetail.findPaymentDetailBySql", paymentDetailHelper);
         } catch (Exception ex) {
             throw new DataException(ex.getMessage());
         }
