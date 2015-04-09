@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 import services.IStationService;
 import services.impl.StationService;
 
@@ -104,19 +105,13 @@ public class StationController {
      * @param accountRatio 拆账比例，格式：(0.x) 或 (0.xx)
      * @return 是否成功
      */
-    @ResponseBody
+//    @ResponseBody
     @RequestMapping("/station/addStation")
-    public String addStation(@RequestParam(value="address") String address,@RequestParam(value="managerId") String managerId,
+    public ModelAndView addStation(@RequestParam(value="address") String address,@RequestParam(value="managerId") String managerId,
                              @RequestParam(value="accountRatio") String accountRatio){
 //        测试路径：/station/addStation?address=南方&managerId=1&accountRatio=0.6
 
-        String addressInChinise = null;
-        try {
-            addressInChinise = new String(address.getBytes("ISO-8859-1"), "UTF-8");
-        } catch (UnsupportedEncodingException exception) {
-            System.out.println(exception.getMessage());
-        }
-
-        return JSON.toJSONString(stationService.addStation(addressInChinise, managerId, accountRatio));
+        stationService.addStation(address, managerId, accountRatio);
+        return  new ModelAndView("redirect:/station/listStation");
     }
 }

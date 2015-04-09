@@ -1,8 +1,8 @@
 /*********************以下是所有界面都要统一的控件样式***************************/
 /*蓝色按钮*/
 .btn-blue{
-    width:60px;
-    height:30px;
+    width:90px;
+    height:40px;
     border-radius: 3px;
     color: white;
     border: 0;
@@ -14,8 +14,8 @@
 }
 /*绿色按钮*/
 .btn-green{
-    width:60px;
-    height:30px;
+    width:90px;
+    height:40px;
     border-radius: 3px;
     color: white;
     border: 0;
@@ -44,7 +44,6 @@
 .table{
     font-size: 13pt;
 }
-
 .table td{
     color: #333333;
     text-align: left;

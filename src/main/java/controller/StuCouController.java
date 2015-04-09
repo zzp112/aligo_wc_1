@@ -19,6 +19,8 @@ public class StuCouController {
     @Autowired
     private IStuCouService stuCouService;
 
+    public static Integer id;
+
     /**
      * 小站列表页面
      */
@@ -73,21 +75,42 @@ public class StuCouController {
         stuCouService.deleteStuCou(id);
         return null;
     }
+
+    @RequestMapping("/stuCou/toUpdateStuCou")
+    public String toUpdateStuCou(Integer id){
+        this.id=id;
+        return "/stuCou/updateStuCou";
+    }
+
+    @ResponseBody
+    @RequestMapping("/stuCou/preUpdateStuCou")
+    public String preUpdateStuCou(){
+
+        return JSON.toJSONString(stuCouService.loadStuCouByStuCouId(id));
+    }
+
     @ResponseBody
     @RequestMapping("/stuCou/updateStuCou")
     public String updateStuCou(StuCou stuCou){
         List<StuCou> stuCous=null;
 
-        stuCous=stuCouService.loadStuCus();
+        stuCouService.updateStuCou(stuCou);
 
         return JSON.toJSONString(stuCous);
     }
 
-    @ResponseBody
+
+
+
+    @RequestMapping("/stuCou/inputStuCou")
+    public String inputStuCou(){
+        return "/stuCou/inputStuCou";
+    }
+
     @RequestMapping("/stuCou/addStuCou")
     public String addStuCou(StuCou stuCou){
         stuCouService.addStuCou(stuCou);
-        return null;
+        return "/stuCou/listStuCou";
     }
 
 
@@ -114,7 +137,6 @@ public class StuCouController {
     @RequestMapping("/stuCou/findStuCou")
     public String findStuCou(StuCouSearchHelper stuCouSearchHelper){
         //测试路径/stuCou/findStuCou
-        stuCouService.findByParam(stuCouSearchHelper);
-        return JSON.toJSONString(stuCouSearchHelper);
+        return JSON.toJSONString(stuCouService.findByParam(stuCouSearchHelper));
     }
 }

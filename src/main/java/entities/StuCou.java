@@ -10,12 +10,20 @@ public class StuCou {
     private String stationAddress;
     private int studentId;
     private String studentName;
+    private int courseId;
     private String courseName;
     private int courseCount;
     private int costByOne;
     private int costTotal;
     private String courseDate;
 
+    public int getCourseId() {
+        return courseId;
+    }
+
+    public void setCourseId(int courseId) {
+        this.courseId = courseId;
+    }
     public int getId() {
         return id;
     }

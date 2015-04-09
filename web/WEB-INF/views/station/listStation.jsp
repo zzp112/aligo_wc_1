@@ -7,6 +7,7 @@
     <style type="text/css">
         table{text-align: center;}
         .module-title{font-size: 40px;}
+
     </style>
     <script type="text/javascript">
         $.ajax({
@@ -74,15 +75,17 @@
 
 
         function addcontent(){
-            new $.Zebra_Dialog( {
+            new $.Zebra_Dialog({
+
                 source: {'inline': $('.addhtml').html()}, //内嵌html代码
+                type:'question',
                 width: 500, //宽度
-                max_height:300, //高度超出则可以显示滚动条
-                title:  '增加信息',
-                position:['left +200','top+20'],
-                overlay_opacity:'0',
-                buttons:['是',' 否']
-            });
+                max_height: 300, //高度超出则可以显示滚动条
+                title: '增加信息',
+                position: ['left +200', 'top+20'],
+                overlay_opacity: '0',
+                buttons: ['']
+            })
         }
         function modifycontent(id){
             new $.Zebra_Dialog( {
@@ -123,54 +126,57 @@
     <div class="page"></div>
 </div>
 <div class="addhtml" style="display: none">
-    <table>
-        <tr>
-            <td>小站地址:</td>
-            <td><input type="text" class="input-text" placeholder="请输入小站地址"/></td>
-        </tr>
-        <tr>
-            <td>管理编号:</td>
-            <td><input type="text" class="input-text" placeholder="请输入学生名字"/></td>
-        </tr>
-        <tr>
-            <td>拆账比例:</td>
-            <td><input type="text" class="input-text" placeholder="请输入拆账比例" id="accountRatio" name="accountRatio"/></td>
-        </tr>
-        <tr>
-            <td>总支出:</td>
-            <td><input type="text" class="input-text" placeholder="请输入总支出" id="totalAmount" name="totalAmount"/></td>
-        </tr>
-        <tr>
-            <td>实际支出:</td>
-            <td><input type="text" class="input-text" placeholder="请输入学生名字"/></td>
-            <%--<td><input type="text" class="input-text" value=$('#accountRatio').val()*$('$totalAmount').val()/></td>--%>
-        </tr>
-    </table>
+    <form action="/station/addStation" method="post" >
+        <table>
+            <tr>
+                <td>小站地址:</td>
+                <td><input type="text" class="input-text" placeholder="请输入小站地址" id="addaddress" name="address"/></td>
+            </tr>
+            <tr>
+                <td>管理编号:</td>
+                <td><input type="text" class="input-text" placeholder="请输入管理编号" id="addmanagerId" name="managerId"/></td>
+            </tr>
+            <tr>
+                <td>拆账比例:</td>
+                <td><input type="text" class="input-text" placeholder="请输入拆账比例" id="addaccountRatio" name="accountRatio"/></td>
+            </tr>
+        </table>
+        <div style="text-align:center;padding:5px">
+            <input type="submit" class="btn-green"  value="提交" style="width:63px;height: 33px;">
+            &nbsp;&nbsp;&nbsp;<input type="reset" class="btn-green" value="重置" style="width:63px;height: 33px;">
+        </div>
+    </form>
 </div>
 <div class="modifyhtml" style="display: none">
-    <table>
-        <tr>
-            <td>小站地址:</td>
-            <td><input type="text" class="input-text" placeholder="请输入小站地址"/></td>
-        </tr>
-        <tr>
-            <td>管理编号:</td>
-            <td><input type="text" class="input-text" placeholder="请输入学生名字"/></td>
-        </tr>
-        <tr>
-            <td>拆账比例:</td>
-            <td><input type="text" class="input-text" placeholder="请输入拆账比例"  name="accountRatio"/></td>
-        </tr>
-        <tr>
-            <td>总支出:</td>
-            <td><input type="text" class="input-text" placeholder="请输入总支出"  name="totalAmount"/></td>
-        </tr>
-        <tr>
-            <td>实际支出:</td>
-            <td><input type="text" class="input-text" placeholder="请输入学生名字"/></td>
-        </tr>
-    </table>
-
+    <form action="/station/updateStationById" method="post" >
+        <table>
+            <tr>
+                <td>小站地址:</td>
+                <td><input type="text" class="input-text" placeholder="请输入小站地址" id="updaaddress" name="address"/></td>
+            </tr>
+            <tr>
+                <td>管理编号:</td>
+                <td><input type="text" class="input-text" placeholder="请输入管理编号" id="updamanagerId" name="managerId"/></td>
+            </tr>
+            <tr>
+                <td>拆账比例:</td>
+                <td><input type="text" class="input-text" placeholder="请输入拆账比例" id="updaaccountRatio" name="accountRatio"/></td>
+            </tr>
+            <tr>
+                <td>总支出:</td>
+                <td><input type="text" class="input-text" placeholder="请输入总支出" id="updatotalAmount" name="totalAmount"/></td>
+            </tr>
+            <tr>
+                <td>实际支出:</td>
+                <td><input type="text" class="input-text" placeholder="请输入学生名字"/></td>
+                <%--<td><input type="text" class="input-text" value=$('#accountRatio').val()*$('$totalAmount').val()/></td>--%>
+            </tr>
+        </table>
+        <div style="text-align:center;padding:5px">
+            <input type="submit" class="btn-green" value="提交" style="width:63px;height: 33px;">
+            &nbsp;&nbsp;&nbsp;<input type="reset" class="btn-green" value="重置" style="width:63px;height: 33px;">
+        </div>
+    </form>
 </div>
 
 </body>

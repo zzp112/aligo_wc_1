@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 import services.ICourseService;
 
 import java.io.UnsupportedEncodingException;
@@ -99,18 +100,12 @@ public class CourseController {
      * @param cost 课程费用
      * @return 是否成功 任意参数为空返回false
      */
-    @ResponseBody
+//    @ResponseBody
     @RequestMapping("/course/addCourse")
-    public String addCourse(@RequestParam(value="name") String name,@RequestParam(value="cost") Integer cost){
+    public ModelAndView addCourse(@RequestParam(value="name") String name,@RequestParam(value="cost") Integer cost){
 //        测试路径：/course/addCourse?name=欧姆定理&cost=998
 
-        String nameUTF = null;
-        try {
-            nameUTF = new String(name.getBytes("ISO-8859-1"), "UTF-8");
-        } catch (UnsupportedEncodingException exception) {
-            System.out.println(exception.getMessage());
-        }
-
-        return JSON.toJSONString(courseService.addCourse(nameUTF,cost));
+        courseService.addCourse(name,cost);
+        return  new ModelAndView("redirect:/course/listCourse");
     }
 }

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 import services.IStudentService;
 import services.impl.StudentService;
 
@@ -42,7 +43,8 @@ public class StudentController {
     @RequestMapping("/student/findStudentById")
     public String findStudentById(@RequestParam(value="id") String id){
 //        测试路径：/student/findStudentById?id=x
-        return JSON.toJSONString(studentService.findStudentById(id));
+        String result = JSON.toJSONString(studentService.findStudentById(id));
+        return result;
     }
 
     /**
@@ -145,24 +147,14 @@ public class StudentController {
      * @param parentsTel 父母电话
      * @return 是否成功
      */
-    @ResponseBody
+//    @ResponseBody
     @RequestMapping("/student/addStudent")
-    public String addStudent(@RequestParam(value="name") String name,
+    public ModelAndView addStudent(@RequestParam(value="name") String name,
                              @RequestParam(value="sex") String sex,@RequestParam(value="grade") String grade,
                              @RequestParam(value="parentsTel") String parentsTel){
 //        测试路径：/student/addStudent?name=蛋蛋王&sex=男&grade=一年级&parentsTel=18065149544
 
-        String nameUTF = null;
-        String sexUTF = null;
-        String gradeUTF = null;
-        try {
-            nameUTF = new String(name.getBytes("ISO-8859-1"), "UTF-8");
-            sexUTF = new String(sex.getBytes("ISO-8859-1"), "UTF-8");
-            gradeUTF = new String(grade.getBytes("ISO-8859-1"), "UTF-8");
-        } catch (UnsupportedEncodingException exception) {
-            System.out.println(exception.getMessage());
-        }
-
-        return JSON.toJSONString(studentService.addStudent(nameUTF, sexUTF, gradeUTF,parentsTel));
+        studentService.addStudent(name, sex, grade,parentsTel);
+        return  new ModelAndView("redirect:/student/listStudent");
     }
 }
