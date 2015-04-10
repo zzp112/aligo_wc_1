@@ -202,9 +202,9 @@ public class PaymentDetailController {
 //        if (paymentDetailHelper.getBalance().equals("")){
 //            paymentDetailHelper.setBalance(null);
 //        }
-//        if(paymentDetailHelper.getBalance_type().equals("")){
-//            paymentDetailHelper.setBalance_type(null);
-//        }
+        if(paymentDetailHelper.getBalance_type().equals("")){
+            paymentDetailHelper.setBalance_type(null);
+        }
         System.out.println(paymentDetailHelper.getBalance()+":"+paymentDetailHelper.getBalance_type()+":"+paymentDetailHelper.getEnd_time()+":"+paymentDetailHelper.getStart_time());
         return JSON.toJSONString(paymentDetailService.findPaymentDetailBySql(paymentDetailHelper));
     }
