@@ -7,10 +7,10 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public class PaymentDetailHelper {
-    private String balance;
-    private String balance_type;
-    private String start_time;
-    private String end_time;
+    private String balance=null;
+    private String balance_type=null;
+    private String start_time=null;
+    private String end_time=null;
 
     public PaymentDetailHelper(String balance, String balance_type, String start_time, String end_time) {
         this.balance = balance;

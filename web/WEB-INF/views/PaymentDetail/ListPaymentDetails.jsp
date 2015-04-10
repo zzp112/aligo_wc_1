@@ -15,7 +15,7 @@
             var start_time = $("#start_time").val();
             var end_time = $("#end_time").val();
             var balance_type=$("#balance_type").val();
-            alert(balance);
+            alert(balance_type);
             $.ajax({
                 type: "POST",
                 url: "/searchPaymentDetailBySql",
@@ -199,7 +199,7 @@
             </select>
             &nbsp;&nbsp;
             <span>开始:</span>
-            <input id="start_time" name="start_time" style="width: 160px;height:24px;">
+            <input id="start_time" name="start_time"  style="width: 160px;height:24px;">
             &nbsp;&nbsp;
             <span>结束:</span>
             <input id="end_time" name="end_time" style="width: 160px;height:24px;">

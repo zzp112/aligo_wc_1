@@ -193,13 +193,19 @@ public class PaymentDetailController {
     @ResponseBody
     @RequestMapping(value = "/searchPaymentDetailBySql")
     public String searchPaymentDetailBySql(PaymentDetailHelper paymentDetailHelper){
-        System.out.println(paymentDetailHelper.getBalance()+":"+paymentDetailHelper.getBalance_type()+":"+paymentDetailHelper.getEnd_time()+":"+paymentDetailHelper.getStart_time());
+        if(paymentDetailHelper.getStart_time().equals("")){
+            paymentDetailHelper.setStart_time(null);
+        }
+        if(paymentDetailHelper.getEnd_time().equals("")){
+            paymentDetailHelper.setEnd_time(null);
+        }
+//        if (paymentDetailHelper.getBalance().equals("")){
+//            paymentDetailHelper.setBalance(null);
+//        }
 //        if(paymentDetailHelper.getBalance_type().equals("")){
-//            paymentDetailHelper.setBalance("null");
+//            paymentDetailHelper.setBalance_type(null);
 //        }
-//        else if(){
-//
-//        }
+        System.out.println(paymentDetailHelper.getBalance()+":"+paymentDetailHelper.getBalance_type()+":"+paymentDetailHelper.getEnd_time()+":"+paymentDetailHelper.getStart_time());
         return JSON.toJSONString(paymentDetailService.findPaymentDetailBySql(paymentDetailHelper));
     }
 

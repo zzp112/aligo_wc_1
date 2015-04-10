@@ -50,7 +50,7 @@
         <if test="balance_type!=null">
             and BalanceType = #{balance_type}
         </if>
-        <if test="start_time!=null and end_time!=null">
+        <if test="start_time!=null">
             and CreateDate BETWEEN #{start_time} AND #{end_time}
         </if>
     </select>
